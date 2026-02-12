@@ -1,0 +1,3296 @@
+!<mim>
+!configuration saved at 11:08:36 Wed Mar 19 2025 by write zdb
+!configuration saved at 00:00:18 Thu Feb 12 2026 by write txt
+!last configuration change at 10:18:01 Sat Feb 7 2026 by ixc
+!</mim>
+!<system-config>
+hostname OLT-ZTE-CRISTAL
+!</system-config>
+!<if-intf>
+interface gei-1/1/5
+  description UPLINK
+  no shutdown
+$
+interface gei-1/1/6
+  no shutdown
+$
+interface xgei-1/1/1
+  description UPLINK
+  no shutdown
+$
+interface xgei-1/1/2
+  no shutdown
+$
+interface xgei-1/1/3
+$
+interface xgei-1/1/4
+  no shutdown
+$
+interface gpon_olt-1/3/1
+$
+interface gpon_olt-1/3/2
+$
+interface gpon_olt-1/3/3
+$
+interface gpon_olt-1/3/4
+$
+interface gpon_olt-1/3/5
+$
+interface gpon_olt-1/3/6
+$
+interface gpon_olt-1/3/7
+$
+interface gpon_olt-1/3/8
+$
+interface gpon_olt-1/3/9
+$
+interface gpon_olt-1/3/10
+$
+interface gpon_olt-1/3/11
+$
+interface gpon_olt-1/3/12
+$
+interface gpon_olt-1/3/13
+$
+interface gpon_olt-1/3/14
+$
+interface gpon_olt-1/3/15
+$
+interface gpon_olt-1/3/16
+$
+interface gpon_onu-1/3/1:1
+$
+interface gpon_onu-1/3/1:2
+$
+interface gpon_onu-1/3/1:3
+$
+interface gpon_onu-1/3/1:4
+$
+interface gpon_onu-1/3/1:5
+$
+interface gpon_onu-1/3/1:6
+$
+interface gpon_onu-1/3/1:7
+$
+interface gpon_onu-1/3/1:8
+$
+interface gpon_onu-1/3/1:9
+$
+interface gpon_onu-1/3/1:10
+$
+interface gpon_onu-1/3/1:11
+$
+interface gpon_onu-1/3/1:12
+$
+interface gpon_onu-1/3/1:13
+$
+interface gpon_onu-1/3/2:1
+$
+interface gpon_onu-1/3/2:2
+$
+interface gpon_onu-1/3/2:3
+$
+interface gpon_onu-1/3/2:4
+$
+interface gpon_onu-1/3/2:5
+$
+interface gpon_onu-1/3/2:6
+$
+interface gpon_onu-1/3/2:7
+$
+interface gpon_onu-1/3/2:8
+$
+interface gpon_onu-1/3/2:9
+$
+interface gpon_onu-1/3/2:10
+$
+interface gpon_onu-1/3/2:11
+$
+interface gpon_onu-1/3/2:12
+$
+interface gpon_onu-1/3/3:1
+$
+interface gpon_onu-1/3/3:2
+$
+interface gpon_onu-1/3/3:3
+$
+interface gpon_onu-1/3/3:4
+$
+interface gpon_onu-1/3/3:5
+$
+interface gpon_onu-1/3/3:6
+$
+interface gpon_onu-1/3/3:7
+$
+interface gpon_onu-1/3/3:8
+$
+interface gpon_onu-1/3/3:9
+$
+interface gpon_onu-1/3/3:10
+$
+interface gpon_onu-1/3/3:11
+$
+interface gpon_onu-1/3/3:12
+$
+interface gpon_onu-1/3/3:13
+$
+interface gpon_onu-1/3/3:14
+$
+interface gpon_onu-1/3/3:15
+$
+interface gpon_onu-1/3/3:16
+$
+interface gpon_onu-1/3/3:17
+$
+interface gpon_onu-1/3/4:1
+$
+interface gpon_onu-1/3/4:2
+$
+interface gpon_onu-1/3/4:3
+$
+interface gpon_onu-1/3/4:4
+$
+interface gpon_onu-1/3/4:5
+$
+interface gpon_onu-1/3/4:6
+$
+interface gpon_onu-1/3/4:7
+$
+interface gpon_onu-1/3/4:8
+$
+interface gpon_onu-1/3/4:9
+$
+interface gpon_onu-1/3/4:10
+$
+interface gpon_onu-1/3/4:11
+$
+interface gpon_onu-1/3/4:12
+$
+interface gpon_onu-1/3/4:13
+$
+interface gpon_onu-1/3/5:1
+$
+interface gpon_onu-1/3/5:3
+$
+interface gpon_onu-1/3/5:4
+$
+interface gpon_onu-1/3/5:5
+$
+interface gpon_onu-1/3/5:6
+$
+interface gpon_onu-1/3/6:1
+$
+interface gpon_onu-1/3/6:2
+$
+interface gpon_onu-1/3/6:4
+$
+interface gpon_onu-1/3/6:5
+$
+interface gpon_onu-1/3/7:1
+$
+interface gpon_onu-1/3/7:2
+$
+interface gpon_onu-1/3/7:3
+$
+interface gpon_onu-1/3/7:4
+$
+interface gpon_onu-1/3/8:1
+$
+interface gpon_onu-1/3/8:2
+$
+interface gpon_onu-1/3/8:3
+$
+interface gpon_onu-1/3/8:4
+$
+interface gpon_onu-1/3/8:5
+$
+interface gpon_onu-1/3/8:6
+$
+interface gpon_onu-1/3/8:7
+$
+interface gpon_onu-1/3/8:8
+$
+interface gpon_onu-1/3/8:9
+$
+interface gpon_onu-1/3/8:10
+$
+interface gpon_onu-1/3/9:2
+$
+interface gpon_onu-1/3/9:3
+$
+interface gpon_onu-1/3/9:4
+$
+interface gpon_onu-1/3/9:5
+$
+interface gpon_onu-1/3/9:6
+$
+interface gpon_onu-1/3/9:7
+$
+interface gpon_onu-1/3/9:8
+$
+interface gpon_onu-1/3/9:9
+$
+interface gpon_onu-1/3/9:10
+$
+interface gpon_onu-1/3/10:1
+$
+interface gpon_onu-1/3/10:2
+$
+interface gpon_onu-1/3/10:3
+$
+interface gpon_onu-1/3/10:4
+$
+interface gpon_onu-1/3/10:5
+$
+interface gpon_onu-1/3/10:6
+$
+interface gpon_onu-1/3/10:7
+$
+interface gpon_onu-1/3/10:8
+$
+interface gpon_onu-1/3/10:9
+$
+interface gpon_onu-1/3/10:10
+$
+interface gpon_onu-1/3/10:11
+$
+interface gpon_onu-1/3/10:12
+$
+interface gpon_onu-1/3/10:13
+$
+interface gpon_onu-1/3/10:14
+$
+interface gpon_onu-1/3/10:15
+$
+interface gpon_onu-1/3/10:16
+$
+interface gpon_onu-1/3/10:18
+$
+interface gpon_onu-1/3/11:1
+$
+interface gpon_onu-1/3/11:2
+$
+interface gpon_onu-1/3/11:3
+$
+interface gpon_onu-1/3/11:4
+$
+interface gpon_onu-1/3/11:5
+$
+interface gpon_onu-1/3/11:6
+$
+interface gpon_onu-1/3/11:7
+$
+interface gpon_onu-1/3/11:8
+$
+interface gpon_onu-1/3/11:9
+$
+interface gpon_onu-1/3/11:11
+$
+interface gpon_onu-1/3/11:12
+$
+interface gpon_onu-1/3/11:13
+$
+interface gpon_onu-1/3/11:15
+$
+interface gpon_onu-1/3/11:16
+$
+interface gpon_onu-1/3/11:17
+$
+interface gpon_onu-1/3/11:18
+$
+interface gpon_onu-1/3/11:19
+$
+interface gpon_onu-1/3/11:20
+$
+interface gpon_onu-1/3/11:21
+$
+interface gpon_onu-1/3/12:1
+$
+interface gpon_onu-1/3/12:3
+$
+interface gpon_onu-1/3/12:4
+$
+interface gpon_onu-1/3/15:1
+$
+interface gpon_onu-1/3/15:2
+$
+interface gpon_onu-1/3/15:3
+$
+interface gpon_onu-1/3/15:4
+$
+interface gpon_onu-1/3/15:5
+$
+interface gpon_onu-1/3/15:6
+$
+interface gpon_onu-1/3/15:7
+$
+interface gpon_onu-1/3/15:8
+$
+interface gpon_onu-1/3/16:1
+$
+interface gpon_onu-1/3/16:2
+$
+interface gpon_onu-1/3/16:3
+$
+interface gpon_onu-1/3/16:4
+$
+interface gpon_onu-1/3/16:5
+$
+interface gpon_onu-1/3/16:6
+$
+interface gpon_onu-1/3/16:7
+$
+interface gpon_onu-1/3/16:8
+$
+interface gpon_onu-1/3/16:9
+$
+interface gpon_onu-1/3/16:10
+$
+interface gpon_onu-1/3/16:11
+$
+interface gpon_onu-1/3/16:12
+$
+interface gpon_onu-1/3/16:13
+$
+interface gpon_onu-1/3/16:14
+$
+interface gpon_onu-1/3/16:15
+$
+interface gpon_onu-1/3/16:16
+$
+interface gpon_onu-1/3/16:17
+$
+interface gpon_onu-1/3/16:18
+$
+interface gpon_onu-1/3/16:19
+$
+interface gpon_onu-1/3/16:20
+$
+interface gpon_onu-1/3/16:21
+$
+interface gpon_onu-1/3/16:22
+$
+interface gpon_onu-1/3/16:23
+$
+interface gpon_onu-1/3/16:24
+$
+interface gpon_onu-1/3/16:25
+$
+interface gpon_onu-1/3/16:26
+$
+interface gpon_onu-1/3/16:27
+$
+interface gpon_onu-1/3/16:28
+$
+interface gpon_onu-1/3/16:29
+$
+interface gpon_onu-1/3/16:30
+$
+interface gpon_onu-1/3/16:31
+$
+interface gpon_onu-1/3/16:32
+$
+interface gpon_onu-1/3/16:33
+$
+interface vport-1/3/1.1:1
+$
+interface vport-1/3/1.2:1
+$
+interface vport-1/3/1.3:1
+$
+interface vport-1/3/1.4:1
+$
+interface vport-1/3/1.5:1
+$
+interface vport-1/3/1.6:1
+$
+interface vport-1/3/1.7:1
+$
+interface vport-1/3/1.8:1
+$
+interface vport-1/3/1.9:1
+$
+interface vport-1/3/1.10:1
+$
+interface vport-1/3/1.11:1
+$
+interface vport-1/3/1.12:1
+$
+interface vport-1/3/1.13:1
+$
+interface vport-1/3/2.1:1
+$
+interface vport-1/3/2.2:1
+$
+interface vport-1/3/2.3:1
+$
+interface vport-1/3/2.4:1
+$
+interface vport-1/3/2.5:1
+$
+interface vport-1/3/2.6:1
+$
+interface vport-1/3/2.7:1
+$
+interface vport-1/3/2.8:1
+$
+interface vport-1/3/2.9:1
+$
+interface vport-1/3/2.10:1
+$
+interface vport-1/3/2.11:1
+$
+interface vport-1/3/2.12:1
+$
+interface vport-1/3/3.1:1
+$
+interface vport-1/3/3.2:1
+$
+interface vport-1/3/3.3:1
+$
+interface vport-1/3/3.4:1
+$
+interface vport-1/3/3.5:1
+$
+interface vport-1/3/3.6:1
+$
+interface vport-1/3/3.7:1
+$
+interface vport-1/3/3.8:1
+$
+interface vport-1/3/3.9:1
+$
+interface vport-1/3/3.10:1
+$
+interface vport-1/3/3.11:1
+$
+interface vport-1/3/3.12:1
+$
+interface vport-1/3/3.13:1
+$
+interface vport-1/3/3.14:1
+$
+interface vport-1/3/3.15:1
+$
+interface vport-1/3/3.16:1
+$
+interface vport-1/3/3.17:1
+$
+interface vport-1/3/4.1:1
+$
+interface vport-1/3/4.2:1
+$
+interface vport-1/3/4.3:1
+$
+interface vport-1/3/4.4:1
+$
+interface vport-1/3/4.5:1
+$
+interface vport-1/3/4.6:1
+$
+interface vport-1/3/4.7:1
+$
+interface vport-1/3/4.8:1
+$
+interface vport-1/3/4.9:1
+$
+interface vport-1/3/4.10:1
+$
+interface vport-1/3/4.11:1
+$
+interface vport-1/3/4.12:1
+$
+interface vport-1/3/4.13:1
+$
+interface vport-1/3/5.1:1
+$
+interface vport-1/3/5.3:1
+$
+interface vport-1/3/5.4:1
+$
+interface vport-1/3/5.5:1
+$
+interface vport-1/3/5.6:1
+$
+interface vport-1/3/6.1:1
+$
+interface vport-1/3/6.2:1
+$
+interface vport-1/3/6.4:1
+$
+interface vport-1/3/6.5:1
+$
+interface vport-1/3/7.1:1
+$
+interface vport-1/3/7.2:1
+$
+interface vport-1/3/7.3:1
+$
+interface vport-1/3/7.4:1
+$
+interface vport-1/3/8.1:1
+$
+interface vport-1/3/8.2:1
+$
+interface vport-1/3/8.3:1
+$
+interface vport-1/3/8.4:1
+$
+interface vport-1/3/8.5:1
+$
+interface vport-1/3/8.6:1
+$
+interface vport-1/3/8.7:1
+$
+interface vport-1/3/8.8:1
+$
+interface vport-1/3/8.9:1
+$
+interface vport-1/3/8.10:1
+$
+interface vport-1/3/9.2:1
+$
+interface vport-1/3/9.3:1
+$
+interface vport-1/3/9.4:1
+$
+interface vport-1/3/9.5:1
+$
+interface vport-1/3/9.6:1
+$
+interface vport-1/3/9.7:1
+$
+interface vport-1/3/9.8:1
+$
+interface vport-1/3/9.9:1
+$
+interface vport-1/3/9.10:1
+$
+interface vport-1/3/10.1:1
+$
+interface vport-1/3/10.2:1
+$
+interface vport-1/3/10.3:1
+$
+interface vport-1/3/10.4:1
+$
+interface vport-1/3/10.5:1
+$
+interface vport-1/3/10.6:1
+$
+interface vport-1/3/10.7:1
+$
+interface vport-1/3/10.8:1
+$
+interface vport-1/3/10.9:1
+$
+interface vport-1/3/10.10:1
+$
+interface vport-1/3/10.11:1
+$
+interface vport-1/3/10.12:1
+$
+interface vport-1/3/10.13:1
+$
+interface vport-1/3/10.14:1
+$
+interface vport-1/3/10.15:1
+$
+interface vport-1/3/10.16:1
+$
+interface vport-1/3/10.18:1
+$
+interface vport-1/3/11.1:1
+$
+interface vport-1/3/11.2:1
+$
+interface vport-1/3/11.3:1
+$
+interface vport-1/3/11.4:1
+$
+interface vport-1/3/11.5:1
+$
+interface vport-1/3/11.6:1
+$
+interface vport-1/3/11.7:1
+$
+interface vport-1/3/11.8:1
+$
+interface vport-1/3/11.9:1
+$
+interface vport-1/3/11.11:1
+$
+interface vport-1/3/11.12:1
+$
+interface vport-1/3/11.13:1
+$
+interface vport-1/3/11.15:1
+$
+interface vport-1/3/11.16:1
+$
+interface vport-1/3/11.17:1
+$
+interface vport-1/3/11.18:1
+$
+interface vport-1/3/11.19:1
+$
+interface vport-1/3/11.20:1
+$
+interface vport-1/3/11.21:1
+$
+interface vport-1/3/12.1:1
+$
+interface vport-1/3/12.3:1
+$
+interface vport-1/3/12.4:1
+$
+interface vport-1/3/15.1:1
+$
+interface vport-1/3/15.2:1
+$
+interface vport-1/3/15.3:1
+$
+interface vport-1/3/15.4:1
+$
+interface vport-1/3/15.5:1
+$
+interface vport-1/3/15.6:1
+$
+interface vport-1/3/15.7:1
+$
+interface vport-1/3/15.8:1
+$
+interface vport-1/3/16.1:1
+$
+interface vport-1/3/16.2:1
+$
+interface vport-1/3/16.3:1
+$
+interface vport-1/3/16.4:1
+$
+interface vport-1/3/16.5:1
+$
+interface vport-1/3/16.6:1
+$
+interface vport-1/3/16.7:1
+$
+interface vport-1/3/16.8:1
+$
+interface vport-1/3/16.9:1
+$
+interface vport-1/3/16.10:1
+$
+interface vport-1/3/16.11:1
+$
+interface vport-1/3/16.12:1
+$
+interface vport-1/3/16.13:1
+$
+interface vport-1/3/16.14:1
+$
+interface vport-1/3/16.15:1
+$
+interface vport-1/3/16.16:1
+$
+interface vport-1/3/16.17:1
+$
+interface vport-1/3/16.18:1
+$
+interface vport-1/3/16.19:1
+$
+interface vport-1/3/16.20:1
+$
+interface vport-1/3/16.21:1
+$
+interface vport-1/3/16.22:1
+$
+interface vport-1/3/16.23:1
+$
+interface vport-1/3/16.24:1
+$
+interface vport-1/3/16.25:1
+$
+interface vport-1/3/16.26:1
+$
+interface vport-1/3/16.27:1
+$
+interface vport-1/3/16.28:1
+$
+interface vport-1/3/16.29:1
+$
+interface vport-1/3/16.30:1
+$
+interface vport-1/3/16.31:1
+$
+interface vport-1/3/16.32:1
+$
+interface vport-1/3/16.33:1
+$
+interface mgmt_eth
+  ip address 136.1.1.100 255.255.255.0
+$
+interface vlan4002
+  description GERENCIA
+  ip address 10.100.30.2 255.255.255.252
+$
+interface null1
+$
+!</if-intf>
+!<port-physical-config>
+interface xgei-1/1/2
+  speed speed-1G
+$
+interface xgei-1/1/4
+  speed speed-1G
+$
+!</port-physical-config>
+!<clock-mgr>
+clock sync-source ntp priority 10
+clock timezone brazil -3
+!</clock-mgr>
+!<system-user>
+login block 900 attempts 30 within 120
+login on-failure alarm
+system-user
+  authorization-template 1
+    bind aaa-authorization-template 2001
+    local-privilege-level 15
+  $
+  authentication-template 1
+    bind aaa-authentication-template 2001
+  $
+  default-privilege-level 15
+  global-user-aging day 90
+  user-authen-restriction fail-time 10 lock-minute 15
+  user-name impossible
+    bind authentication-template 1
+    bind authorization-template 1
+    password irreversible encrypted $5$4JkXq3QZ4L56GwRS$cUQdc1IIl6StvnbZtCiTUrmk9uND6XoxQWRqvklQvm2
+  $
+  user-name ixc
+    bind authentication-template 1
+    bind authorization-template 1
+    password irreversible encrypted $5$07eNNioavP4n2z70$64D3Zv.Xf1vphkJ3WJZrTSVZW77iwXI3wG0TKf1aEG8
+  $
+  user-name metro
+    enable-type aaa authentication-template 1
+    bind authentication-template 1
+    bind authorization-template 1
+    password irreversible encrypted $5$0j21Jv0fL0mQM5i3$dlKSJPYmExIWhzn0ADIjwPnTBzGSTkzutUcCFEUoHH4
+  $
+  user-name multilaser
+    bind authentication-template 1
+    bind authorization-template 1
+    password irreversible encrypted $5$jr5L3R4XYDtJ0lai$VyRhv8o2kjF10/fl.Qq1TFkkVF/GwkiukYD7wKwYBu8
+  $
+  user-name zte
+    once-password
+    bind authentication-template 1
+    bind authorization-template 1
+    password irreversible encrypted $5$9onDOi2m3ZQS4t1H$4sRsS79k1ZbFIsMWI5NyXcUbtMAu1LhmdMoh5leKoD7
+  $
+  strong-username min-len 3
+  strong-password length 8 character-set-num 3
+  strong-password date-check enable
+  strong-password username-related-chk substring inverse
+  strong-password check disable
+$
+!</system-user>
+!<aaa>
+aaa-authentication-template 2001
+  aaa-authentication-type local
+$
+aaa-authorization-template 2001
+  aaa-authorization-type local
+$
+!</aaa>
+!<stp>
+spantree
+$
+!</stp>
+!<ssh>
+ssh server enable
+!</ssh>
+!<oam>
+auto-write everyday 00:00:00
+!</oam>
+!<xpon>
+pon
+  onu-type ZTE-F601V6.0 gpon description 1ETH max-tcont 8 max-gemport 32 max-switch-perslot 8 max-flow-perswitch 8
+  onu-type ZTE-F660 gpon description 4FE,2POTS,4WIFI max-tcont 7 max-gemport 32 max-switch-perslot 8 max-flow-perswitch 32 max-iphost 5
+  onu-type ZTE-F643 gpon description 1GE max-tcont 7 max-gemport 32 max-switch-perslot 8 max-flow-perswitch 32
+  onu-type ZTE-F612 gpon description 1FE,1GE,1POTS,4WIFI max-tcont 7 max-gemport 32 max-switch-perslot 8 max-flow-perswitch 32
+  onu-type GENERIC gpon description 1GE max-tcont 7 max-gemport 32 max-switch-perslot 8 max-flow-perswitch 32
+  onu-type-if ZTE-F612 eth_0/1
+  onu-type-if ZTE-F612 eth_0/2
+  onu-type-if ZTE-F612 pots_0/1
+  onu-type-if ZTE-F612 wifi_0/1
+  onu-type-if ZTE-F612 wifi_0/2
+  onu-type-if ZTE-F612 wifi_0/3
+  onu-type-if ZTE-F612 wifi_0/4
+  onu-type-if ZTE-F643 eth_0/1
+  onu-type-if ZTE-F660 eth_0/1
+  onu-type-if ZTE-F660 eth_0/2
+  onu-type-if ZTE-F660 eth_0/3
+  onu-type-if ZTE-F660 eth_0/4
+  onu-type-if ZTE-F660 pots_0/1
+  onu-type-if ZTE-F660 pots_0/2
+  onu-type-if ZTE-F660 wifi_0/1
+  onu-type-if ZTE-F660 wifi_0/2
+  onu-type-if ZTE-F660 wifi_0/3
+  onu-type-if ZTE-F660 wifi_0/4
+  onu-type-if ZTE-F601V6.0 eth_0/1
+  onu-type-if GENERIC eth_0/1
+$
+interface gpon_olt-1/3/1
+  onu 1 type ZTE-F601 sn ZTEGD1EC81AB
+  onu 2 type ZTE-F601 sn ZTEGCEC98224
+  onu 3 type ZTE-F601 sn ZTEGCEC98218
+  onu 4 type ZTE-F601 sn ZTEGCEC28A52
+  onu 5 type ZTE-F601 sn ZTEGCEC289D9
+  onu 6 type ZTE-F601 sn ZTEGCECDA768
+  onu 7 type ZTE-F601 sn ZTEGD0276DD6
+  onu 8 type ZTE-F601 sn ZTEGCECDA791
+  onu 9 type ZTE-F601 sn ZTEGCECDA801
+  onu 10 type ZTE-F601 sn ZTEGD0892CED
+  onu 11 type ZTE-F601 sn ZTEGD1BBC182
+  onu 12 type ZTE-F601 sn ZTEGD2E888BC
+  onu 13 type ZTE-F601 sn ZTEGD1ED7D9C
+  discover-period new-onu 15 miss-onu 60
+$
+interface gpon_olt-1/3/2
+  onu 1 type ZTE-F601 sn ZTEGCED2537F
+  onu 2 type ZTE-F601 sn ZTEGCEC98187
+  onu 3 type ZTE-F601 sn ZTEGCECDB7AE
+  onu 4 type ZTE-F601 sn ZTEGD021DD82
+  onu 5 type ZTE-F601 sn ZTEGCED2B32B
+  onu 6 type ZTE-F601 sn ZTEGCEC95BAB
+  onu 7 type ZTE-F601 sn ZTEGCE5B2409
+  onu 8 type ZTE-F601 sn ZTEGCEC959A0
+  onu 9 type ZTE-F601 sn ZTEGCF261DC3
+  onu 10 type ZTE-F601 sn ZTEGD4218685
+  onu 11 type ZTE-F601 sn ZTEGD1CB1A9E
+  onu 12 type ZTE-F601 sn ZTEGD03007D4
+  discover-period new-onu 15 miss-onu 60
+$
+interface gpon_olt-1/3/3
+  onu 1 type ZTE-F601 sn ZTEGCEC289F1
+  onu 2 type ZTE-F601 sn ZTEGD1EDA5EA
+  onu 3 type ZTE-F601 sn ZTEGD1D71436
+  onu 4 type ZTE-F601 sn ZTEGCEC28ACF
+  onu 5 type ZTE-F601 sn ZTEGCEC90FC1
+  onu 6 type ZTE-F601 sn ZTEGCEC957DF
+  onu 7 type ZTE-F601 sn ZTEGD021DC98
+  onu 8 type ZTE-F601 sn ZTEGCECDA75A
+  onu 9 type ZTE-F601 sn ZTEGCEC63BF8
+  onu 10 type ZTE-F601 sn ZTEGCF5FF403
+  onu 11 type ZTE-F601 sn ZTEGCEC2ADDB
+  onu 12 type ZTE-F601 sn ZTEGD0300769
+  onu 13 type ZTE-F601 sn ZTEGCED24590
+  onu 14 type ZTE-F601 sn ZTEGCF27488E
+  onu 15 type ZTE-F601 sn ZTEGCED245AB
+  onu 16 type ZTE-F601 sn ZTEGD2E8D0EE
+  onu 17 type ZTE-F601 sn ZTEGCEC95952
+  discover-period new-onu 15 miss-onu 60
+$
+interface gpon_olt-1/3/4
+  onu 1 type ZTE-F601 sn ZTEGD0893533
+  onu 2 type ZTE-F601 sn ZTEGCEC28CB1
+  onu 3 type ZTE-F601 sn ZTEGCEC28A6B
+  onu 4 type ZTE-F601 sn ZTEGCEC28A35
+  onu 5 type ZTE-F601 sn ZTEGCED259D1
+  onu 6 type ZTE-F601 sn ZTEGCECDA822
+  onu 7 type ZTE-F601 sn ZTEGCECDA763
+  onu 8 type ZTE-F601 sn ZTEGC4827BC2
+  onu 9 type ZTE-F601 sn ZTEGCEC639EC
+  onu 10 type ZTE-F601 sn ZTEGD23FDABE
+  onu 11 type ZTE-F601 sn ZTEGD1CACF1C
+  onu 12 type ZTE-F601 sn ZTEGD1CB0E90
+  onu 13 type ZTE-F601 sn ZTEGD1D71500
+  discover-period new-onu 15 miss-onu 60
+$
+interface gpon_olt-1/3/5
+  onu 1 type ZTE-F601 sn ZTEGCEC90ED0
+  onu 3 type ZTE-F601 sn ZTEGCEC9590D
+  onu 4 type ZTE-F601 sn ZTEGCF274629
+  onu 5 type ZTE-F601 sn ZTEGD4215143
+  onu 6 type ZTE-F601 sn ZTEGD1ECA4FA
+  discover-period new-onu 15 miss-onu 60
+$
+interface gpon_olt-1/3/6
+  onu 1 type ZTE-F601 sn ZTEGC4FF8AA1
+  onu 2 type ZTE-F601 sn ZTEGCEC28A38
+  onu 4 type ZTE-F601 sn ZTEGD1D71397
+  onu 5 type ZTE-F601 sn ZTEGD1E41733
+  discover-period new-onu 15 miss-onu 60
+$
+interface gpon_olt-1/3/7
+  onu 1 type ZTE-F601 sn ZTEGD2E80B7E
+  onu 2 type ZTE-F601 sn ZTEGD1CACF22
+  onu 3 type ZTE-F601 sn ZTEGD1CACF1A
+  onu 4 type ZTE-F601 sn ZTEGD08934EA
+  discover-period new-onu 15 miss-onu 60
+$
+interface gpon_olt-1/3/8
+  onu 1 type ZTE-F601 sn ZTEGD42115FA
+  onu 2 type ZTE-F601 sn ZTEGCEC981DD
+  onu 3 type ZTE-F601 sn ZTEGCEC98206
+  onu 4 type ZTE-F601 sn ZTEGD1BBDA88
+  onu 5 type ZTE-F601 sn ZTEGD2E832F8
+  onu 6 type ZTE-F601 sn ZTEGD08909DB
+  onu 7 type ZTE-F601 sn ZTEGD021DCB0
+  onu 8 type ZTE-F601 sn ZTEGD1D71202
+  onu 9 type ZTE-F601 sn ZTEGD1ED1227
+  onu 10 type ZTE-F601 sn ZTEGD0224742
+  discover-period new-onu 15 miss-onu 60
+$
+interface gpon_olt-1/3/9
+  onu 2 type ZTE-F601 sn ZTEGD1BBC091
+  onu 3 type ZTE-F601 sn ZTEGCED28F94
+  onu 4 type ZTE-F601 sn ZTEGC4A587C0
+  onu 5 type ZTE-F601 sn ZTEGD0892CF8
+  onu 6 type ZTE-F601 sn ZTEGD0892CDE
+  onu 7 type ZTE-F601 sn ZTEGD1D714BC
+  onu 8 type ZTE-F601 sn ZTEGD1CACF2E
+  onu 9 type ZTE-F601 sn ZTEGD025A64D
+  onu 10 type ZTE-F601 sn ZTEGC4FF27A5
+  discover-period new-onu 15 miss-onu 60
+$
+interface gpon_olt-1/3/10
+  onu 1 type ZTE-F601 sn ZTEGCEC90EB5
+  onu 2 type ZTE-F601 sn ZTEGCEC98251
+  onu 3 type ZTE-F601 sn ZTEGCEC28A3C
+  onu 4 type ZTE-F601 sn ZTEGCEC28A06
+  onu 5 type ZTE-F601 sn ZTEGD0892C9B
+  onu 6 type ZTE-F601 sn ZTEGCED29317
+  onu 7 type ZTE-F601 sn ZTEGD1BC4218
+  onu 8 type ZTE-F601 sn ZTEGD1CB0EA3
+  onu 9 type ZTE-F601 sn ZTEGC65ADD9D
+  onu 10 type ZTE-F601 sn ZTEGCEC63979
+  onu 11 type ZTE-F601 sn ZTEGCCEB9E2C
+  onu 12 type ZTE-F601 sn ZTEGCF261DF7
+  onu 13 type ZTE-F601 sn ZTEGCEC98183
+  onu 14 type ZTE-F601 sn ZTEGD1EC44B1
+  onu 15 type ZTE-F601 sn ZTEGCEC639B3
+  onu 16 type ZTE-F601 sn ZTEGD1ED2476
+  onu 18 type ZTE-F601 sn ZTEGC4D9FB2B
+  discover-period new-onu 15 miss-onu 60
+$
+interface gpon_olt-1/3/11
+  onu 1 type ZTE-F601 sn ZTEGCEC95A41
+  onu 2 type ZTE-F601 sn ZTEGCEC98208
+  onu 3 type ZTE-F601 sn ZTEGCEC90FBF
+  onu 4 type ZTE-F601 sn ZTEGCEC95AB8
+  onu 5 type ZTE-F601 sn ZTEGCEC9575A
+  onu 6 type ZTE-F601 sn ZTEGCEC28A0C
+  onu 7 type ZTE-F601 sn ZTEGCEC289CD
+  onu 8 type ZTE-F601 sn ZTEGD0890CED
+  onu 9 type ZTE-F601 sn ZTEGD0890CBE
+  onu 11 type ZTE-F601 sn ZTEGD021DCB8
+  onu 12 type ZTE-F601 sn ZTEGCE5B5483
+  onu 13 type ZTE-F601 sn ZTEGCEC6398B
+  onu 15 type ZTE-F601 sn ZTEGD1CABDDF
+  onu 16 type ZTE-F601 sn ZTEGC4DB4B3D
+  onu 17 type ZTE-F601 sn ZTEGC4B40097
+  onu 18 type ZTE-F601 sn ZTEGCCE756B9
+  onu 19 type ZTE-F601 sn ZTEGD1D7135B
+  onu 20 type ZTE-F601 sn ZTEGCEC9819F
+  onu 21 type ZTE-F601 sn ZTEGD1ED4056
+  discover-period new-onu 15 miss-onu 60
+$
+interface gpon_olt-1/3/12
+  onu 1 type ZTE-F601 sn ZTEGD021DCCE
+  onu 3 type ZTE-F601 sn ZTEGCCEBC04D
+  onu 4 type ZTE-F601 sn ZTEGC4BC1016
+  discover-period new-onu 15 miss-onu 60
+$
+interface gpon_olt-1/3/13
+  discover-period new-onu 15 miss-onu 60
+$
+interface gpon_olt-1/3/14
+  discover-period new-onu 15 miss-onu 60
+$
+interface gpon_olt-1/3/15
+  onu 1 type ZTE-F601 sn ZTEGCF2745D3
+  onu 2 type ZTE-F601 sn ZTEGCF2745CE
+  onu 3 type ZTE-F601 sn ZTEGCCE721A4
+  onu 4 type ZTE-F601 sn ZTEGCF29064C
+  onu 5 type ZTE-F601 sn ZTEGC65AFB91
+  onu 6 type ZTE-F601 sn ZTEGD4B663BF
+  onu 7 type ZTE-F601 sn ZTEGCEC90F2E
+  onu 8 type ZTE-F601 sn ZTEGD871F314
+  discover-period new-onu 15 miss-onu 60
+$
+interface gpon_olt-1/3/16
+  onu 1 type ZTE-F601 sn ZTEGD0224866
+  onu 2 type ZTE-F601 sn ZTEGCE5B2533
+  onu 3 type ZTE-F601 sn ZTEGCEC98196
+  onu 4 type ZTE-F601 sn ZTEGD420EBC1
+  onu 5 type ZTE-F601 sn ZTEGD1E8316C
+  onu 6 type ZTE-F601 sn ZTEGCEC28A30
+  onu 7 type ZTE-F601 sn ZTEGCEC28A75
+  onu 8 type ZTE-F601 sn ZTEGCEC28A1F
+  onu 9 type ZTE-F601 sn ZTEGCEC95A34
+  onu 10 type ZTE-F601 sn ZTEGD0892CE7
+  onu 11 type ZTE-F601 sn ZTEGD0892C9F
+  onu 12 type ZTE-F601 sn ZTEGD0892CF1
+  onu 13 type ZTE-F601 sn ZTEGCED25E87
+  onu 14 type ZTE-F601 sn ZTEGCFAA30B4
+  onu 15 type ZTE-F601 sn ZTEGC4DA0826
+  onu 16 type ZTE-F601 sn ZTEGD1D716FF
+  onu 17 type ZTE-F601 sn ZTEGCECDA78F
+  onu 18 type ZTE-F601 sn ZTEGCECDD1B5
+  onu 19 type ZTE-F601 sn ZTEGD1BC5F20
+  onu 20 type ZTE-F601 sn ZTEGCED2B322
+  onu 21 type ZTE-F601 sn ZTEGC4B3DD5A
+  onu 22 type ZTE-F601 sn ZTEGCED247D7
+  onu 23 type ZTE-F601 sn ZTEGCE5B252E
+  onu 24 type ZTE-F601 sn ZTEGD1ED04F4
+  onu 25 type ZTE-F601 sn ZTEGC65AFB0F
+  onu 26 type ZTE-F601 sn ZTEGD4205640
+  onu 27 type ZTE-F601 sn ZTEGD1CABD0F
+  onu 28 type ZTE-F601 sn ZTEGCED2935C
+  onu 29 type ZTE-F601 sn ZTEGD08909BD
+  onu 30 type ZTE-F601 sn ZTEGD1EDC4CD
+  onu 31 type ZTE-F601 sn ZTEGD1BBC0F2
+  onu 32 type ZTE-F601 sn ZTEGD0220319
+  onu 33 type ZTE-F601 sn ZTEGCF275955
+  discover-period new-onu 15 miss-onu 60
+$
+interface gpon_onu-1/3/1:1
+  description ********
+  tcont 1 name BRIDGE profile 500M
+  gemport 1 tcont 1
+$
+interface gpon_onu-1/3/1:2
+  description ********
+  tcont 1 name BRIDGE profile 500M
+  gemport 1 tcont 1
+$
+interface gpon_onu-1/3/1:3
+  description ********
+  tcont 1 name BRIDGE profile 500M
+  gemport 1 tcont 1
+$
+interface gpon_onu-1/3/1:4
+  description ********
+  tcont 1 name BRIDGE profile 500M
+  gemport 1 tcont 1
+$
+interface gpon_onu-1/3/1:5
+  description ********
+  tcont 1 name BRIDGE profile 500M
+  gemport 1 tcont 1
+$
+interface gpon_onu-1/3/1:6
+  description ********
+  tcont 1 name BRIDGE profile 500M
+  gemport 1 tcont 1
+$
+interface gpon_onu-1/3/1:7
+  description ********
+  tcont 1 name BRIDGE profile 500M
+  gemport 1 tcont 1
+$
+interface gpon_onu-1/3/1:8
+  description ********
+  tcont 1 name BRIDGE profile 500M
+  gemport 1 tcont 1
+$
+interface gpon_onu-1/3/1:9
+  description ********
+  tcont 1 name BRIDGE profile 500M
+  gemport 1 tcont 1
+$
+interface gpon_onu-1/3/1:10
+  description ********
+  tcont 1 name BRIDGE profile 500M
+  gemport 1 tcont 1
+$
+interface gpon_onu-1/3/1:11
+  description ********
+  tcont 1 name BRIDGE profile 500M
+  gemport 1 tcont 1
+$
+interface gpon_onu-1/3/1:12
+  description ********
+  tcont 1 name BRIDGE profile 500M
+  gemport 1 tcont 1
+$
+interface gpon_onu-1/3/1:13
+  description ********
+  tcont 1 name BRIDGE profile 500M
+  gemport 1 tcont 1
+$
+interface gpon_onu-1/3/2:1
+  description ********
+  tcont 1 name BRIDGE profile 500M
+  gemport 1 tcont 1
+$
+interface gpon_onu-1/3/2:2
+  description ********
+  tcont 1 name BRIDGE profile 500M
+  gemport 1 tcont 1
+$
+interface gpon_onu-1/3/2:3
+  description ********
+  tcont 1 name BRIDGE profile 500M
+  gemport 1 tcont 1
+$
+interface gpon_onu-1/3/2:4
+  description ********
+  tcont 1 name BRIDGE profile 500M
+  gemport 1 tcont 1
+$
+interface gpon_onu-1/3/2:5
+  description ********
+  tcont 1 name BRIDGE profile 500M
+  gemport 1 tcont 1
+$
+interface gpon_onu-1/3/2:6
+  description ********
+  tcont 1 name BRIDGE profile 500M
+  gemport 1 tcont 1
+$
+interface gpon_onu-1/3/2:7
+  description ********
+  tcont 1 name BRIDGE profile 500M
+  gemport 1 tcont 1
+$
+interface gpon_onu-1/3/2:8
+  description ********
+  tcont 1 name BRIDGE profile 500M
+  gemport 1 tcont 1
+$
+interface gpon_onu-1/3/2:9
+  description ********
+  tcont 1 name BRIDGE profile 500M
+  gemport 1 tcont 1
+$
+interface gpon_onu-1/3/2:10
+  description ********
+  tcont 1 name BRIDGE profile 500M
+  gemport 1 tcont 1
+$
+interface gpon_onu-1/3/2:11
+  description ********
+  tcont 1 name BRIDGE profile 500M
+  gemport 1 tcont 1
+$
+interface gpon_onu-1/3/2:12
+  description ********
+  tcont 1 name BRIDGE profile 500M
+  gemport 1 tcont 1
+$
+interface gpon_onu-1/3/3:1
+  description ********
+  tcont 1 name BRIDGE profile 500M
+  gemport 1 tcont 1
+$
+interface gpon_onu-1/3/3:2
+  description ********
+  tcont 1 name BRIDGE profile 500M
+  gemport 1 tcont 1
+$
+interface gpon_onu-1/3/3:3
+  description ********
+  tcont 1 name BRIDGE profile 500M
+  gemport 1 tcont 1
+$
+interface gpon_onu-1/3/3:4
+  description ********
+  tcont 1 name BRIDGE profile 500M
+  gemport 1 tcont 1
+$
+interface gpon_onu-1/3/3:5
+  description ********
+  tcont 1 name BRIDGE profile 500M
+  gemport 1 tcont 1
+$
+interface gpon_onu-1/3/3:6
+  description ********
+  tcont 1 name BRIDGE profile 500M
+  gemport 1 tcont 1
+$
+interface gpon_onu-1/3/3:7
+  description ********
+  tcont 1 name BRIDGE profile 500M
+  gemport 1 tcont 1
+$
+interface gpon_onu-1/3/3:8
+  description ********
+  tcont 1 name BRIDGE profile 500M
+  gemport 1 tcont 1
+$
+interface gpon_onu-1/3/3:9
+  description ********
+  tcont 1 name BRIDGE profile 500M
+  gemport 1 tcont 1
+$
+interface gpon_onu-1/3/3:10
+  description ********
+  tcont 1 name BRIDGE profile 500M
+  gemport 1 tcont 1
+$
+interface gpon_onu-1/3/3:11
+  description ********
+  tcont 1 name BRIDGE profile 500M
+  gemport 1 tcont 1
+$
+interface gpon_onu-1/3/3:12
+  description ********
+  tcont 1 name BRIDGE profile 500M
+  gemport 1 tcont 1
+$
+interface gpon_onu-1/3/3:13
+  description ********
+  tcont 1 name BRIDGE profile 500M
+  gemport 1 tcont 1
+$
+interface gpon_onu-1/3/3:14
+  description ********
+  tcont 1 name BRIDGE profile 500M
+  gemport 1 tcont 1
+$
+interface gpon_onu-1/3/3:15
+  description ********
+  tcont 1 name BRIDGE profile 500M
+  gemport 1 tcont 1
+$
+interface gpon_onu-1/3/3:16
+  description ********
+  tcont 1 name BRIDGE profile 500M
+  gemport 1 tcont 1
+$
+interface gpon_onu-1/3/3:17
+  description ********
+  tcont 1 name BRIDGE profile 500M
+  gemport 1 tcont 1
+$
+interface gpon_onu-1/3/4:1
+  description ********
+  tcont 1 name BRIDGE profile 500M
+  gemport 1 tcont 1
+$
+interface gpon_onu-1/3/4:2
+  description ********
+  tcont 1 name BRIDGE profile 500M
+  gemport 1 tcont 1
+$
+interface gpon_onu-1/3/4:3
+  description ********
+  tcont 1 name BRIDGE profile 500M
+  gemport 1 tcont 1
+$
+interface gpon_onu-1/3/4:4
+  description ********
+  tcont 1 name BRIDGE profile 500M
+  gemport 1 tcont 1
+$
+interface gpon_onu-1/3/4:5
+  description ********
+  tcont 1 name BRIDGE profile 500M
+  gemport 1 tcont 1
+$
+interface gpon_onu-1/3/4:6
+  description ********
+  tcont 1 name BRIDGE profile 500M
+  gemport 1 tcont 1
+$
+interface gpon_onu-1/3/4:7
+  description ********
+  tcont 1 name BRIDGE profile 500M
+  gemport 1 tcont 1
+$
+interface gpon_onu-1/3/4:8
+  description ********
+  tcont 1 name BRIDGE profile 500M
+  gemport 1 tcont 1
+$
+interface gpon_onu-1/3/4:9
+  description ********
+  tcont 1 name BRIDGE profile 500M
+  gemport 1 tcont 1
+$
+interface gpon_onu-1/3/4:10
+  description ********
+  tcont 1 name BRIDGE profile 500M
+  gemport 1 tcont 1
+$
+interface gpon_onu-1/3/4:11
+  description ********
+  tcont 1 name BRIDGE profile 500M
+  gemport 1 tcont 1
+$
+interface gpon_onu-1/3/4:12
+  description ********
+  tcont 1 name BRIDGE profile 500M
+  gemport 1 tcont 1
+$
+interface gpon_onu-1/3/4:13
+  description ********
+  tcont 1 name BRIDGE profile 500M
+  gemport 1 tcont 1
+$
+interface gpon_onu-1/3/5:1
+  description ********
+  tcont 1 name BRIDGE profile 500M
+  gemport 1 tcont 1
+$
+interface gpon_onu-1/3/5:3
+  description ********
+  tcont 1 name BRIDGE profile 500M
+  gemport 1 tcont 1
+$
+interface gpon_onu-1/3/5:4
+  description ********
+  tcont 1 name BRIDGE profile 500M
+  gemport 1 tcont 1
+$
+interface gpon_onu-1/3/5:5
+  description ********
+  tcont 1 name BRIDGE profile 500M
+  gemport 1 tcont 1
+$
+interface gpon_onu-1/3/5:6
+  description ********
+  tcont 1 name BRIDGE profile 500M
+  gemport 1 tcont 1
+$
+interface gpon_onu-1/3/6:1
+  description ********
+  tcont 1 name BRIDGE profile 500M
+  gemport 1 tcont 1
+$
+interface gpon_onu-1/3/6:2
+  description ********
+  tcont 1 name BRIDGE profile 500M
+  gemport 1 tcont 1
+$
+interface gpon_onu-1/3/6:4
+  description ********
+  tcont 1 name BRIDGE profile 500M
+  gemport 1 tcont 1
+$
+interface gpon_onu-1/3/6:5
+  description ********
+  tcont 1 name BRIDGE profile 500M
+  gemport 1 tcont 1
+$
+interface gpon_onu-1/3/7:1
+  description ********
+  tcont 1 name BRIDGE profile 500M
+  gemport 1 tcont 1
+$
+interface gpon_onu-1/3/7:2
+  description ********
+  tcont 1 name BRIDGE profile 500M
+  gemport 1 tcont 1
+$
+interface gpon_onu-1/3/7:3
+  description ********
+  tcont 1 name BRIDGE profile 500M
+  gemport 1 tcont 1
+$
+interface gpon_onu-1/3/7:4
+  description ********
+  tcont 1 name BRIDGE profile 500M
+  gemport 1 tcont 1
+$
+interface gpon_onu-1/3/8:1
+  description ********
+  tcont 1 name BRIDGE profile 500M
+  gemport 1 tcont 1
+$
+interface gpon_onu-1/3/8:2
+  description ********
+  tcont 1 name BRIDGE profile 500M
+  gemport 1 tcont 1
+$
+interface gpon_onu-1/3/8:3
+  description ********
+  tcont 1 name BRIDGE profile 500M
+  gemport 1 tcont 1
+$
+interface gpon_onu-1/3/8:4
+  description ********
+  tcont 1 name BRIDGE profile 500M
+  gemport 1 tcont 1
+$
+interface gpon_onu-1/3/8:5
+  description ********
+  tcont 1 name BRIDGE profile 500M
+  gemport 1 tcont 1
+$
+interface gpon_onu-1/3/8:6
+  description ********
+  tcont 1 name BRIDGE profile 500M
+  gemport 1 tcont 1
+$
+interface gpon_onu-1/3/8:7
+  description ********
+  tcont 1 name BRIDGE profile 500M
+  gemport 1 tcont 1
+$
+interface gpon_onu-1/3/8:8
+  description ********
+  tcont 1 name BRIDGE profile 500M
+  gemport 1 tcont 1
+$
+interface gpon_onu-1/3/8:9
+  description ********
+  tcont 1 name BRIDGE profile 500M
+  gemport 1 tcont 1
+$
+interface gpon_onu-1/3/8:10
+  description ********
+  tcont 1 name BRIDGE profile 500M
+  gemport 1 tcont 1
+$
+interface gpon_onu-1/3/9:2
+  description ********
+  tcont 1 name BRIDGE profile 500M
+  gemport 1 tcont 1
+$
+interface gpon_onu-1/3/9:3
+  description ********
+  tcont 1 name BRIDGE profile 500M
+  gemport 1 tcont 1
+$
+interface gpon_onu-1/3/9:4
+  description ********
+  tcont 1 name BRIDGE profile 500M
+  gemport 1 tcont 1
+$
+interface gpon_onu-1/3/9:5
+  description ********
+  tcont 1 name BRIDGE profile 500M
+  gemport 1 tcont 1
+$
+interface gpon_onu-1/3/9:6
+  description ********
+  tcont 1 name BRIDGE profile 500M
+  gemport 1 tcont 1
+$
+interface gpon_onu-1/3/9:7
+  description ********
+  tcont 1 name BRIDGE profile 500M
+  gemport 1 tcont 1
+$
+interface gpon_onu-1/3/9:8
+  description ********
+  tcont 1 name BRIDGE profile 500M
+  gemport 1 tcont 1
+$
+interface gpon_onu-1/3/9:9
+  description ********
+  tcont 1 name BRIDGE profile 500M
+  gemport 1 tcont 1
+$
+interface gpon_onu-1/3/9:10
+  description ********
+  tcont 1 name BRIDGE profile 500M
+  gemport 1 tcont 1
+$
+interface gpon_onu-1/3/10:1
+  description ********
+  tcont 1 name BRIDGE profile 500M
+  gemport 1 tcont 1
+$
+interface gpon_onu-1/3/10:2
+  description ********
+  tcont 1 name BRIDGE profile 500M
+  gemport 1 tcont 1
+$
+interface gpon_onu-1/3/10:3
+  description ********
+  tcont 1 name BRIDGE profile 500M
+  gemport 1 tcont 1
+$
+interface gpon_onu-1/3/10:4
+  description ********
+  tcont 1 name BRIDGE profile 500M
+  gemport 1 tcont 1
+$
+interface gpon_onu-1/3/10:5
+  description ********
+  tcont 1 name BRIDGE profile 500M
+  gemport 1 tcont 1
+$
+interface gpon_onu-1/3/10:6
+  description ********
+  tcont 1 name BRIDGE profile 500M
+  gemport 1 tcont 1
+$
+interface gpon_onu-1/3/10:7
+  description ********
+  tcont 1 name BRIDGE profile 500M
+  gemport 1 tcont 1
+$
+interface gpon_onu-1/3/10:8
+  description ********
+  tcont 1 name BRIDGE profile 500M
+  gemport 1 tcont 1
+$
+interface gpon_onu-1/3/10:9
+  description ********
+  tcont 1 name BRIDGE profile 500M
+  gemport 1 tcont 1
+$
+interface gpon_onu-1/3/10:10
+  description ********
+  tcont 1 name BRIDGE profile 500M
+  gemport 1 tcont 1
+$
+interface gpon_onu-1/3/10:11
+  description ********
+  tcont 1 name BRIDGE profile 500M
+  gemport 1 tcont 1
+$
+interface gpon_onu-1/3/10:12
+  description ********
+  tcont 1 name BRIDGE profile 500M
+  gemport 1 tcont 1
+$
+interface gpon_onu-1/3/10:13
+  description ********
+  tcont 1 name BRIDGE profile 500M
+  gemport 1 tcont 1
+$
+interface gpon_onu-1/3/10:14
+  description ********
+  tcont 1 name BRIDGE profile 500M
+  gemport 1 tcont 1
+$
+interface gpon_onu-1/3/10:15
+  description ********
+  tcont 1 name BRIDGE profile 500M
+  gemport 1 tcont 1
+$
+interface gpon_onu-1/3/10:16
+  description ********
+  tcont 1 name BRIDGE profile 500M
+  gemport 1 tcont 1
+$
+interface gpon_onu-1/3/10:18
+  description ********
+  tcont 1 name BRIDGE profile 500M
+  gemport 1 tcont 1
+$
+interface gpon_onu-1/3/11:1
+  description ********
+  tcont 1 name BRIDGE profile 500M
+  gemport 1 tcont 1
+$
+interface gpon_onu-1/3/11:2
+  description ********
+  tcont 1 name BRIDGE profile 500M
+  gemport 1 tcont 1
+$
+interface gpon_onu-1/3/11:3
+  description ********
+  tcont 1 name BRIDGE profile 500M
+  gemport 1 tcont 1
+$
+interface gpon_onu-1/3/11:4
+  description ********
+  tcont 1 name BRIDGE profile 500M
+  gemport 1 tcont 1
+$
+interface gpon_onu-1/3/11:5
+  description ********
+  tcont 1 name BRIDGE profile 500M
+  gemport 1 tcont 1
+$
+interface gpon_onu-1/3/11:6
+  description ********
+  tcont 1 name BRIDGE profile 500M
+  gemport 1 tcont 1
+$
+interface gpon_onu-1/3/11:7
+  description ********
+  tcont 1 name BRIDGE profile 500M
+  gemport 1 tcont 1
+$
+interface gpon_onu-1/3/11:8
+  description ********
+  tcont 1 name BRIDGE profile 500M
+  gemport 1 tcont 1
+$
+interface gpon_onu-1/3/11:9
+  description ********
+  tcont 1 name BRIDGE profile 500M
+  gemport 1 tcont 1
+$
+interface gpon_onu-1/3/11:11
+  description ********
+  tcont 1 name BRIDGE profile 500M
+  gemport 1 tcont 1
+$
+interface gpon_onu-1/3/11:12
+  description ********
+  tcont 1 name BRIDGE profile 500M
+  gemport 1 tcont 1
+$
+interface gpon_onu-1/3/11:13
+  description ********
+  tcont 1 name BRIDGE profile 500M
+  gemport 1 tcont 1
+$
+interface gpon_onu-1/3/11:15
+  description ********
+  tcont 1 name BRIDGE profile 500M
+  gemport 1 tcont 1
+$
+interface gpon_onu-1/3/11:16
+  description ********
+  tcont 1 name BRIDGE profile 500M
+  gemport 1 tcont 1
+$
+interface gpon_onu-1/3/11:17
+  description ********
+  tcont 1 name BRIDGE profile 500M
+  gemport 1 tcont 1
+$
+interface gpon_onu-1/3/11:18
+  description ********
+  tcont 1 name BRIDGE profile 500M
+  gemport 1 tcont 1
+$
+interface gpon_onu-1/3/11:19
+  description ********
+  tcont 1 name BRIDGE profile 500M
+  gemport 1 tcont 1
+$
+interface gpon_onu-1/3/11:20
+  description ********
+  tcont 1 name BRIDGE profile 500M
+  gemport 1 tcont 1
+$
+interface gpon_onu-1/3/11:21
+  description ********
+  tcont 1 name BRIDGE profile 500M
+  gemport 1 tcont 1
+$
+interface gpon_onu-1/3/12:1
+  description ********
+  tcont 1 name BRIDGE profile 500M
+  gemport 1 tcont 1
+$
+interface gpon_onu-1/3/12:3
+  description ********
+  tcont 1 name BRIDGE profile 500M
+  gemport 1 tcont 1
+$
+interface gpon_onu-1/3/12:4
+  description ********
+  tcont 1 name BRIDGE profile 500M
+  gemport 1 tcont 1
+$
+interface gpon_onu-1/3/15:1
+  description ********
+  tcont 1 name BRIDGE profile 500M
+  gemport 1 tcont 1
+$
+interface gpon_onu-1/3/15:2
+  description ********
+  tcont 1 name BRIDGE profile 500M
+  gemport 1 tcont 1
+$
+interface gpon_onu-1/3/15:3
+  description ********
+  tcont 1 name BRIDGE profile 500M
+  gemport 1 tcont 1
+$
+interface gpon_onu-1/3/15:4
+  description ********
+  tcont 1 name BRIDGE profile 500M
+  gemport 1 tcont 1
+$
+interface gpon_onu-1/3/15:5
+  description ********
+  tcont 1 name BRIDGE profile 500M
+  gemport 1 tcont 1
+$
+interface gpon_onu-1/3/15:6
+  description ********
+  tcont 1 name BRIDGE profile 500M
+  gemport 1 tcont 1
+$
+interface gpon_onu-1/3/15:7
+  description ********
+  tcont 1 name BRIDGE profile 500M
+  gemport 1 tcont 1
+$
+interface gpon_onu-1/3/15:8
+  description ********
+  tcont 1 name BRIDGE profile 500M
+  gemport 1 tcont 1
+$
+interface gpon_onu-1/3/16:1
+  description ********
+  tcont 1 name BRIDGE profile 500M
+  gemport 1 tcont 1
+$
+interface gpon_onu-1/3/16:2
+  description ********
+  tcont 1 name BRIDGE profile 500M
+  gemport 1 tcont 1
+$
+interface gpon_onu-1/3/16:3
+  description ********
+  tcont 1 name BRIDGE profile 500M
+  gemport 1 tcont 1
+$
+interface gpon_onu-1/3/16:4
+  description ********
+  tcont 1 name BRIDGE profile 500M
+  gemport 1 tcont 1
+$
+interface gpon_onu-1/3/16:5
+  description ********
+  tcont 1 name BRIDGE profile 500M
+  gemport 1 tcont 1
+$
+interface gpon_onu-1/3/16:6
+  description ********
+  tcont 1 name BRIDGE profile 500M
+  gemport 1 tcont 1
+$
+interface gpon_onu-1/3/16:7
+  description ********
+  tcont 1 name BRIDGE profile 500M
+  gemport 1 tcont 1
+$
+interface gpon_onu-1/3/16:8
+  description ********
+  tcont 1 name BRIDGE profile 500M
+  gemport 1 tcont 1
+$
+interface gpon_onu-1/3/16:9
+  description ********
+  tcont 1 name BRIDGE profile 500M
+  gemport 1 tcont 1
+$
+interface gpon_onu-1/3/16:10
+  description ********
+  tcont 1 name BRIDGE profile 500M
+  gemport 1 tcont 1
+$
+interface gpon_onu-1/3/16:11
+  description ********
+  tcont 1 name BRIDGE profile 500M
+  gemport 1 tcont 1
+$
+interface gpon_onu-1/3/16:12
+  description ********
+  tcont 1 name BRIDGE profile 500M
+  gemport 1 tcont 1
+$
+interface gpon_onu-1/3/16:13
+  description ********
+  tcont 1 name BRIDGE profile 500M
+  gemport 1 tcont 1
+$
+interface gpon_onu-1/3/16:14
+  description ********
+  tcont 1 name BRIDGE profile 500M
+  gemport 1 tcont 1
+$
+interface gpon_onu-1/3/16:15
+  description ********
+  tcont 1 name BRIDGE profile 500M
+  gemport 1 tcont 1
+$
+interface gpon_onu-1/3/16:16
+  description ********
+  tcont 1 name BRIDGE profile 500M
+  gemport 1 tcont 1
+$
+interface gpon_onu-1/3/16:17
+  description ********
+  tcont 1 name BRIDGE profile 500M
+  gemport 1 tcont 1
+$
+interface gpon_onu-1/3/16:18
+  description ********
+  tcont 1 name BRIDGE profile 500M
+  gemport 1 tcont 1
+$
+interface gpon_onu-1/3/16:19
+  description ********
+  tcont 1 name BRIDGE profile 500M
+  gemport 1 tcont 1
+$
+interface gpon_onu-1/3/16:20
+  description ********
+  tcont 1 name BRIDGE profile 500M
+  gemport 1 tcont 1
+$
+interface gpon_onu-1/3/16:21
+  description ********
+  tcont 1 name BRIDGE profile 500M
+  gemport 1 tcont 1
+$
+interface gpon_onu-1/3/16:22
+  description ********
+  tcont 1 name BRIDGE profile 500M
+  gemport 1 tcont 1
+$
+interface gpon_onu-1/3/16:23
+  description ********
+  tcont 1 name BRIDGE profile 500M
+  gemport 1 tcont 1
+$
+interface gpon_onu-1/3/16:24
+  description ********
+  tcont 1 name BRIDGE profile 500M
+  gemport 1 tcont 1
+$
+interface gpon_onu-1/3/16:25
+  description ********
+  tcont 1 name BRIDGE profile 500M
+  gemport 1 tcont 1
+$
+interface gpon_onu-1/3/16:26
+  description ********
+  tcont 1 name BRIDGE profile 500M
+  gemport 1 tcont 1
+$
+interface gpon_onu-1/3/16:27
+  description ********
+  tcont 1 name BRIDGE profile 500M
+  gemport 1 tcont 1
+$
+interface gpon_onu-1/3/16:28
+  description ********
+  tcont 1 name BRIDGE profile 500M
+  gemport 1 tcont 1
+$
+interface gpon_onu-1/3/16:29
+  description ********
+  tcont 1 name BRIDGE profile 500M
+  gemport 1 tcont 1
+$
+interface gpon_onu-1/3/16:30
+  description ********
+  tcont 1 name BRIDGE profile 500M
+  gemport 1 tcont 1
+$
+interface gpon_onu-1/3/16:31
+  description ********
+  tcont 1 name BRIDGE profile 500M
+  gemport 1 tcont 1
+$
+interface gpon_onu-1/3/16:32
+  description ********
+  tcont 1 name BRIDGE profile 500M
+  gemport 1 tcont 1
+$
+interface gpon_onu-1/3/16:33
+  description ********
+  tcont 1 name BRIDGE profile 500M
+  gemport 1 tcont 1
+$
+gpon
+  onu profile vlan VLAN-706 tag-mode tag cvlan 706
+  onu profile vlan TR069 tag-mode tag cvlan 99
+  profile tcont 500M type 4 maximum 1099000
+  profile tcont 1GB type 4 maximum 1024000
+  profile tcont SMARTOLT-500M-UP type 5 fixed 64 assured 64 maximum 524032
+$
+wdm-pon
+  group profile Default channel-num 20 channel-space 100 up-base-freq 191300 down-base-freq 194100
+$
+pon-onu-mng gpon_onu-1/3/1:1
+  service 1 gemport 1 vlan 706
+  vlan port eth_0/1 mode tag vlan 706
+$
+pon-onu-mng gpon_onu-1/3/1:2
+  security-mgmt 8 state enable mode forward protocol web https
+  security-mgmt 9 state enable mode forward protocol web https
+  security-mgmt 99 state enable ingress-type lan protocol tr069
+  service 1 gemport 1 vlan 706
+  vlan port eth_0/1 mode tag vlan 706
+  tr069-mgmt 1 state unlock acs <http://acs.portaltecnet.com.br/tr069:7547> validate basic username ******** password ******** tag pri 5 vlan 706
+$
+pon-onu-mng gpon_onu-1/3/1:3
+  security-mgmt 8 state enable mode forward protocol web https
+  security-mgmt 9 state enable mode forward protocol web https
+  security-mgmt 99 state enable ingress-type lan protocol tr069
+  service 1 gemport 1 vlan 706
+  vlan port eth_0/1 mode tag vlan 706
+  tr069-mgmt 1 state unlock acs <http://acs.portaltecnet.com.br/tr069:7547> validate basic username ******** password ******** tag pri 5 vlan 706
+$
+pon-onu-mng gpon_onu-1/3/1:4
+  security-mgmt 8 state enable mode forward protocol web https
+  security-mgmt 9 state enable mode forward protocol web https
+  security-mgmt 99 state enable ingress-type lan protocol tr069
+  service 1 gemport 1 vlan 706
+  vlan port eth_0/1 mode tag vlan 706
+  tr069-mgmt 1 state unlock acs <http://acs.portaltecnet.com.br/tr069:7547> validate basic username ******** password ******** tag pri 5 vlan 706
+$
+pon-onu-mng gpon_onu-1/3/1:5
+  security-mgmt 8 state enable mode forward protocol web https
+  security-mgmt 9 state enable mode forward protocol web https
+  security-mgmt 99 state enable ingress-type lan protocol tr069
+  service 1 gemport 1 vlan 706
+  vlan port eth_0/1 mode tag vlan 706
+  tr069-mgmt 1 state unlock acs <http://acs.portaltecnet.com.br/tr069:7547> validate basic username ******** password ******** tag pri 5 vlan 706
+$
+pon-onu-mng gpon_onu-1/3/1:6
+  security-mgmt 8 state enable mode forward protocol web https
+  security-mgmt 9 state enable mode forward protocol web https
+  security-mgmt 99 state enable ingress-type lan protocol tr069
+  service 1 gemport 1 vlan 706
+  vlan port eth_0/1 mode tag vlan 706
+  tr069-mgmt 1 state unlock acs <http://acs.portaltecnet.com.br/tr069:7547> validate basic username ******** password ******** tag pri 5 vlan 706
+$
+pon-onu-mng gpon_onu-1/3/1:7
+  security-mgmt 8 state enable mode forward protocol web https
+  security-mgmt 9 state enable mode forward protocol web https
+  security-mgmt 99 state enable ingress-type lan protocol tr069
+  service 1 gemport 1 vlan 706
+  vlan port eth_0/1 mode tag vlan 706
+  tr069-mgmt 1 state unlock acs <http://acs.portaltecnet.com.br/tr069:7547> validate basic username ******** password ******** tag pri 5 vlan 706
+$
+pon-onu-mng gpon_onu-1/3/1:8
+  service 1 gemport 1 vlan 706
+  vlan port eth_0/1 mode tag vlan 706
+$
+pon-onu-mng gpon_onu-1/3/1:9
+  service 1 gemport 1 vlan 706
+  vlan port eth_0/1 mode tag vlan 706
+$
+pon-onu-mng gpon_onu-1/3/1:10
+  service 1 gemport 1 vlan 706
+  vlan port eth_0/1 mode tag vlan 706
+$
+pon-onu-mng gpon_onu-1/3/1:11
+  service 1 gemport 1 vlan 706
+  vlan port eth_0/1 mode tag vlan 706
+$
+pon-onu-mng gpon_onu-1/3/1:12
+  service 1 gemport 1 vlan 706
+  vlan port eth_0/1 mode tag vlan 706
+$
+pon-onu-mng gpon_onu-1/3/1:13
+  service 1 gemport 1 vlan 706
+  vlan port eth_0/1 mode tag vlan 706
+$
+pon-onu-mng gpon_onu-1/3/2:1
+  service 1 gemport 1 vlan 706
+  vlan port eth_0/1 mode tag vlan 706
+$
+pon-onu-mng gpon_onu-1/3/2:2
+  service 1 gemport 1 vlan 706
+  vlan port eth_0/1 mode tag vlan 706
+$
+pon-onu-mng gpon_onu-1/3/2:3
+  service 1 gemport 1 vlan 706
+  vlan port eth_0/1 mode tag vlan 706
+$
+pon-onu-mng gpon_onu-1/3/2:4
+  service 1 gemport 1 vlan 706
+  vlan port eth_0/1 mode tag vlan 706
+$
+pon-onu-mng gpon_onu-1/3/2:5
+  service 1 gemport 1 vlan 706
+  vlan port eth_0/1 mode tag vlan 706
+$
+pon-onu-mng gpon_onu-1/3/2:6
+  service 1 gemport 1 vlan 706
+  vlan port eth_0/1 mode tag vlan 706
+$
+pon-onu-mng gpon_onu-1/3/2:7
+  service 1 gemport 1 vlan 706
+  vlan port eth_0/1 mode tag vlan 706
+$
+pon-onu-mng gpon_onu-1/3/2:8
+  service 1 gemport 1 vlan 706
+  vlan port eth_0/1 mode tag vlan 706
+$
+pon-onu-mng gpon_onu-1/3/2:9
+  service 1 gemport 1 vlan 706
+  vlan port eth_0/1 mode tag vlan 706
+$
+pon-onu-mng gpon_onu-1/3/2:10
+  service 1 gemport 1 vlan 706
+  vlan port eth_0/1 mode tag vlan 706
+$
+pon-onu-mng gpon_onu-1/3/2:11
+  service 1 gemport 1 vlan 706
+  vlan port eth_0/1 mode tag vlan 706
+$
+pon-onu-mng gpon_onu-1/3/2:12
+  service 1 gemport 1 vlan 706
+  vlan port eth_0/1 mode tag vlan 706
+$
+pon-onu-mng gpon_onu-1/3/3:1
+  service 1 gemport 1 vlan 706
+  vlan port eth_0/1 mode tag vlan 706
+$
+pon-onu-mng gpon_onu-1/3/3:2
+  service 1 gemport 1 vlan 706
+  vlan port eth_0/1 mode tag vlan 706
+$
+pon-onu-mng gpon_onu-1/3/3:3
+  service 1 gemport 1 vlan 706
+  vlan port eth_0/1 mode tag vlan 706
+$
+pon-onu-mng gpon_onu-1/3/3:4
+  service 1 gemport 1 vlan 704
+  vlan port eth_0/1 mode tag vlan 704
+$
+pon-onu-mng gpon_onu-1/3/3:5
+  service 1 gemport 1 vlan 706
+  vlan port eth_0/1 mode tag vlan 706
+$
+pon-onu-mng gpon_onu-1/3/3:6
+  service 1 gemport 1 vlan 706
+  vlan port eth_0/1 mode tag vlan 706
+$
+pon-onu-mng gpon_onu-1/3/3:7
+  service 1 gemport 1 vlan 706
+  vlan port eth_0/1 mode tag vlan 706
+$
+pon-onu-mng gpon_onu-1/3/3:8
+  service 1 gemport 1 vlan 706
+  vlan port eth_0/1 mode tag vlan 706
+$
+pon-onu-mng gpon_onu-1/3/3:9
+  service 1 gemport 1 vlan 706
+  vlan port eth_0/1 mode tag vlan 706
+$
+pon-onu-mng gpon_onu-1/3/3:10
+  service 1 gemport 1 vlan 706
+  vlan port eth_0/1 mode tag vlan 706
+$
+pon-onu-mng gpon_onu-1/3/3:11
+  service 1 gemport 1 vlan 706
+  vlan port eth_0/1 mode tag vlan 706
+$
+pon-onu-mng gpon_onu-1/3/3:12
+  service 1 gemport 1 vlan 706
+  vlan port eth_0/1 mode tag vlan 706
+$
+pon-onu-mng gpon_onu-1/3/3:13
+  service 1 gemport 1 vlan 706
+  vlan port eth_0/1 mode tag vlan 706
+$
+pon-onu-mng gpon_onu-1/3/3:14
+  service 1 gemport 1 vlan 706
+  vlan port eth_0/1 mode tag vlan 706
+$
+pon-onu-mng gpon_onu-1/3/3:15
+  service 1 gemport 1 vlan 706
+  vlan port eth_0/1 mode tag vlan 706
+$
+pon-onu-mng gpon_onu-1/3/3:16
+  service 1 gemport 1 vlan 706
+  vlan port eth_0/1 mode tag vlan 706
+$
+pon-onu-mng gpon_onu-1/3/3:17
+  service 1 gemport 1 vlan 706
+  vlan port eth_0/1 mode tag vlan 706
+$
+pon-onu-mng gpon_onu-1/3/4:1
+  service 1 gemport 1 vlan 706
+  vlan port eth_0/1 mode tag vlan 706
+$
+pon-onu-mng gpon_onu-1/3/4:2
+  service 1 gemport 1 vlan 706
+  vlan port eth_0/1 mode tag vlan 706
+$
+pon-onu-mng gpon_onu-1/3/4:3
+  service 1 gemport 1 vlan 706
+  vlan port eth_0/1 mode tag vlan 706
+$
+pon-onu-mng gpon_onu-1/3/4:4
+  service 1 gemport 1 vlan 706
+  vlan port eth_0/1 mode tag vlan 706
+$
+pon-onu-mng gpon_onu-1/3/4:5
+  service 1 gemport 1 vlan 706
+  vlan port eth_0/1 mode tag vlan 706
+$
+pon-onu-mng gpon_onu-1/3/4:6
+  service 1 gemport 1 vlan 706
+  vlan port eth_0/1 mode tag vlan 706
+$
+pon-onu-mng gpon_onu-1/3/4:7
+  service 1 gemport 1 vlan 706
+  vlan port eth_0/1 mode tag vlan 706
+$
+pon-onu-mng gpon_onu-1/3/4:8
+  service 1 gemport 1 vlan 706
+  vlan port eth_0/1 mode tag vlan 706
+$
+pon-onu-mng gpon_onu-1/3/4:9
+  service 1 gemport 1 vlan 706
+  vlan port eth_0/1 mode tag vlan 706
+$
+pon-onu-mng gpon_onu-1/3/4:10
+  security-mgmt 5 state enable mode forward protocol web https
+  security-mgmt 8 state enable mode forward protocol web https
+  security-mgmt 9 state enable mode forward protocol web https
+  security-mgmt 99 state enable ingress-type lan protocol tr069
+  service 1 gemport 1 vlan 706
+  veip 1 port 1232 ipv4 host 2
+  vlan port eth_0/1 mode tag vlan 706
+  tr069-mgmt 1 state unlock acs <http://acs.portaltecnet.com.br/tr069:7547> validate basic username ******** password ******** tag pri 5 vlan 706
+$
+pon-onu-mng gpon_onu-1/3/4:11
+  service 1 gemport 1 vlan 706
+  vlan port eth_0/1 mode tag vlan 706
+$
+pon-onu-mng gpon_onu-1/3/4:12
+  service 1 gemport 1 vlan 706
+  vlan port eth_0/1 mode tag vlan 706
+$
+pon-onu-mng gpon_onu-1/3/4:13
+  service 1 gemport 1 vlan 706
+  vlan port eth_0/1 mode tag vlan 706
+$
+pon-onu-mng gpon_onu-1/3/5:1
+  service 1 gemport 1 vlan 706
+  vlan port eth_0/1 mode tag vlan 706
+$
+pon-onu-mng gpon_onu-1/3/5:3
+  service 1 gemport 1 vlan 706
+  vlan port eth_0/1 mode tag vlan 706
+$
+pon-onu-mng gpon_onu-1/3/5:4
+  service 1 gemport 1 vlan 706
+  vlan port eth_0/1 mode tag vlan 706
+$
+pon-onu-mng gpon_onu-1/3/5:5
+  service 1 gemport 1 vlan 706
+  vlan port eth_0/1 mode tag vlan 706
+$
+pon-onu-mng gpon_onu-1/3/5:6
+  service 1 gemport 1 vlan 706
+  vlan port eth_0/1 mode tag vlan 706
+$
+pon-onu-mng gpon_onu-1/3/6:1
+  service 1 gemport 1 vlan 706
+  vlan port eth_0/1 mode tag vlan 706
+$
+pon-onu-mng gpon_onu-1/3/6:2
+  service 1 gemport 1 vlan 706
+  vlan port eth_0/1 mode tag vlan 706
+$
+pon-onu-mng gpon_onu-1/3/6:4
+  service 1 gemport 1 vlan 706
+  vlan port eth_0/1 mode tag vlan 706
+$
+pon-onu-mng gpon_onu-1/3/6:5
+  service 1 gemport 1 vlan 706
+  vlan port eth_0/1 mode tag vlan 706
+$
+pon-onu-mng gpon_onu-1/3/7:1
+  service 1 gemport 1 vlan 706
+  vlan port eth_0/1 mode tag vlan 706
+$
+pon-onu-mng gpon_onu-1/3/7:2
+  service 1 gemport 1 vlan 706
+  vlan port eth_0/1 mode tag vlan 706
+$
+pon-onu-mng gpon_onu-1/3/7:3
+  service 1 gemport 1 vlan 706
+  vlan port eth_0/1 mode tag vlan 706
+$
+pon-onu-mng gpon_onu-1/3/7:4
+  service 1 gemport 1 vlan 706
+  vlan port eth_0/1 mode tag vlan 706
+$
+pon-onu-mng gpon_onu-1/3/8:1
+  service 1 gemport 1 vlan 706
+  vlan port eth_0/1 mode tag vlan 706
+$
+pon-onu-mng gpon_onu-1/3/8:2
+  service 1 gemport 1 vlan 706
+  vlan port eth_0/1 mode tag vlan 706
+$
+pon-onu-mng gpon_onu-1/3/8:3
+  service 1 gemport 1 vlan 706
+  vlan port eth_0/1 mode tag vlan 706
+$
+pon-onu-mng gpon_onu-1/3/8:4
+  service 1 gemport 1 vlan 706
+  vlan port eth_0/1 mode tag vlan 706
+$
+pon-onu-mng gpon_onu-1/3/8:5
+  service 1 gemport 1 vlan 706
+  vlan port eth_0/1 mode tag vlan 706
+$
+pon-onu-mng gpon_onu-1/3/8:6
+  service 1 gemport 1 vlan 706
+  vlan port eth_0/1 mode tag vlan 706
+$
+pon-onu-mng gpon_onu-1/3/8:7
+  service 1 gemport 1 vlan 706
+  vlan port eth_0/1 mode tag vlan 706
+$
+pon-onu-mng gpon_onu-1/3/8:8
+  service 1 gemport 1 vlan 706
+  vlan port eth_0/1 mode tag vlan 706
+$
+pon-onu-mng gpon_onu-1/3/8:9
+  service 1 gemport 1 vlan 706
+  vlan port eth_0/1 mode tag vlan 706
+$
+pon-onu-mng gpon_onu-1/3/8:10
+  service 1 gemport 1 vlan 706
+  vlan port eth_0/1 mode tag vlan 706
+$
+pon-onu-mng gpon_onu-1/3/9:2
+  service 1 gemport 1 vlan 706
+  vlan port eth_0/1 mode tag vlan 706
+$
+pon-onu-mng gpon_onu-1/3/9:3
+  service 1 gemport 1 vlan 706
+  vlan port eth_0/1 mode tag vlan 706
+$
+pon-onu-mng gpon_onu-1/3/9:4
+  service 1 gemport 1 vlan 390
+  vlan port eth_0/1 mode tag vlan 390
+$
+pon-onu-mng gpon_onu-1/3/9:5
+  service 1 gemport 1 vlan 706
+  vlan port eth_0/1 mode tag vlan 706
+$
+pon-onu-mng gpon_onu-1/3/9:6
+  service 1 gemport 1 vlan 706
+  vlan port eth_0/1 mode tag vlan 706
+$
+pon-onu-mng gpon_onu-1/3/9:7
+  service 1 gemport 1 vlan 706
+  vlan port eth_0/1 mode tag vlan 706
+$
+pon-onu-mng gpon_onu-1/3/9:8
+  service 1 gemport 1 vlan 706
+  vlan port eth_0/1 mode tag vlan 706
+$
+pon-onu-mng gpon_onu-1/3/9:9
+  service 1 gemport 1 vlan 706
+  vlan port eth_0/1 mode tag vlan 706
+$
+pon-onu-mng gpon_onu-1/3/9:10
+  service 1 gemport 1 vlan 706
+  vlan port eth_0/1 mode tag vlan 706
+$
+pon-onu-mng gpon_onu-1/3/10:1
+  service 1 gemport 1 vlan 706
+  vlan port eth_0/1 mode tag vlan 706
+$
+pon-onu-mng gpon_onu-1/3/10:2
+  service 1 gemport 1 vlan 706
+  vlan port eth_0/1 mode tag vlan 706
+$
+pon-onu-mng gpon_onu-1/3/10:3
+  service 1 gemport 1 vlan 706
+  vlan port eth_0/1 mode tag vlan 706
+$
+pon-onu-mng gpon_onu-1/3/10:4
+  service 1 gemport 1 vlan 706
+  vlan port eth_0/1 mode tag vlan 706
+$
+pon-onu-mng gpon_onu-1/3/10:5
+  service 1 gemport 1 vlan 706
+  vlan port eth_0/1 mode tag vlan 706
+$
+pon-onu-mng gpon_onu-1/3/10:6
+  service 1 gemport 1 vlan 706
+  vlan port eth_0/1 mode tag vlan 706
+$
+pon-onu-mng gpon_onu-1/3/10:7
+  service 1 gemport 1 vlan 706
+  vlan port eth_0/1 mode tag vlan 706
+$
+pon-onu-mng gpon_onu-1/3/10:8
+  service 1 gemport 1 vlan 706
+  vlan port eth_0/1 mode tag vlan 706
+$
+pon-onu-mng gpon_onu-1/3/10:9
+  service 1 gemport 1 vlan 706
+  vlan port eth_0/1 mode tag vlan 706
+$
+pon-onu-mng gpon_onu-1/3/10:10
+  service 1 gemport 1 vlan 706
+  vlan port eth_0/1 mode tag vlan 706
+$
+pon-onu-mng gpon_onu-1/3/10:11
+  service 1 gemport 1 vlan 706
+  vlan port eth_0/1 mode tag vlan 706
+$
+pon-onu-mng gpon_onu-1/3/10:12
+  service 1 gemport 1 vlan 706
+  vlan port eth_0/1 mode tag vlan 706
+$
+pon-onu-mng gpon_onu-1/3/10:13
+  service 1 gemport 1 vlan 706
+  vlan port eth_0/1 mode tag vlan 706
+$
+pon-onu-mng gpon_onu-1/3/10:14
+  service 1 gemport 1 vlan 706
+  vlan port eth_0/1 mode tag vlan 706
+$
+pon-onu-mng gpon_onu-1/3/10:15
+  service 1 gemport 1 vlan 706
+  vlan port eth_0/1 mode tag vlan 706
+$
+pon-onu-mng gpon_onu-1/3/10:16
+  service 1 gemport 1 vlan 706
+  vlan port eth_0/1 mode tag vlan 706
+$
+pon-onu-mng gpon_onu-1/3/10:18
+  service 1 gemport 1 vlan 706
+  vlan port eth_0/1 mode tag vlan 706
+$
+pon-onu-mng gpon_onu-1/3/11:1
+  service 1 gemport 1 vlan 706
+  vlan port eth_0/1 mode tag vlan 706
+$
+pon-onu-mng gpon_onu-1/3/11:2
+  service 1 gemport 1 vlan 706
+  vlan port eth_0/1 mode tag vlan 706
+$
+pon-onu-mng gpon_onu-1/3/11:3
+  service 1 gemport 1 vlan 706
+  vlan port eth_0/1 mode tag vlan 706
+$
+pon-onu-mng gpon_onu-1/3/11:4
+  service 1 gemport 1 vlan 706
+  vlan port eth_0/1 mode tag vlan 706
+$
+pon-onu-mng gpon_onu-1/3/11:5
+  service 1 gemport 1 vlan 706
+  vlan port eth_0/1 mode tag vlan 706
+$
+pon-onu-mng gpon_onu-1/3/11:6
+  service 1 gemport 1 vlan 706
+  vlan port eth_0/1 mode tag vlan 706
+$
+pon-onu-mng gpon_onu-1/3/11:7
+  service 1 gemport 1 vlan 706
+  vlan port eth_0/1 mode tag vlan 706
+$
+pon-onu-mng gpon_onu-1/3/11:8
+  service 1 gemport 1 vlan 706
+  vlan port eth_0/1 mode tag vlan 706
+$
+pon-onu-mng gpon_onu-1/3/11:9
+  service 1 gemport 1 vlan 706
+  vlan port eth_0/1 mode tag vlan 706
+$
+pon-onu-mng gpon_onu-1/3/11:11
+  service 1 gemport 1 vlan 706
+  vlan port eth_0/1 mode tag vlan 706
+$
+pon-onu-mng gpon_onu-1/3/11:12
+  service 1 gemport 1 vlan 706
+  vlan port eth_0/1 mode tag vlan 706
+$
+pon-onu-mng gpon_onu-1/3/11:13
+  service 1 gemport 1 vlan 706
+  vlan port eth_0/1 mode tag vlan 706
+$
+pon-onu-mng gpon_onu-1/3/11:15
+  service 1 gemport 1 vlan 706
+  vlan port eth_0/1 mode tag vlan 706
+$
+pon-onu-mng gpon_onu-1/3/11:16
+  service 1 gemport 1 vlan 706
+  vlan port eth_0/1 mode tag vlan 706
+$
+pon-onu-mng gpon_onu-1/3/11:17
+  service 1 gemport 1 vlan 706
+  vlan port eth_0/1 mode tag vlan 706
+$
+pon-onu-mng gpon_onu-1/3/11:18
+  service 1 gemport 1 vlan 706
+  vlan port eth_0/1 mode tag vlan 706
+$
+pon-onu-mng gpon_onu-1/3/11:19
+  service 1 gemport 1 vlan 706
+  vlan port eth_0/1 mode tag vlan 706
+$
+pon-onu-mng gpon_onu-1/3/11:20
+  service 1 gemport 1 vlan 706
+  vlan port eth_0/1 mode tag vlan 706
+$
+pon-onu-mng gpon_onu-1/3/11:21
+  service 1 gemport 1 vlan 706
+  vlan port eth_0/1 mode tag vlan 706
+$
+pon-onu-mng gpon_onu-1/3/12:1
+  service 1 gemport 1 vlan 706
+  vlan port eth_0/1 mode tag vlan 706
+$
+pon-onu-mng gpon_onu-1/3/12:3
+  service 1 gemport 1 vlan 706
+  vlan port eth_0/1 mode tag vlan 706
+$
+pon-onu-mng gpon_onu-1/3/12:4
+  service 1 gemport 1 vlan 706
+  vlan port eth_0/1 mode tag vlan 706
+$
+pon-onu-mng gpon_onu-1/3/15:1
+  service 1 gemport 1 vlan 706
+  vlan port eth_0/1 mode tag vlan 706
+$
+pon-onu-mng gpon_onu-1/3/15:2
+  service 1 gemport 1 vlan 706
+  vlan port eth_0/1 mode tag vlan 706
+$
+pon-onu-mng gpon_onu-1/3/15:3
+  service 1 gemport 1 vlan 706
+  vlan port eth_0/1 mode tag vlan 706
+$
+pon-onu-mng gpon_onu-1/3/15:4
+  service 1 gemport 1 vlan 706
+  vlan port eth_0/1 mode tag vlan 706
+$
+pon-onu-mng gpon_onu-1/3/15:5
+  service 1 gemport 1 vlan 706
+  vlan port eth_0/1 mode tag vlan 706
+$
+pon-onu-mng gpon_onu-1/3/15:6
+  service 1 gemport 1 vlan 706
+  vlan port eth_0/1 mode tag vlan 706
+$
+pon-onu-mng gpon_onu-1/3/15:7
+  service 1 gemport 1 vlan 706
+  vlan port eth_0/1 mode tag vlan 706
+$
+pon-onu-mng gpon_onu-1/3/15:8
+  service 1 gemport 1 vlan 706
+  vlan port eth_0/1 mode tag vlan 706
+$
+pon-onu-mng gpon_onu-1/3/16:1
+  service 1 gemport 1 vlan 706
+  vlan port eth_0/1 mode tag vlan 706
+$
+pon-onu-mng gpon_onu-1/3/16:2
+  service 1 gemport 1 vlan 706
+  vlan port eth_0/1 mode tag vlan 706
+$
+pon-onu-mng gpon_onu-1/3/16:3
+  service 1 gemport 1 vlan 706
+  vlan port eth_0/1 mode tag vlan 706
+$
+pon-onu-mng gpon_onu-1/3/16:4
+  service 1 gemport 1 vlan 706
+  vlan port eth_0/1 mode tag vlan 706
+$
+pon-onu-mng gpon_onu-1/3/16:5
+  service 1 gemport 1 vlan 706
+  vlan port eth_0/1 mode tag vlan 706
+$
+pon-onu-mng gpon_onu-1/3/16:6
+  service 1 gemport 1 vlan 706
+  vlan port eth_0/1 mode tag vlan 706
+$
+pon-onu-mng gpon_onu-1/3/16:7
+  service 1 gemport 1 vlan 706
+  vlan port eth_0/1 mode tag vlan 706
+$
+pon-onu-mng gpon_onu-1/3/16:8
+  service 1 gemport 1 vlan 706
+  vlan port eth_0/1 mode tag vlan 706
+$
+pon-onu-mng gpon_onu-1/3/16:9
+  service 1 gemport 1 vlan 706
+  vlan port eth_0/1 mode tag vlan 706
+$
+pon-onu-mng gpon_onu-1/3/16:10
+  service 1 gemport 1 vlan 707
+  vlan port eth_0/1 mode tag vlan 707
+$
+pon-onu-mng gpon_onu-1/3/16:11
+  service 1 gemport 1 vlan 706
+  vlan port eth_0/1 mode tag vlan 706
+$
+pon-onu-mng gpon_onu-1/3/16:12
+  service 1 gemport 1 vlan 706
+  vlan port eth_0/1 mode tag vlan 706
+$
+pon-onu-mng gpon_onu-1/3/16:13
+  service 1 gemport 1 vlan 706
+  vlan port eth_0/1 mode tag vlan 706
+$
+pon-onu-mng gpon_onu-1/3/16:14
+  service 1 gemport 1 vlan 706
+  vlan port eth_0/1 mode tag vlan 706
+$
+pon-onu-mng gpon_onu-1/3/16:15
+  service 1 gemport 1 vlan 706
+  vlan port eth_0/1 mode tag vlan 706
+$
+pon-onu-mng gpon_onu-1/3/16:16
+  service 1 gemport 1 vlan 706
+  vlan port eth_0/1 mode tag vlan 706
+$
+pon-onu-mng gpon_onu-1/3/16:17
+  service 1 gemport 1 vlan 706
+  vlan port eth_0/1 mode tag vlan 706
+$
+pon-onu-mng gpon_onu-1/3/16:18
+  service 1 gemport 1 vlan 706
+  vlan port eth_0/1 mode tag vlan 706
+$
+pon-onu-mng gpon_onu-1/3/16:19
+  service 1 gemport 1 vlan 706
+  vlan port eth_0/1 mode tag vlan 706
+$
+pon-onu-mng gpon_onu-1/3/16:20
+  service 1 gemport 1 vlan 706
+  vlan port eth_0/1 mode tag vlan 706
+$
+pon-onu-mng gpon_onu-1/3/16:21
+  service 1 gemport 1 vlan 706
+  vlan port eth_0/1 mode tag vlan 706
+$
+pon-onu-mng gpon_onu-1/3/16:22
+  service 1 gemport 1 vlan 706
+  vlan port eth_0/1 mode tag vlan 706
+$
+pon-onu-mng gpon_onu-1/3/16:23
+  service 1 gemport 1 vlan 706
+  vlan port eth_0/1 mode tag vlan 706
+$
+pon-onu-mng gpon_onu-1/3/16:24
+  service 1 gemport 1 vlan 706
+  vlan port eth_0/1 mode tag vlan 706
+$
+pon-onu-mng gpon_onu-1/3/16:25
+  service 1 gemport 1 vlan 706
+  vlan port eth_0/1 mode tag vlan 706
+$
+pon-onu-mng gpon_onu-1/3/16:26
+  service 1 gemport 1 vlan 706
+  vlan port eth_0/1 mode tag vlan 706
+$
+pon-onu-mng gpon_onu-1/3/16:27
+  service 1 gemport 1 vlan 706
+  vlan port eth_0/1 mode tag vlan 706
+$
+pon-onu-mng gpon_onu-1/3/16:28
+  service 1 gemport 1 vlan 706
+  vlan port eth_0/1 mode tag vlan 706
+$
+pon-onu-mng gpon_onu-1/3/16:29
+  service 1 gemport 1 vlan 706
+  vlan port eth_0/1 mode tag vlan 706
+$
+pon-onu-mng gpon_onu-1/3/16:30
+  service 1 gemport 1 vlan 706
+  vlan port eth_0/1 mode tag vlan 706
+$
+pon-onu-mng gpon_onu-1/3/16:31
+  service 1 gemport 1 vlan 706
+  vlan port eth_0/1 mode tag vlan 706
+$
+pon-onu-mng gpon_onu-1/3/16:32
+  service 1 gemport 1 vlan 706
+  vlan port eth_0/1 mode tag vlan 706
+$
+pon-onu-mng gpon_onu-1/3/16:33
+  service 1 gemport 1 vlan 706
+  vlan port eth_0/1 mode tag vlan 706
+$
+!</xpon>
+!<alarm>
+logging file default almlog
+  accept on
+$
+logging file default cmdlog
+  buffer 1000
+$
+logging file default netclog
+  accept on
+$
+logging file default snmplog
+  accept on
+$
+logging file default srvlog
+  accept on
+  interval 10
+$
+logging file default weblog
+  accept on
+$
+logging snmp
+  accept on
+  match cmdlog
+$
+!</alarm>
+!<snmp>
+snmp-server community encrypted *31*RNZdUtVWwH0DwdHkOpkvRjqZL0Y6mS9GOpkvRjQE7lHWjdmPjP3mMadQPwOe6HYxv+BC5yDw3jDP9hM5+vVdDHTihn/q8Ig0FFe2lg== view DefaultView ro
+snmp-server community encrypted *31*RNZdUtVWwH0DwdHkKF5ZCSheWQkoXlkJKF5ZCRqNROZ07xW9VjmBPJ75Y4Wxr3D+IJgoC8YrqxNCtAkHqE78eCvUmRjaJrH9RjvCQw== view ViewPriv10 ro
+snmp-server community 5PRjcibtw7pv showclear view ViewPriv10 ro
+snmp-server community ziaCGqb17xke showclear view ViewPriv10 rw
+snmp-server enable trap snmp
+snmp-server enable trap bgp
+snmp-server enable trap mac
+snmp-server enable trap ospf
+snmp-server enable trap stp
+snmp-server enable trap ppp
+snmp-server enable trap arp
+snmp-server enable trap rmon
+snmp-server enable trap udld
+snmp-server enable trap cfm
+snmp-server enable trap efm
+snmp-server enable trap lacp
+snmp-server enable trap mc-elam
+snmp-server enable trap tcp
+snmp-server enable trap sctp
+snmp-server enable trap stalarm
+snmp-server enable trap cps
+snmp-server enable trap interface
+snmp-server enable trap acl
+snmp-server enable trap fib
+snmp-server enable trap pim
+snmp-server enable trap isis
+snmp-server enable trap rip
+snmp-server enable trap msdp
+snmp-server enable trap aps
+snmp-server enable trap config
+snmp-server enable trap am
+snmp-server enable trap um
+snmp-server enable trap system
+snmp-server enable trap ldp
+snmp-server enable trap pwe3
+snmp-server enable trap vpn
+snmp-server enable trap mpls-oam
+snmp-server enable trap ptp
+snmp-server enable trap tunnel-te
+snmp-server enable trap radius
+snmp-server enable trap dhcp
+snmp-server enable trap bfd
+snmp-server enable trap ippool
+snmp-server enable trap ntp
+snmp-server enable trap ssm
+snmp-server enable trap sqa
+snmp-server enable trap ipsec
+snmp-server enable trap cgn
+snmp-server enable trap vrrp
+snmp-server enable trap ftp_tftp
+snmp-server enable trap ping-trace
+snmp-server enable trap gm
+snmp-server view ViewPriv5 org included
+snmp-server view ViewPriv10 org included
+snmp-server version v2c enable
+!</snmp>
+!<static>
+ip route 0.0.0.0 0.0.0.0 10.100.177.1
+ip route 0.0.0.0 0.0.0.0 10.100.30.1
+!</static>
+!<MSAN>
+ecmp-mode srcip-dstip
+vgw-bypass mode normal
+add-card rackno 1 shelfno 1 slotno 3 GVGH
+interface gpon_olt-1/3/1
+  no shutdown
+$
+interface gpon_olt-1/3/2
+  no shutdown
+$
+interface gpon_olt-1/3/3
+  no shutdown
+$
+interface gpon_olt-1/3/4
+  no shutdown
+$
+interface gpon_olt-1/3/5
+  no shutdown
+$
+interface gpon_olt-1/3/6
+  no shutdown
+$
+interface gpon_olt-1/3/7
+  no shutdown
+$
+interface gpon_olt-1/3/8
+  no shutdown
+$
+interface gpon_olt-1/3/9
+  no shutdown
+$
+interface gpon_olt-1/3/10
+  no shutdown
+$
+interface gpon_olt-1/3/11
+  no shutdown
+$
+interface gpon_olt-1/3/12
+  no shutdown
+$
+interface gpon_olt-1/3/13
+  no shutdown
+$
+interface gpon_olt-1/3/14
+  no shutdown
+$
+interface gpon_olt-1/3/15
+  no shutdown
+$
+interface gpon_olt-1/3/16
+  no shutdown
+$
+interface vport-1/3/1.1:1
+  service-port 1 user-vlan 706 vlan 706
+$
+interface vport-1/3/1.2:1
+  service-port 1 user-vlan 706 vlan 706
+$
+interface vport-1/3/1.3:1
+  service-port 1 user-vlan 706 vlan 706
+$
+interface vport-1/3/1.4:1
+  service-port 1 user-vlan 706 vlan 706
+$
+interface vport-1/3/1.5:1
+  service-port 1 user-vlan 706 vlan 706
+$
+interface vport-1/3/1.6:1
+  service-port 1 user-vlan 706 vlan 706
+$
+interface vport-1/3/1.7:1
+  service-port 1 user-vlan 706 vlan 706
+$
+interface vport-1/3/1.8:1
+  service-port 1 user-vlan 706 vlan 706
+$
+interface vport-1/3/1.9:1
+  service-port 1 user-vlan 706 vlan 706
+$
+interface vport-1/3/1.10:1
+  service-port 1 user-vlan 706 vlan 706
+$
+interface vport-1/3/1.11:1
+  service-port 1 user-vlan 706 vlan 706
+$
+interface vport-1/3/1.12:1
+  service-port 1 user-vlan 706 vlan 706
+$
+interface vport-1/3/1.13:1
+  service-port 1 user-vlan 706 vlan 706
+$
+interface vport-1/3/2.1:1
+  service-port 1 user-vlan 706 vlan 706
+$
+interface vport-1/3/2.2:1
+  service-port 1 user-vlan 706 vlan 706
+$
+interface vport-1/3/2.3:1
+  service-port 1 user-vlan 706 vlan 706
+$
+interface vport-1/3/2.4:1
+  service-port 1 user-vlan 706 vlan 706
+$
+interface vport-1/3/2.5:1
+  service-port 1 user-vlan 706 vlan 706
+$
+interface vport-1/3/2.6:1
+  service-port 1 user-vlan 706 vlan 706
+$
+interface vport-1/3/2.7:1
+  service-port 1 user-vlan 706 vlan 706
+$
+interface vport-1/3/2.8:1
+  service-port 1 user-vlan 706 vlan 706
+$
+interface vport-1/3/2.9:1
+  service-port 1 user-vlan 706 vlan 706
+$
+interface vport-1/3/2.10:1
+  service-port 1 user-vlan 706 vlan 706
+$
+interface vport-1/3/2.11:1
+  service-port 1 user-vlan 706 vlan 706
+$
+interface vport-1/3/2.12:1
+  service-port 1 user-vlan 706 vlan 706
+$
+interface vport-1/3/3.1:1
+  service-port 1 user-vlan 706 vlan 706
+$
+interface vport-1/3/3.2:1
+  service-port 1 user-vlan 706 vlan 706
+$
+interface vport-1/3/3.3:1
+  service-port 1 user-vlan 706 vlan 706
+$
+interface vport-1/3/3.4:1
+  service-port 1 user-vlan 704 vlan 704
+$
+interface vport-1/3/3.5:1
+  service-port 1 user-vlan 706 vlan 706
+$
+interface vport-1/3/3.6:1
+  service-port 1 user-vlan 706 vlan 706
+$
+interface vport-1/3/3.7:1
+  service-port 1 user-vlan 706 vlan 706
+$
+interface vport-1/3/3.8:1
+  service-port 1 user-vlan 706 vlan 706
+$
+interface vport-1/3/3.9:1
+  service-port 1 user-vlan 706 vlan 706
+$
+interface vport-1/3/3.10:1
+  service-port 1 user-vlan 706 vlan 706
+$
+interface vport-1/3/3.11:1
+  service-port 1 user-vlan 706 vlan 706
+$
+interface vport-1/3/3.12:1
+  service-port 1 user-vlan 706 vlan 706
+$
+interface vport-1/3/3.13:1
+  service-port 1 user-vlan 706 vlan 706
+$
+interface vport-1/3/3.14:1
+  service-port 1 user-vlan 706 vlan 706
+$
+interface vport-1/3/3.15:1
+  service-port 1 user-vlan 706 vlan 706
+$
+interface vport-1/3/3.16:1
+  service-port 1 user-vlan 706 vlan 706
+$
+interface vport-1/3/3.17:1
+  service-port 1 user-vlan 706 vlan 706
+$
+interface vport-1/3/4.1:1
+  service-port 1 user-vlan 706 vlan 706
+$
+interface vport-1/3/4.2:1
+  service-port 1 user-vlan 706 vlan 706
+$
+interface vport-1/3/4.3:1
+  service-port 1 user-vlan 706 vlan 706
+$
+interface vport-1/3/4.4:1
+  service-port 1 user-vlan 706 vlan 706
+$
+interface vport-1/3/4.5:1
+  service-port 1 user-vlan 706 vlan 706
+$
+interface vport-1/3/4.6:1
+  service-port 1 user-vlan 706 vlan 706
+$
+interface vport-1/3/4.7:1
+  service-port 1 user-vlan 706 vlan 706
+$
+interface vport-1/3/4.8:1
+  service-port 1 user-vlan 706 vlan 706
+$
+interface vport-1/3/4.9:1
+  service-port 1 user-vlan 706 vlan 706
+$
+interface vport-1/3/4.10:1
+  service-port 1 user-vlan 706 vlan 706
+$
+interface vport-1/3/4.11:1
+  service-port 1 user-vlan 706 vlan 706
+$
+interface vport-1/3/4.12:1
+  service-port 1 user-vlan 706 vlan 706
+$
+interface vport-1/3/4.13:1
+  service-port 1 user-vlan 706 vlan 706
+$
+interface vport-1/3/5.1:1
+  service-port 1 user-vlan 706 vlan 706
+$
+interface vport-1/3/5.3:1
+  service-port 1 user-vlan 706 vlan 706
+$
+interface vport-1/3/5.4:1
+  service-port 1 user-vlan 706 vlan 706
+$
+interface vport-1/3/5.5:1
+  service-port 1 user-vlan 706 vlan 706
+$
+interface vport-1/3/5.6:1
+  service-port 1 user-vlan 706 vlan 706
+$
+interface vport-1/3/6.1:1
+  service-port 1 user-vlan 706 vlan 706
+$
+interface vport-1/3/6.2:1
+  service-port 1 user-vlan 706 vlan 706
+$
+interface vport-1/3/6.4:1
+  service-port 1 user-vlan 706 vlan 706
+$
+interface vport-1/3/6.5:1
+  service-port 1 user-vlan 706 vlan 706
+$
+interface vport-1/3/7.1:1
+  service-port 1 user-vlan 706 vlan 706
+$
+interface vport-1/3/7.2:1
+  service-port 1 user-vlan 706 vlan 706
+$
+interface vport-1/3/7.3:1
+  service-port 1 user-vlan 706 vlan 706
+$
+interface vport-1/3/7.4:1
+  service-port 1 user-vlan 706 vlan 706
+$
+interface vport-1/3/8.1:1
+  service-port 1 user-vlan 706 vlan 706
+$
+interface vport-1/3/8.2:1
+  service-port 1 user-vlan 706 vlan 706
+$
+interface vport-1/3/8.3:1
+  service-port 1 user-vlan 706 vlan 706
+$
+interface vport-1/3/8.4:1
+  service-port 1 user-vlan 706 vlan 706
+$
+interface vport-1/3/8.5:1
+  service-port 1 user-vlan 706 vlan 706
+$
+interface vport-1/3/8.6:1
+  service-port 1 user-vlan 706 vlan 706
+$
+interface vport-1/3/8.7:1
+  service-port 1 user-vlan 706 vlan 706
+$
+interface vport-1/3/8.8:1
+  service-port 1 user-vlan 706 vlan 706
+$
+interface vport-1/3/8.9:1
+  service-port 1 user-vlan 706 vlan 706
+$
+interface vport-1/3/8.10:1
+  service-port 1 user-vlan 706 vlan 706
+$
+interface vport-1/3/9.2:1
+  service-port 1 user-vlan 706 vlan 706
+$
+interface vport-1/3/9.3:1
+  service-port 1 user-vlan 706 vlan 706
+$
+interface vport-1/3/9.4:1
+  service-port 1 user-vlan 390 vlan 390
+$
+interface vport-1/3/9.5:1
+  service-port 1 user-vlan 706 vlan 706
+$
+interface vport-1/3/9.6:1
+  service-port 1 user-vlan 706 vlan 706
+$
+interface vport-1/3/9.7:1
+  service-port 1 user-vlan 706 vlan 706
+$
+interface vport-1/3/9.8:1
+  service-port 1 user-vlan 706 vlan 706
+$
+interface vport-1/3/9.9:1
+  service-port 1 user-vlan 706 vlan 706
+$
+interface vport-1/3/9.10:1
+  service-port 1 user-vlan 706 vlan 706
+$
+interface vport-1/3/10.1:1
+  service-port 1 user-vlan 706 vlan 706
+$
+interface vport-1/3/10.2:1
+  service-port 1 user-vlan 706 vlan 706
+$
+interface vport-1/3/10.3:1
+  service-port 1 user-vlan 706 vlan 706
+$
+interface vport-1/3/10.4:1
+  service-port 1 user-vlan 706 vlan 706
+$
+interface vport-1/3/10.5:1
+  service-port 1 user-vlan 706 vlan 706
+$
+interface vport-1/3/10.6:1
+  service-port 1 user-vlan 706 vlan 706
+$
+interface vport-1/3/10.7:1
+  service-port 1 user-vlan 706 vlan 706
+$
+interface vport-1/3/10.8:1
+  service-port 1 user-vlan 706 vlan 706
+$
+interface vport-1/3/10.9:1
+  service-port 1 user-vlan 706 vlan 706
+$
+interface vport-1/3/10.10:1
+  service-port 1 user-vlan 706 vlan 706
+$
+interface vport-1/3/10.11:1
+  service-port 1 user-vlan 706 vlan 706
+$
+interface vport-1/3/10.12:1
+  service-port 1 user-vlan 706 vlan 706
+$
+interface vport-1/3/10.13:1
+  service-port 1 user-vlan 706 vlan 706
+$
+interface vport-1/3/10.14:1
+  service-port 1 user-vlan 706 vlan 706
+$
+interface vport-1/3/10.15:1
+  service-port 1 user-vlan 706 vlan 706
+$
+interface vport-1/3/10.16:1
+  service-port 1 user-vlan 706 vlan 706
+$
+interface vport-1/3/10.18:1
+  service-port 1 user-vlan 706 vlan 706
+$
+interface vport-1/3/11.1:1
+  service-port 1 user-vlan 706 vlan 706
+$
+interface vport-1/3/11.2:1
+  service-port 1 user-vlan 706 vlan 706
+$
+interface vport-1/3/11.3:1
+  service-port 1 user-vlan 706 vlan 706
+$
+interface vport-1/3/11.4:1
+  service-port 1 user-vlan 706 vlan 706
+$
+interface vport-1/3/11.5:1
+  service-port 1 user-vlan 706 vlan 706
+$
+interface vport-1/3/11.6:1
+  service-port 1 user-vlan 706 vlan 706
+$
+interface vport-1/3/11.7:1
+  service-port 1 user-vlan 706 vlan 706
+$
+interface vport-1/3/11.8:1
+  service-port 1 user-vlan 706 vlan 706
+$
+interface vport-1/3/11.9:1
+  service-port 1 user-vlan 706 vlan 706
+$
+interface vport-1/3/11.11:1
+  service-port 1 user-vlan 706 vlan 706
+$
+interface vport-1/3/11.12:1
+  service-port 1 user-vlan 706 vlan 706
+$
+interface vport-1/3/11.13:1
+  service-port 1 user-vlan 706 vlan 706
+$
+interface vport-1/3/11.15:1
+  service-port 1 user-vlan 706 vlan 706
+$
+interface vport-1/3/11.16:1
+  service-port 1 user-vlan 706 vlan 706
+$
+interface vport-1/3/11.17:1
+  service-port 1 user-vlan 706 vlan 706
+$
+interface vport-1/3/11.18:1
+  service-port 1 user-vlan 706 vlan 706
+$
+interface vport-1/3/11.19:1
+  service-port 1 user-vlan 706 vlan 706
+$
+interface vport-1/3/11.20:1
+  service-port 1 user-vlan 706 vlan 706
+$
+interface vport-1/3/11.21:1
+  service-port 1 user-vlan 706 vlan 706
+$
+interface vport-1/3/12.1:1
+  service-port 1 user-vlan 706 vlan 706
+$
+interface vport-1/3/12.3:1
+  service-port 1 user-vlan 706 vlan 706
+$
+interface vport-1/3/12.4:1
+  service-port 1 user-vlan 706 vlan 706
+$
+interface vport-1/3/15.1:1
+  service-port 1 user-vlan 706 vlan 706
+$
+interface vport-1/3/15.2:1
+  service-port 1 user-vlan 706 vlan 706
+$
+interface vport-1/3/15.3:1
+  service-port 1 user-vlan 706 vlan 706
+$
+interface vport-1/3/15.4:1
+  service-port 1 user-vlan 706 vlan 706
+$
+interface vport-1/3/15.5:1
+  service-port 1 user-vlan 706 vlan 706
+$
+interface vport-1/3/15.6:1
+  service-port 1 user-vlan 706 vlan 706
+$
+interface vport-1/3/15.7:1
+  service-port 1 user-vlan 706 vlan 706
+$
+interface vport-1/3/15.8:1
+  service-port 1 user-vlan 706 vlan 706
+$
+interface vport-1/3/16.1:1
+  service-port 1 user-vlan 706 vlan 706
+$
+interface vport-1/3/16.2:1
+  service-port 1 user-vlan 706 vlan 706
+$
+interface vport-1/3/16.3:1
+  service-port 1 user-vlan 706 vlan 706
+$
+interface vport-1/3/16.4:1
+  service-port 1 user-vlan 706 vlan 706
+$
+interface vport-1/3/16.5:1
+  service-port 1 user-vlan 706 vlan 706
+$
+interface vport-1/3/16.6:1
+  service-port 1 user-vlan 706 vlan 706
+$
+interface vport-1/3/16.7:1
+  service-port 1 user-vlan 706 vlan 706
+$
+interface vport-1/3/16.8:1
+  service-port 1 user-vlan 706 vlan 706
+$
+interface vport-1/3/16.9:1
+  service-port 1 user-vlan 706 vlan 706
+$
+interface vport-1/3/16.10:1
+  service-port 1 user-vlan 707 vlan 707
+$
+interface vport-1/3/16.11:1
+  service-port 1 user-vlan 706 vlan 706
+$
+interface vport-1/3/16.12:1
+  service-port 1 user-vlan 706 vlan 706
+$
+interface vport-1/3/16.13:1
+  service-port 1 user-vlan 706 vlan 706
+$
+interface vport-1/3/16.14:1
+  service-port 1 user-vlan 706 vlan 706
+$
+interface vport-1/3/16.15:1
+  service-port 1 user-vlan 706 vlan 706
+$
+interface vport-1/3/16.16:1
+  service-port 1 user-vlan 706 vlan 706
+$
+interface vport-1/3/16.17:1
+  service-port 1 user-vlan 706 vlan 706
+$
+interface vport-1/3/16.18:1
+  service-port 1 user-vlan 706 vlan 706
+$
+interface vport-1/3/16.19:1
+  service-port 1 user-vlan 706 vlan 706
+$
+interface vport-1/3/16.20:1
+  service-port 1 user-vlan 706 vlan 706
+$
+interface vport-1/3/16.21:1
+  service-port 1 user-vlan 706 vlan 706
+$
+interface vport-1/3/16.22:1
+  service-port 1 user-vlan 706 vlan 706
+$
+interface vport-1/3/16.23:1
+  service-port 1 user-vlan 706 vlan 706
+$
+interface vport-1/3/16.24:1
+  service-port 1 user-vlan 706 vlan 706
+$
+interface vport-1/3/16.25:1
+  service-port 1 user-vlan 706 vlan 706
+$
+interface vport-1/3/16.26:1
+  service-port 1 user-vlan 706 vlan 706
+$
+interface vport-1/3/16.27:1
+  service-port 1 user-vlan 706 vlan 706
+$
+interface vport-1/3/16.28:1
+  service-port 1 user-vlan 706 vlan 706
+$
+interface vport-1/3/16.29:1
+  service-port 1 user-vlan 706 vlan 706
+$
+interface vport-1/3/16.30:1
+  service-port 1 user-vlan 706 vlan 706
+$
+interface vport-1/3/16.31:1
+  service-port 1 user-vlan 706 vlan 706
+$
+interface vport-1/3/16.32:1
+  service-port 1 user-vlan 706 vlan 706
+$
+interface vport-1/3/16.33:1
+  service-port 1 user-vlan 706 vlan 706
+$
+interface gei-1/1/5
+  switchport mode hybrid
+  switchport vlan 99,706,4002 tag
+$
+interface gei-1/1/6
+  switchport mode trunk
+$
+interface xgei-1/1/1
+  switchport mode trunk
+  switchport vlan 99,706,4002 tag
+$
+interface xgei-1/1/2
+  switchport mode trunk
+$
+interface xgei-1/1/3
+  switchport mode trunk
+$
+interface xgei-1/1/4
+  switchport mode trunk
+$
+loopback-detection active-detect disable
+tpid outer 0x8100,0x88a8 inner 0x8100
+vlan list 1,99,306,390
+vlan list 703-704,706-707
+vlan list 4002
+$
+vlan 706
+  name PPPOE
+  description PPPOE
+$
+vlan 704
+$
+vlan 707
+$
+vlan 4002
+$
+vlan 1
+$
+vlan 703
+$
+vlan 99
+$
+vlan 390
+$
+vlan 306
+$
+traffic-profile 100M cir 102400 cbs 100 pir 102400 pbs 100 color-mode aware policer-type enhanced_mef coupling-flag enable
+traffic-profile 1GB cir 1024000 cbs 100 pir 1024000 pbs 100 color-mode aware policer-type enhanced_mef coupling-flag enable
+traffic-profile 500M cir 1024000 cbs 100 pir 1024000 pbs 100 color-mode aware policer-type enhanced_mef coupling-flag enable
+traffic-profile SMARTOLT-1G-DOWN cir 1048064 cbs 1023 pir 1048064 pbs 1023 color-mode blind policer-type enhanced_mef coupling-flag enable
+qos queue-number 8
+quick-ping enable
+discard-packet-mode disable
+!</MSAN>

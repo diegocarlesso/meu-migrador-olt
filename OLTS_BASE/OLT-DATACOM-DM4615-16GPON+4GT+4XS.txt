@@ -1,0 +1,7287 @@
+aaa authentication-order [ local ]
+aaa user claudio
+ password $1$3PRB7cmZ$4Z.XLHOoDpb3jO.212H9R/
+ group admin
+!
+aaa user glauber
+ password $1$8.Ynm1nf$aWqV1rQKthCrYRa3DCTCD0
+ group admin
+!
+aaa user ixcsoft
+ password $1$zMQTEpmt$xz7clFoZRVyMxy7rXmQxC0
+ group admin
+!
+aaa user metro
+ password $1$WMOePABx$J6yYzM0nWNaxB2yUWuiHd0
+ group admin
+!
+aaa user mpnet
+ password $1$F1x8rieu$/U5pTb1OouNPuiYLk2g2v.
+ group admin
+!
+aaa user solange
+ password $1$tf26oVaR$gOq9thGkgph3m8T5YBNY0/
+ group admin
+!
+aaa user usernoc
+ password $1$uG8q9cqB$0v3zCTaaK127EVHIJ4Rhr.
+ group admin
+!
+snmp traps config-commit
+snmp traps cpu-core
+snmp traps cpu-load
+snmp traps link-status
+snmp traps login-success
+snmp agent enabled
+snmp agent version v2c
+snmp agent version v3
+snmp community public
+ sec-name public
+!
+snmp notify std_v1_trap
+ tag std_v1_trap
+!
+snmp notify std_v2_inform
+ tag std_v2_inform
+ type inform
+!
+snmp notify std_v2_trap
+ tag std_v2_trap
+!
+snmp notify std_v3_inform
+ tag std_v3_inform
+ type inform
+!
+snmp notify std_v3_trap
+ tag std_v3_trap
+!
+snmp vacm group public
+ member public
+  sec-model [ v2c ]
+ !
+ access "" v2c no-auth-no-priv
+  read-view root
+  write-view root
+  notify-view root
+ !
+!
+snmp vacm view root
+ subtree 1.3
+  included
+ !
+!
+interface gigabit-ethernet 1/1/1
+ no shutdown
+ negotiation
+ duplex full
+ speed 100M
+ advertising-abilities 10Mfull 100Mfull 1Gfull
+ mdix auto
+ mtu 12266
+!
+interface gigabit-ethernet 1/1/2
+ no shutdown
+ negotiation
+ duplex full
+ speed 100M
+ advertising-abilities 10Mfull 100Mfull 1Gfull
+ mdix auto
+ mtu 12266
+!
+interface gigabit-ethernet 1/1/3
+ no shutdown
+ negotiation
+ duplex full
+ speed 100M
+ advertising-abilities 10Mfull 100Mfull 1Gfull
+ mdix auto
+ mtu 12266
+!
+interface gigabit-ethernet 1/1/4
+ description ACESSO_INTERNO
+ no shutdown
+ negotiation
+ duplex full
+ speed 100M
+ advertising-abilities 10Mfull 100Mfull 1Gfull
+ mdix auto
+ mtu 12266
+!
+interface ten-gigabit-ethernet 1/1/1
+ no shutdown
+ no negotiation
+ duplex full
+ speed 10G
+ mdix normal
+ mtu 12266
+!
+interface ten-gigabit-ethernet 1/1/2
+ no shutdown
+ no negotiation
+ duplex full
+ speed 10G
+ mdix normal
+ mtu 12266
+!
+interface ten-gigabit-ethernet 1/1/3
+ no shutdown
+ no negotiation
+ duplex full
+ speed 10G
+ mdix normal
+ mtu 12266
+!
+interface ten-gigabit-ethernet 1/1/4
+ description SWT-MPLS-IBATIBA-P4
+ no shutdown
+ no negotiation
+ duplex full
+ speed 10G
+ mdix normal
+ mtu 12266
+!
+interface l3 GERENCIA
+ lower-layer-if vlan 15
+ ipv4 address 10.45.166.94/30
+!
+interface l3 VLAN61
+ lower-layer-if vlan 61
+!
+interface mgmt 1/1/1
+ ipv4 address 192.168.0.25/24
+!
+interface gpon 1/1/1
+ downstream-fec
+ no shutdown
+ onu 0
+  name renatacoelho
+  serial-number HWTC3DE4C17B
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 601
+  !
+ !
+ onu 1
+  name valterpa
+  serial-number HWTCbfda6f9a
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 601
+  !
+ !
+ onu 2
+  serial-number TPLGA1A72F58
+  service-profile Service_router line-profile BRIDGE_BANDA_LARGA
+  rg-profile ROUTER-CLIENTES-601
+  snmp profile SNMP
+  rg-profile-override-settings
+   wan-pppoe-connection PPPoE-Clientes username iracildaar password 1234
+  !
+ !
+ onu 3
+  name adilioge
+  serial-number HWTCBFD77A9A
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 601
+  !
+ !
+ onu 4
+  name fabiana
+  serial-number HWTC02D62192
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 601
+  !
+ !
+ onu 5
+  name patriciap
+  serial-number HWTC028fbc92
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 601
+  !
+ !
+ onu 6
+  name danielps
+  serial-number HWTC93cd3e6e
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 601
+  !
+ !
+ onu 7
+  name deslisvanehds
+  serial-number HWTCCE30238B
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 601
+  !
+ !
+ onu 8
+  name adeirteodoro
+  serial-number HWTCF8016E09
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 601
+  !
+ !
+ onu 9
+  serial-number HWTC36940FA4
+  service-profile Service_router line-profile BRIDGE_BANDA_LARGA
+  rg-profile ROUTER-CLIENTES-601
+  snmp profile SNMP
+  rg-profile-override-settings
+   wan-pppoe-connection PPPoE-Clientes username gleicianesj password 1234
+  !
+ !
+ onu 10
+  name shaysv
+  serial-number HWTC024BCA92
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 601
+  !
+ !
+ onu 11
+  name HWTC7fe32487
+  serial-number HWTC7fe32487
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 601
+  !
+ !
+ onu 12
+  name privatecons
+  serial-number HWTC6E31A15F
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 601
+  !
+ !
+ onu 13
+  name cleidianehoff
+  serial-number HWTC7B4A5E4E
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 601
+  !
+ !
+ onu 14
+  name diegors
+  serial-number HWTC39865F5F
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 601
+  !
+ !
+ onu 15
+  name rosangelagal
+  serial-number TPLG51788554
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 601
+  !
+ !
+ onu 16
+  serial-number DACM919E52A8
+  service-profile Service_router line-profile BRIDGE_BANDA_LARGA
+  rg-profile ROUTER-CLIENTES-601
+  snmp profile SNMP
+  rg-profile-override-settings
+   wan-pppoe-connection PPPoE-Clientes username suelyh password 1234
+  !
+ !
+ onu 17
+  name elizangelagvs
+  serial-number HWTC028F5A92
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 601
+  !
+ !
+ onu 18
+  name joaovitorsa
+  serial-number HWTC24A54A53
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 601
+  !
+ !
+ onu 19
+  name patriciaborges
+  serial-number HWTCC3D4387C
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 601
+  !
+ !
+ onu 20
+  serial-number TPLGD2A8A750
+  service-profile Service_router line-profile BRIDGE_BANDA_LARGA
+  rg-profile ROUTER-CLIENTES-601
+  snmp profile SNMP
+  rg-profile-override-settings
+   wan-pppoe-connection PPPoE-Clientes username lucienepds password 1234
+  !
+ !
+ onu 21
+  name silvaneavn
+  serial-number TDTC3537E9B8
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 601
+  !
+ !
+ onu 22
+  name achillesgo
+  serial-number HWTCD1AC6581
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 601
+  !
+ !
+ onu 23
+  name loudesbs
+  serial-number HWTC40645781
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 601
+  !
+ !
+ onu 24
+  name patriciaa
+  serial-number HWTCA6BED881
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 601
+  !
+ !
+ onu 25
+  name anamoreira
+  serial-number HWTC1A788868
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 601
+  !
+ !
+ onu 26
+  serial-number TPLG890F54B8
+  service-profile Service_router line-profile BRIDGE_BANDA_LARGA
+  rg-profile ROUTER-CLIENTES-601
+  snmp profile SNMP
+  rg-profile-override-settings
+   wan-pppoe-connection PPPoE-Clientes username elitecosta password 1234
+  !
+ !
+ onu 27
+  serial-number TPLG1D0EEAB8
+  service-profile Service_router line-profile BRIDGE_BANDA_LARGA
+  rg-profile ROUTER-CLIENTES-601
+  snmp profile SNMP
+  rg-profile-override-settings
+   wan-pppoe-connection PPPoE-Clientes username mariamadalena password 1234
+  !
+ !
+ onu 29
+  name mariadores
+  serial-number TPLG6209756A
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 601
+  !
+ !
+ onu 30
+  name ivanildaar
+  serial-number HWTCBD03B078
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 601
+  !
+ !
+ onu 31
+  name rogeriodst
+  serial-number HWTCA629B44E
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 601
+  !
+ !
+ onu 32
+  name eniltonado
+  serial-number HWTCD549CF67
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 601
+  !
+ !
+ onu 33
+  name mariaaxr
+  serial-number HWTC65E72F7D
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 601
+  !
+ !
+ onu 34
+  name marialuciad
+  serial-number TPLG6209748A
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 601
+  !
+ !
+ onu 36
+  name mateusff
+  serial-number TPLG620963D7
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 601
+  !
+ !
+ onu 37
+  name ronielesn
+  serial-number HWTC02B95268
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 601
+  !
+ !
+ onu 38
+  name marcelacss
+  serial-number HWTC79DE514E
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 601
+  !
+ !
+ onu 50
+  name flavisd
+  serial-number TPLG848C452A
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 601
+  !
+ !
+ onu 51
+  name alineag
+  serial-number HWTC7E9F4288
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 601
+  !
+ !
+ onu 52
+  name sandgc
+  serial-number TPLG848C49ED
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 601
+  !
+ !
+ onu 53
+  name noemiard
+  serial-number HWTCF003B64A
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 601
+  !
+ !
+ onu 54
+  name flaviaoli
+  serial-number HWTC73DDC87A
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 601
+  !
+ !
+!
+interface gpon 1/1/2
+ downstream-fec
+ no shutdown
+ onu 0
+  name marciofds
+  serial-number HWTCCBE5756E
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 602
+  !
+ !
+ onu 1
+  name edvaldoas
+  serial-number HWTC7726528c
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 602
+  !
+ !
+ onu 2
+  name carolaynembrito
+  serial-number TPLG7E94DB33
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 602
+  !
+ !
+ onu 3
+  name josianeadp
+  serial-number HWTC5A291266
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 602
+  !
+ !
+ onu 4
+  name keliane
+  serial-number ZTEGc15b6e3c
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 602
+  !
+ !
+ onu 5
+  name marcusvov
+  serial-number HWTC0297E492
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 602
+  !
+ !
+ onu 6
+  name mariagsm
+  serial-number HWTCC4C7B666
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 602
+  !
+ !
+ onu 7
+  name grande
+  serial-number HWTCbfd8449a
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 602
+  !
+ !
+ onu 8
+  name marcusvov
+  serial-number TPLG7E94E006
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 602
+  !
+ !
+ onu 9
+  name gracianeso
+  serial-number HWTC10F10B92
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 602
+  !
+ !
+ onu 10
+  name vivaneeg
+  serial-number HWTC8F480F7D
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 602
+  !
+ !
+ onu 11
+  name oniziafam
+  serial-number HWTC10FE3A92
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 602
+  !
+ !
+ onu 12
+  name brunadvc
+  serial-number TPLG7E94D8DF
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 602
+  !
+ !
+ onu 13
+  name viniciusmod
+  serial-number TPLG62095D0E
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 602
+  !
+ !
+ onu 14
+  serial-number TDTC3568D698
+  service-profile Service_router line-profile BRIDGE_BANDA_LARGA
+  rg-profile ROUTER-CLIENTES-602
+  snmp profile SNMP
+  rg-profile-override-settings
+   wan-pppoe-connection PPPoE-Clientes username raquelndd password 1234
+  !
+ !
+ onu 15
+  name sitelbraibatiba
+  serial-number TPLG62092EBE
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 602
+  !
+ !
+ onu 16
+  name rosimereppss
+  serial-number TPLG848C4F28
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 602
+  !
+ !
+ onu 17
+  name danielmotta
+  serial-number TPLG62097660
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 602
+  !
+ !
+ onu 18
+  name fabioquin
+  serial-number TPLG62095C08
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 602
+  !
+ !
+ onu 20
+  name supermercadou
+  serial-number HWTC7BCDAC78
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 602
+  !
+ !
+ onu 21
+  name lucashdsj
+  serial-number TPLG62097E69
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 602
+  !
+ !
+ onu 22
+  serial-number TPLG848EEDA0
+  service-profile Service_router line-profile BRIDGE_BANDA_LARGA
+  rg-profile ROUTER-CLIENTES-602
+  rg-profile-override-settings
+   wan-pppoe-connection PPPoE-Clientes username cleusaalves password 1234
+  !
+ !
+ onu 23
+  name leilianasc
+  serial-number HWTC87017878
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 602
+  !
+ !
+ onu 24
+  name zeliagds
+  serial-number HWTC96A5BD48
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 602
+  !
+ !
+ onu 25
+  name paulohfc
+  serial-number TDTC3537D1C0
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 602
+  !
+ !
+ onu 26
+  name antoniorc
+  serial-number HWTC99900A68
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 602
+  !
+ !
+ onu 27
+  name anabeatriz
+  serial-number TPLG62095BDE
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 602
+  !
+ !
+ onu 28
+  name everaldomf
+  serial-number HWTC70E4CD67
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 602
+  !
+ !
+ onu 29
+  name talkdsolucoesea
+  serial-number TPLG513AA69B
+  service-profile CUST-CAIXA line-profile CUST-CAIXA
+  rg-profile CUST-CAIXA
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 660
+  !
+  veip 1
+   native vlan vlan-id 660
+  !
+ !
+ onu 30
+  name marianagas
+  serial-number HWTC7FDB046A
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 602
+  !
+ !
+ onu 31
+  name sirlenear
+  serial-number HWTC911C7668
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 602
+  !
+ !
+ onu 32
+  name beatrizd
+  serial-number TPLG513AC229
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 602
+  !
+ !
+ onu 33
+  name karynydc
+  serial-number HWTC03482253
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 602
+  !
+ !
+ onu 34
+  serial-number HWTC2F7936A4
+  service-profile Service_router line-profile BRIDGE_BANDA_LARGA
+  rg-profile ROUTER-CLIENTES-602
+  snmp profile SNMP
+  rg-profile-override-settings
+   wan-pppoe-connection PPPoE-Clientes username mariaaparecidaf password 1234
+  !
+ !
+ onu 35
+  name erildoleandro
+  serial-number HWTC0C36B3A2
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 602
+  !
+ !
+ onu 36
+  name vagnersouza
+  serial-number HWTC247D0475
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 602
+  !
+ !
+ onu 37
+  serial-number TPLGE7CEA680
+  service-profile Service_router line-profile BRIDGE_BANDA_LARGA
+  rg-profile ROUTER-CLIENTES-602
+  snmp profile SNMP
+  rg-profile-override-settings
+   wan-pppoe-connection PPPoE-Clientes username vanessacr password 1234
+  !
+ !
+ onu 38
+  name rosipereps
+  serial-number TDTC3537E9C0
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 602
+  !
+ !
+ onu 39
+  name zeliadias
+  serial-number TPLG5178687C
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 602
+  !
+ !
+ onu 40
+  name cristinasouza
+  serial-number HWTC38E50F7D
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 602
+  !
+ !
+ onu 41
+  name deidianealmeida
+  serial-number HWTCEA7E5847
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 602
+  !
+ !
+ onu 42
+  serial-number TPLGA1A73A30
+  service-profile Service_router line-profile BRIDGE_BANDA_LARGA
+  rg-profile ROUTER-CLIENTES-602
+  snmp profile SNMP
+  rg-profile-override-settings
+   wan-pppoe-connection PPPoE-Clientes username simonelt password 1234
+  !
+ !
+ onu 43
+  name veronicafer
+  serial-number TPLG848C4F34
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 602
+  !
+ !
+ onu 44
+  name samuelrp
+  serial-number TPLG848C7541
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 602
+  !
+ !
+ onu 45
+  name minasol
+  serial-number HWTC2CD51A81
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 602
+  !
+ !
+ onu 46
+  name mateusferna
+  serial-number TPLG51787B8B
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 602
+  !
+ !
+ onu 47
+  name marinacampos
+  serial-number TPLG848C7693
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 602
+  !
+ !
+!
+interface gpon 1/1/3
+ description VLAN_CENTRO
+ downstream-fec
+ no shutdown
+ onu 0
+  name dislahub
+  serial-number TPLG848C4478
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 603
+  !
+ !
+ onu 1
+  name tiagon
+  serial-number HWTC02acde92
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 603
+  !
+ !
+ onu 2
+  name josecarloso
+  serial-number HWTC1D1F126F
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 603
+  !
+ !
+ onu 3
+  name vitorlbm
+  serial-number HWTC02C18A92
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 603
+  !
+ !
+ onu 4
+  name silviacssf
+  serial-number HWTCC2655D7C
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 603
+  !
+ !
+ onu 5
+  name willianoliveira
+  serial-number HWTC38E6C77D
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 603
+  !
+ !
+ onu 6
+  serial-number TPLG1507B4C8
+  service-profile Service_router line-profile BRIDGE_BANDA_LARGA
+  rg-profile ROUTER-CLIENTES-603
+  rg-profile-override-settings
+   wan-pppoe-connection PPPoE-Clientes username marcosfer password 1234
+  !
+ !
+ onu 7
+  name rafaelacm
+  serial-number TPLG62096BF9
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 603
+  !
+ !
+ onu 8
+  name lidiana
+  serial-number TPLG62096549
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 603
+  !
+ !
+ onu 9
+  name joaopssg
+  serial-number HWTC04091544
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 603
+  !
+ !
+ onu 10
+  name monica
+  serial-number TPLG513AA5E7
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 603
+  !
+ !
+ onu 11
+  serial-number DACM919D5680
+  service-profile Service_router line-profile BRIDGE_BANDA_LARGA
+  rg-profile ROUTER-CLIENTES-603
+  snmp profile SNMP
+  rg-profile-override-settings
+   wan-pppoe-connection PPPoE-Clientes username jasbss password 1234
+  !
+ !
+ onu 13
+  name sideirferreira
+  serial-number HWTC7B4B2078
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 603
+  !
+ !
+ onu 14
+  serial-number TPLG848EEDE8
+  service-profile Service_router line-profile BRIDGE_BANDA_LARGA
+  rg-profile ROUTER-CLIENTES-603
+  snmp profile SNMP
+  rg-profile-override-settings
+   wan-pppoe-connection PPPoE-Clientes username kamilasgs password 1234
+  !
+ !
+ onu 16
+  name carolaynemb
+  serial-number HWTC2BAD4F39
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 603
+  !
+ !
+ onu 18
+  name lazarobf
+  serial-number HWTC9DFB5D68
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 603
+  !
+ !
+ onu 19
+  name mariadfs
+  serial-number HWTCCBC4DC6F
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 603
+  !
+ !
+ onu 21
+  name joaobatistaa
+  serial-number HWTC7FC9D46A
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 603
+  !
+ !
+ onu 22
+  serial-number TPLGE7A2BA60
+  service-profile Service_router line-profile BRIDGE_BANDA_LARGA
+  rg-profile ROUTER-CLIENTES-603
+  snmp profile SNMP
+  rg-profile-override-settings
+   wan-pppoe-connection PPPoE-Clientes username josenevesbatista password 1234
+  !
+ !
+ onu 23
+  name onilcamds
+  serial-number HWTC39FFE86F
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 603
+  !
+ !
+ onu 24
+  name viniciolm
+  serial-number HWTC16802079
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 603
+  !
+ !
+ onu 25
+  name natandasilva
+  serial-number HWTC02608292
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 603
+  !
+ !
+ onu 30
+  name stefanibd
+  serial-number HWTCDE6E0281
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 603
+  !
+ !
+ onu 31
+  name mariaantoniajm
+  serial-number TDTC3537EA58
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 603
+  !
+ !
+ onu 32
+  name lucivaniamv
+  serial-number TDTC35381F40
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 603
+  !
+ !
+ onu 34
+  serial-number TPLG4A1CC9B0
+  service-profile Service_router line-profile BRIDGE_BANDA_LARGA
+  rg-profile ROUTER-CLIENTES-603
+  snmp profile SNMP
+  rg-profile-override-settings
+   wan-pppoe-connection PPPoE-Clientes username michelinacio password 1234
+  !
+ !
+ onu 35
+  name eduardaka
+  serial-number TPLG309E5BBA
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 603
+  !
+ !
+ onu 36
+  name sueilaro
+  serial-number HWTC8AACEC8C
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 603
+  !
+ !
+ onu 37
+  name mariazelina
+  serial-number HWTC02D50992
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 603
+  !
+ !
+ onu 38
+  name roselenadre
+  serial-number HWTCD94A864E
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 603
+  !
+ !
+ onu 39
+  name sebastiaot
+  serial-number HWTCe730a150
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 603
+  !
+ !
+ onu 40
+  name davis
+  serial-number HWTCB29B6193
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 603
+  !
+ !
+!
+interface gpon 1/1/4
+ downstream-fec
+ no shutdown
+ onu 0
+  name ivanedvg
+  serial-number HWTC5b27b98a
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 604
+  !
+ !
+ onu 1
+  name laydianeg
+  serial-number HWTC02FF3092
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 604
+  !
+ !
+ onu 2
+  name reginaldosa
+  serial-number HWTC196b0e64
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 604
+  !
+ !
+ onu 3
+  name elainecs
+  serial-number TPLG848EF0A0
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 604
+  !
+ !
+ onu 4
+  serial-number TPLG1507BAC8
+  service-profile Service_router line-profile BRIDGE_BANDA_LARGA
+  rg-profile ROUTER-CLIENTES-604
+  rg-profile-override-settings
+   wan-pppoe-connection PPPoE-Clientes username diogosm password 1234
+  !
+ !
+ onu 5
+  name dienifergar
+  serial-number HWTC15896084
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 604
+  !
+ !
+ onu 6
+  name douglasmc
+  serial-number HWTCAD12436A
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 604
+  !
+ !
+ onu 7
+  name samuelrs
+  serial-number HWTCb287cf84
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 604
+  !
+ !
+ onu 8
+  name sabrinaadl
+  serial-number TPLG7EA52F90
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 604
+  !
+ !
+ onu 9
+  name brunofa
+  serial-number HWTCca4d3486
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 604
+  !
+ !
+ onu 10
+  name adrianaas
+  serial-number HWTC3517435f
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 604
+  !
+ !
+ onu 11
+  name feliciaheller
+  serial-number HWTCE8FC9A7D
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 604
+  !
+ !
+ onu 12
+  name luanamv
+  serial-number HWTC86EF2678
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 604
+  !
+ !
+ onu 13
+  name rosimereps
+  serial-number HWTCF5D17C6A
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 604
+  !
+ !
+ onu 14
+  name marciofneto
+  serial-number TPLG62092CFB
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 604
+  !
+ !
+ onu 15
+  name josealvess
+  serial-number HWTC78BC3C81
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 604
+  !
+ !
+ onu 27
+  name magnojnf
+  serial-number HWTCA8A17940
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 604
+  !
+ !
+ onu 28
+  serial-number TPLG848EEED0
+  service-profile Service_router line-profile BRIDGE_BANDA_LARGA
+  rg-profile ROUTER-CLIENTES-604
+  snmp profile SNMP
+  rg-profile-override-settings
+   wan-pppoe-connection PPPoE-Clientes username thaylmb password 1234
+  !
+ !
+ onu 30
+  name saracustodiar
+  serial-number HWTC0C3740A2
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 604
+  !
+ !
+ onu 31
+  serial-number TPLG890FD008
+  service-profile Service_router line-profile BRIDGE_BANDA_LARGA
+  rg-profile ROUTER-CLIENTES-604
+  snmp profile SNMP
+  rg-profile-override-settings
+   wan-pppoe-connection PPPoE-Clientes username josericarte password 1234
+  !
+ !
+ onu 32
+  serial-number TPLGE7A2BF10
+  service-profile Service_router line-profile BRIDGE_BANDA_LARGA
+  rg-profile ROUTER-CLIENTES-604
+  snmp profile SNMP
+  rg-profile-override-settings
+   wan-pppoe-connection PPPoE-Clientes username antoniomldn password 1234
+  !
+ !
+ onu 35
+  serial-number TPLG848EEB78
+  service-profile Service_router line-profile BRIDGE_BANDA_LARGA
+  rg-profile ROUTER-CLIENTES-604
+  snmp profile SNMP
+  rg-profile-override-settings
+   wan-pppoe-connection PPPoE-Clientes username loraynes password 1234
+  !
+ !
+!
+interface gpon 1/1/5
+ downstream-fec
+ no shutdown
+ onu 0
+  name edimargf
+  serial-number HWTC7e0f2e8b
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 605
+  !
+ !
+ onu 1
+  name valdecisouza
+  serial-number TPLG62097662
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 605
+  !
+ !
+ onu 2
+  name rafaelvital
+  serial-number HWTC3b5cc57d
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 605
+  !
+ !
+ onu 3
+  name jussarane
+  serial-number TPLG7E94EF58
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 605
+  !
+ !
+ onu 4
+  serial-number TPLG890F5718
+  service-profile Service_router line-profile BRIDGE_BANDA_LARGA
+  rg-profile ROUTER-CLIENTES-605
+  snmp profile SNMP
+  rg-profile-override-settings
+   wan-pppoe-connection PPPoE-Clientes username angelaafv password 1234
+  !
+ !
+ onu 5
+  name alexpinheiro
+  serial-number TPLG62097E68
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 605
+  !
+ !
+ onu 6
+  name jolivanlf
+  serial-number HWTCc324616c
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 605
+  !
+ !
+ onu 7
+  name carolinaebl
+  serial-number HWTC30227a87
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 605
+  !
+ !
+ onu 8
+  name alessandropd
+  serial-number TPLG51788338
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 605
+  !
+ !
+ onu 14
+  name arielsonfd
+  serial-number HWTC99D1C868
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 605
+  !
+ !
+ onu 16
+  name edgarrs
+  serial-number HWTC1008D392
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 605
+  !
+ !
+ onu 18
+  name josenunes
+  serial-number HWTC11111369
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 605
+  !
+ !
+ onu 19
+  serial-number TPLG890FA210
+  service-profile Service_router line-profile BRIDGE_BANDA_LARGA
+  rg-profile ROUTER-CLIENTES-605
+  snmp profile SNMP
+  rg-profile-override-settings
+   wan-pppoe-connection PPPoE-Clientes username eronildoas password 1234
+  !
+ !
+ onu 22
+  name julianafs
+  serial-number HWTC7C63C98B
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 605
+  !
+ !
+ onu 24
+  name ryandesd
+  serial-number HWTC0259EC92
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 605
+  !
+ !
+ onu 27
+  serial-number TPLG848EE6B8
+  service-profile Service_router line-profile BRIDGE_BANDA_LARGA
+  rg-profile ROUTER-CLIENTES-605
+  snmp profile SNMP
+  rg-profile-override-settings
+   wan-pppoe-connection PPPoE-Clientes username diuligon password 1234
+  !
+ !
+ onu 28
+  serial-number TPLGE7A2B768
+  service-profile Service_router line-profile BRIDGE_BANDA_LARGA
+  rg-profile ROUTER-CLIENTES-605
+  snmp profile SNMP
+  rg-profile-override-settings
+   wan-pppoe-connection PPPoE-Clientes username wandersonr password 1234
+  !
+ !
+ onu 29
+  name patriciadc
+  serial-number TPLG848C4EA1
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 605
+  !
+ !
+ onu 31
+  name kaiquevitor
+  serial-number HWTC6632967D
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 605
+  !
+ !
+!
+interface gpon 1/1/6
+ description BAIRRO_FLORESTA_1
+ downstream-fec
+ no shutdown
+ onu 0
+  name lucasbds
+  serial-number HWTC28c5b45f
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 606
+  !
+ !
+ onu 1
+  name jainemr
+  serial-number HWTC9DE4DD40
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 606
+  !
+ !
+ onu 2
+  name fabianefsp
+  serial-number HWTC5986b24e
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 606
+  !
+ !
+ onu 3
+  serial-number TPLG4A1CCB00
+  service-profile Service_router line-profile BRIDGE_BANDA_LARGA
+  rg-profile ROUTER-CLIENTES-606
+  snmp profile SNMP
+  rg-profile-override-settings
+   wan-pppoe-connection PPPoE-Clientes username fernandarm password 1234
+  !
+ !
+ onu 4
+  name marinaldad
+  serial-number HWTCbfd9839a
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 606
+  !
+ !
+ onu 5
+  serial-number DACM919DB128
+  service-profile Service_router line-profile BRIDGE_BANDA_LARGA
+  rg-profile ROUTER-CLIENTES-606
+  snmp profile SNMP
+  rg-profile-override-settings
+   wan-pppoe-connection PPPoE-Clientes username lucasa password 1234
+  !
+ !
+ onu 6
+  name ludimilago
+  serial-number HWTC8700CE78
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 606
+  !
+ !
+ onu 7
+  name marciogl
+  serial-number HWTCbfd8959a
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 606
+  !
+ !
+ onu 8
+  serial-number TPLGD2A8A970
+  service-profile Service_router line-profile BRIDGE_BANDA_LARGA
+  rg-profile ROUTER-CLIENTES-606
+  snmp profile SNMP
+  rg-profile-override-settings
+   wan-pppoe-connection PPPoE-Clientes username isaqueff password 1234
+  !
+ !
+ onu 9
+  serial-number HWTC4D9CD2A3
+  service-profile Service_router line-profile BRIDGE_BANDA_LARGA
+  rg-profile ROUTER-CLIENTES-606
+  snmp profile SNMP
+  rg-profile-override-settings
+   wan-pppoe-connection PPPoE-Clientes username gessirosa password 1234
+  !
+ !
+ onu 10
+  name dilcineiadc
+  serial-number HWTC38F4D77D
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 606
+  !
+ !
+ onu 11
+  name jackestds
+  serial-number HWTCcb1daa64
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 606
+  !
+ !
+ onu 12
+  name iasdfloresta
+  serial-number HWTC026D2292
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 606
+  !
+ !
+ onu 13
+  name rosineiam
+  serial-number HWTC2ed3fb91
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 606
+  !
+ !
+ onu 14
+  serial-number TPLG1D0EDD30
+  service-profile Service_router line-profile BRIDGE_BANDA_LARGA
+  rg-profile ROUTER-CLIENTES-606
+  snmp profile SNMP
+  rg-profile-override-settings
+   wan-pppoe-connection PPPoE-Clientes username herlonypru password 1234
+  !
+ !
+ onu 15
+  name ademirvie
+  serial-number TPLG513AA6CD
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 606
+  !
+ !
+ onu 16
+  name Ronei
+  serial-number HWTC5c1a3155
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 606
+  !
+ !
+ onu 17
+  name genesioaf
+  serial-number FHTT07c42a18
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 606
+  !
+ !
+ onu 18
+  name rosineiam
+  serial-number HWTCF955B66A
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 606
+  !
+ !
+ onu 19
+  serial-number TPLG1D0EDEE0
+  service-profile Service_router line-profile BRIDGE_BANDA_LARGA
+  rg-profile ROUTER-CLIENTES-606
+  rg-profile-override-settings
+   wan-pppoe-connection PPPoE-Clientes username nataliaadsd password 1234
+  !
+ !
+ onu 20
+  name luceniraos
+  serial-number HWTC02052292
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 606
+  !
+ !
+ onu 21
+  name elvesalvesw
+  serial-number HWTC0c3652a2
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 606
+  !
+ !
+ onu 22
+  name evemarmds
+  serial-number HWTCD5899D41
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 606
+  !
+ !
+ onu 23
+  serial-number TPLG1507B3F8
+  service-profile Service_router line-profile BRIDGE_BANDA_LARGA
+  rg-profile ROUTER-CLIENTES-606
+  rg-profile-override-settings
+   wan-pppoe-connection PPPoE-Clientes username joaovsm password 1234
+  !
+ !
+ onu 24
+  name claudineimor
+  serial-number TPLG848C769E
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 606
+  !
+ !
+ onu 25
+  name claudineiae
+  serial-number HWTCD8DFCC47
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 606
+  !
+ !
+ onu 26
+  serial-number TPLG1507BB58
+  service-profile Service_router line-profile BRIDGE_BANDA_LARGA
+  rg-profile ROUTER-CLIENTES-606
+  rg-profile-override-settings
+   wan-pppoe-connection PPPoE-Clientes username marilzadsc password 1234
+  !
+ !
+ onu 34
+  serial-number TPLGC4FF9518
+  service-profile Service_router line-profile BRIDGE_BANDA_LARGA
+  rg-profile ROUTER-CLIENTES-606
+  snmp profile SNMP
+  rg-profile-override-settings
+   wan-pppoe-connection PPPoE-Clientes username rogeriomsd password 1234
+  !
+ !
+ onu 39
+  name quevilemgg
+  serial-number HWTC7E8A974E
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 606
+  !
+ !
+ onu 40
+  name andressafr
+  serial-number HWTC746BA845
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 606
+  !
+ !
+ onu 42
+  serial-number TPLG848EF230
+  service-profile Service_router line-profile BRIDGE_BANDA_LARGA
+  rg-profile ROUTER-CLIENTES-606
+  snmp profile SNMP
+  rg-profile-override-settings
+   wan-pppoe-connection PPPoE-Clientes username antoniof password 1234
+  !
+ !
+ onu 43
+  serial-number TPLG848EF208
+  service-profile Service_router line-profile BRIDGE_BANDA_LARGA
+  rg-profile ROUTER-CLIENTES-606
+  snmp profile SNMP
+  rg-profile-override-settings
+   wan-pppoe-connection PPPoE-Clientes username renansilva password 1234
+  !
+ !
+ onu 44
+  serial-number TPLGE7A2A338
+  service-profile Service_router line-profile BRIDGE_BANDA_LARGA
+  rg-profile ROUTER-CLIENTES-606
+  snmp profile SNMP
+  rg-profile-override-settings
+   wan-pppoe-connection PPPoE-Clientes username thiagogomes password 1234
+  !
+ !
+ onu 45
+  name wandersonribeiro
+  serial-number HWTCB1A4975F
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 606
+  !
+ !
+ onu 46
+  name Wandersonsantos
+  serial-number HWTCFB39AD47
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 606
+  !
+ !
+ onu 47
+  serial-number TPLG848EF130
+  service-profile Service_router line-profile BRIDGE_BANDA_LARGA
+  rg-profile ROUTER-CLIENTES-606
+  snmp profile SNMP
+  rg-profile-override-settings
+   wan-pppoe-connection PPPoE-Clientes username marilenelbf password 1234
+  !
+ !
+!
+interface gpon 1/1/7
+ description BAIRRO_CARANGOLA
+ downstream-fec
+ no shutdown
+ onu 0
+  name wederdao
+  serial-number TPLG7EA52FDA
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 607
+  !
+ !
+ onu 1
+  name amancinho
+  serial-number TPLG513AC410
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 607
+  !
+ !
+ onu 2
+  name amarildofur
+  serial-number HWTCD574E764
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 607
+  !
+ !
+ onu 3
+  name mariamo
+  serial-number HWTCAACB7D6A
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 607
+  !
+ !
+ onu 4
+  name elianeav
+  serial-number HWTC22CD5675
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 607
+  !
+ !
+ onu 5
+  name renatacdcz
+  serial-number TDTC3537E988
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 607
+  !
+ !
+ onu 6
+  name carmosinapp
+  serial-number HWTC2360AE75
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 607
+  !
+ !
+ onu 7
+  name marcelorl
+  serial-number HWTC794AE14D
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 607
+  !
+ !
+ onu 8
+  name odairjose
+  serial-number TPLG517873D9
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 607
+  !
+ !
+ onu 9
+  name flavioas
+  serial-number HWTC7C2DAE8B
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 607
+  !
+ !
+ onu 10
+  name rodrigosp
+  serial-number HWTC2530D275
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 607
+  !
+ !
+ onu 11
+  name paolasdc
+  serial-number HWTCB748A4A4
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 607
+  !
+ !
+ onu 12
+  name walysonm
+  serial-number TPLG51788423
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 607
+  !
+ !
+ onu 13
+  name laurorb
+  serial-number TPLG848C4545
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 607
+  !
+ !
+ onu 17
+  name maiconc
+  serial-number HWTC552ADA62
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 607
+  !
+ !
+ onu 18
+  name cintiaffm
+  serial-number HWTCE1C43B6F
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 607
+  !
+ !
+ onu 19
+  name mariamgs
+  serial-number HWTCF7F3C109
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 607
+  !
+ !
+ onu 20
+  name gesianesdf
+  serial-number HWTCF847C709
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 607
+  !
+ !
+ onu 22
+  name edsonbds
+  serial-number HWTC2F58BF69
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 607
+  !
+ !
+ onu 26
+  serial-number TPLGA149C3B0
+  service-profile Service_router line-profile BRIDGE_BANDA_LARGA
+  rg-profile ROUTER-CLIENTES-607
+  snmp profile SNMP
+  rg-profile-override-settings
+   wan-pppoe-connection PPPoE-Clientes username adileniosudre password 1234
+  !
+ !
+ onu 27
+  name adielborel
+  serial-number HWTC67567C4E
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 607
+  !
+ !
+ onu 28
+  name samuelbl
+  serial-number HWTCEE90D150
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 607
+  !
+ !
+ onu 30
+  serial-number TPLGE7CE3820
+  service-profile Service_router line-profile BRIDGE_BANDA_LARGA
+  rg-profile ROUTER-CLIENTES-607
+  snmp profile SNMP
+  rg-profile-override-settings
+   wan-pppoe-connection PPPoE-Clientes username mariaddo password 1234
+  !
+ !
+ onu 31
+  name vanderjdm
+  serial-number HWTC2B9D9974
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 607
+  !
+ !
+ onu 32
+  serial-number TPLGE7CE6F30
+  service-profile Service_router line-profile BRIDGE_BANDA_LARGA
+  rg-profile ROUTER-CLIENTES-607
+  snmp profile SNMP
+  rg-profile-override-settings
+   wan-pppoe-connection PPPoE-Clientes username marianaoa password 1234
+  !
+ !
+ onu 33
+  serial-number TPLGE7CDA5B0
+  service-profile Service_router line-profile BRIDGE_BANDA_LARGA
+  rg-profile ROUTER-CLIENTES-607
+  snmp profile SNMP
+  rg-profile-override-settings
+   wan-pppoe-connection PPPoE-Clientes username heitorhcds password 1234
+  !
+ !
+ onu 34
+  serial-number TPLGE7CE8518
+  service-profile Service_router line-profile BRIDGE_BANDA_LARGA
+  rg-profile ROUTER-CLIENTES-607
+  snmp profile SNMP
+  rg-profile-override-settings
+   wan-pppoe-connection PPPoE-Clientes username abelmdnn password 12345
+  !
+ !
+ onu 35
+  serial-number TPLG848EF2C0
+  service-profile Service_router line-profile BRIDGE_BANDA_LARGA
+  rg-profile ROUTER-CLIENTES-607
+  snmp profile SNMP
+  rg-profile-override-settings
+   wan-pppoe-connection PPPoE-Clientes username silviaaparecida password 1234
+  !
+ !
+!
+interface gpon 1/1/8
+ description BAIRRO_PREMORAR
+ downstream-fec
+ no shutdown
+ onu 0
+  name vanessaf
+  serial-number HWTCb2d41084
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 608
+  !
+ !
+ onu 1
+  name julianag
+  serial-number HWTC858f094d
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 608
+  !
+ !
+ onu 2
+  name amandad
+  serial-number HWTC1496ec5f
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 608
+  !
+ !
+ onu 3
+  name claricedds
+  serial-number HWTC28D2775F
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 608
+  !
+ !
+ onu 4
+  name ilzasouza
+  serial-number TPLG848C73DF
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 608
+  !
+ !
+ onu 5
+  name romulos
+  serial-number HWTC02339992
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 608
+  !
+ !
+ onu 6
+  name andersonsilvas
+  serial-number TPLG62092EC0
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 608
+  !
+ !
+ onu 7
+  name rosilenef
+  serial-number HWTCde34103c
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 608
+  !
+ !
+ onu 8
+  name alineaf
+  serial-number HWTC863d5537
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 608
+  !
+ !
+ onu 9
+  name agnaldoaj
+  serial-number HWTC027FEF92
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 608
+  !
+ !
+ onu 10
+  name clariceds
+  serial-number HWTCF057DC47
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 608
+  !
+ !
+ onu 11
+  serial-number DACM919DEB90
+  service-profile Service_router line-profile BRIDGE_BANDA_LARGA
+  rg-profile ROUTER-CLIENTES-608
+  snmp profile SNMP
+  rg-profile-override-settings
+   wan-pppoe-connection PPPoE-Clientes username alexps password 1234
+  !
+ !
+ onu 12
+  name julianaad
+  serial-number HWTCA05BD981
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 608
+  !
+ !
+ onu 13
+  name alexpereriras
+  serial-number TPLG513AA6D3
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 608
+  !
+ !
+ onu 14
+  name marcoant
+  serial-number TPLG513AC4F1
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 608
+  !
+ !
+ onu 19
+  name hernandeba
+  serial-number HWTC07FB3EA4
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 608
+  !
+ !
+ onu 20
+  serial-number HWTCD526989F
+  service-profile Service_router line-profile BRIDGE_BANDA_LARGA
+  rg-profile ROUTER-CLIENTES-608
+  snmp profile SNMP
+  rg-profile-override-settings
+   wan-pppoe-connection PPPoE-Clientes username laidesaa password 1234
+  !
+ !
+ onu 22
+  name karlapdf
+  serial-number HWTC96687845
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 608
+  !
+ !
+ onu 23
+  name thaizmdf
+  serial-number HWTC10197492
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 608
+  !
+ !
+ onu 31
+  serial-number TDTC3568FF70
+  service-profile Service_router line-profile BRIDGE_BANDA_LARGA
+  rg-profile ROUTER-CLIENTES-608
+  snmp profile SNMP
+  rg-profile-override-settings
+   wan-pppoe-connection PPPoE-Clientes username simoneapf password 1234
+  !
+ !
+ onu 33
+  serial-number TPLG848EF220
+  service-profile Service_router line-profile BRIDGE_BANDA_LARGA
+  rg-profile ROUTER-CLIENTES-608
+  snmp profile SNMP
+  rg-profile-override-settings
+   wan-pppoe-connection PPPoE-Clientes username ernicampos password 1234
+  !
+ !
+!
+interface gpon 1/1/9
+ description BAIRRO_IPE
+ downstream-fec
+ no shutdown
+ onu 0
+  name laudiceiatexeira
+  serial-number TPLG513ABFF4
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 609
+  !
+ !
+ onu 1
+  name rosangelaf
+  serial-number TDTC35382C98
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 609
+  !
+ !
+ onu 2
+  name iranivss
+  serial-number HWTCe7622c4a
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 609
+  !
+ !
+ onu 3
+  name fabriciosilva
+  serial-number HWTC8349FE67
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 609
+  !
+ !
+ onu 4
+  name mariaaf
+  serial-number HWTCb2a61d84
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 609
+  !
+ !
+ onu 5
+  name lucianolima
+  serial-number TPLG848C73E0
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 609
+  !
+ !
+ onu 6
+  name elvirard
+  serial-number HWTC05CB0D60
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 609
+  !
+ !
+ onu 7
+  name silviacrist
+  serial-number HWTC9170EA68
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 609
+  !
+ !
+ onu 8
+  name iaracristina
+  serial-number TPLG848C49EB
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 609
+  !
+ !
+ onu 9
+  name josebs
+  serial-number HWTC7be1ac8b
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 609
+  !
+ !
+ onu 10
+  name lucianabr
+  serial-number HWTC9ec43789
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 609
+  !
+ !
+ onu 11
+  name adilaramos
+  serial-number HWTC2A5B187A
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 609
+  !
+ !
+ onu 12
+  name arturvini
+  serial-number HWTCbfd9029a
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 609
+  !
+ !
+ onu 13
+  name milenatdl
+  serial-number HWTC10AB786A
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 609
+  !
+ !
+ onu 14
+  name jaquelinecezar
+  serial-number HWTC24B7CE75
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 609
+  !
+ !
+ onu 15
+  name alanvicente
+  serial-number HWTCB832DB67
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 609
+  !
+ !
+ onu 16
+  name raelmrbo
+  serial-number TPLG848C428B
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 609
+  !
+ !
+ onu 17
+  name cleusamq
+  serial-number HWTC8DF6555E
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 609
+  !
+ !
+ onu 18
+  name ericagv
+  serial-number TPLG7E94E8EA
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 609
+  !
+ !
+ onu 19
+  name jabsss
+  serial-number HWTCBFD8829A
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 609
+  !
+ !
+ onu 20
+  name antoniojdf
+  serial-number HWTCA85ECC93
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 609
+  !
+ !
+ onu 21
+  name manueldealmeida
+  serial-number TPLG620961F6
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 609
+  !
+ !
+ onu 22
+  serial-number TPLG1D0EA278
+  service-profile Service_router line-profile BRIDGE_BANDA_LARGA
+  rg-profile ROUTER-CLIENTES-609
+  snmp profile SNMP
+  rg-profile-override-settings
+   wan-pppoe-connection PPPoE-Clientes username marliadf password 1234
+  !
+ !
+ onu 23
+  name ibatibatorreipe
+  serial-number HWTC2b93dc3f
+  line-profile TRUNK
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 650
+  !
+ !
+ onu 24
+  name julianegda
+  serial-number HWTC4B97C63F
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 609
+  !
+ !
+ onu 25
+  name nayanamaia
+  serial-number HWTCDF14637B
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 609
+  !
+ !
+ onu 26
+  name dilenioro
+  serial-number HWTC3CD05E6F
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 609
+  !
+ !
+ onu 27
+  name milenatex
+  serial-number TPLG513AC408
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 609
+  !
+ !
+ onu 28
+  name wagnerm
+  serial-number TPLG51787360
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 609
+  !
+ !
+ onu 29
+  name marciaapa
+  serial-number HWTCE5B06A7F
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 609
+  !
+ !
+ onu 30
+  name samaradrc
+  serial-number HWTCF393F554
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 609
+  !
+ !
+ onu 39
+  name anapaulalb
+  serial-number HWTC024B3C92
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 609
+  !
+ !
+ onu 44
+  serial-number DACM919DFC80
+  service-profile Service_router line-profile BRIDGE_BANDA_LARGA
+  rg-profile ROUTER-CLIENTES-609
+  snmp profile SNMP
+  rg-profile-override-settings
+   wan-pppoe-connection PPPoE-Clientes username josemg password 1234
+  !
+ !
+ onu 45
+  serial-number DACM919E738C
+  service-profile Service_router line-profile BRIDGE_BANDA_LARGA
+  rg-profile ROUTER-CLIENTES-609
+  snmp profile SNMP
+  rg-profile-override-settings
+   wan-pppoe-connection PPPoE-Clientes username marialrs password 1234
+  !
+ !
+ onu 46
+  name gilsondm
+  serial-number HWTC1a5ad44e
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 609
+  !
+ !
+ onu 61
+  name ivanetesg
+  serial-number HWTCE69A1A4E
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 609
+  !
+ !
+ onu 62
+  name leandropm
+  serial-number HWTC863E0937
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 609
+  !
+ !
+ onu 63
+  name luanapa
+  serial-number HWTC793CBF4D
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 609
+  !
+ !
+ onu 71
+  name gilmards
+  serial-number HWTC71F3F75C
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 609
+  !
+ !
+ onu 78
+  name geraldaaf
+  serial-number HWTC86E24C78
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 609
+  !
+ !
+ onu 82
+  name nercinajdo
+  serial-number HWTC821A1645
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 609
+  !
+ !
+ onu 90
+  name daniloads
+  serial-number HWTC2537284E
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 609
+  !
+ !
+ onu 100
+  serial-number DACM91F18684
+  service-profile Service_router line-profile BRIDGE_BANDA_LARGA
+  rg-profile ROUTER-CLIENTES-609
+  snmp profile SNMP
+  rg-profile-override-settings
+   wan-pppoe-connection PPPoE-Clientes username rosenildaaf password 1234
+  !
+ !
+ onu 106
+  name julienegdae
+  serial-number HWTC67DB9F62
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 609
+  !
+ !
+ onu 117
+  name jovelinafs
+  serial-number HWTC7CD7468B
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 609
+  !
+ !
+ onu 120
+  serial-number TPLG84896F70
+  service-profile Service_router line-profile BRIDGE_BANDA_LARGA
+  rg-profile ROUTER-CLIENTES-609
+  snmp profile SNMP
+  rg-profile-override-settings
+   wan-pppoe-connection PPPoE-Clientes username martavieira password 1234
+  !
+ !
+ onu 125
+  name veronicaoliveira
+  serial-number HWTCB6BF2D8B
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 609
+  !
+ !
+!
+interface gpon 1/1/10
+ downstream-fec
+ no shutdown
+ onu 0
+  serial-number HWTCf67bc4a3
+  service-profile Service_router line-profile BRIDGE_BANDA_LARGA
+  rg-profile ROUTER-CLIENTES-610
+  snmp profile SNMP
+  rg-profile-override-settings
+   wan-pppoe-connection PPPoE-Clientes username mayaneas password 1234
+  !
+ !
+ onu 1
+  serial-number HWTC8cdc1fa4
+  service-profile Service_router line-profile BRIDGE_BANDA_LARGA
+  rg-profile ROUTER-CLIENTES-610
+  snmp profile SNMP
+  rg-profile-override-settings
+   wan-pppoe-connection PPPoE-Clientes username joaobatistaao password 1234
+  !
+ !
+ onu 2
+  name rhianffg
+  serial-number HWTC02bb6b92
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 610
+  !
+ !
+ onu 3
+  name wemersonss
+  serial-number HWTC22852d53
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 610
+  !
+ !
+ onu 4
+  serial-number HWTCc35157a4
+  service-profile Service_router line-profile BRIDGE_BANDA_LARGA
+  rg-profile ROUTER-CLIENTES-610
+  snmp profile SNMP
+  rg-profile-override-settings
+   wan-pppoe-connection PPPoE-Clientes username arthurgo password 1234
+  !
+ !
+ onu 5
+  serial-number HWTCb39af9a3
+  service-profile Service_router line-profile BRIDGE_BANDA_LARGA
+  rg-profile ROUTER-CLIENTES-610
+  snmp profile SNMP
+  rg-profile-override-settings
+   wan-pppoe-connection PPPoE-Clientes username roselyglo password 1234
+  !
+ !
+ onu 6
+  name andremc
+  serial-number HWTC8b645768
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 610
+  !
+ !
+ onu 7
+  name andreiarocha
+  serial-number TPLG7E94FB26
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 610
+  !
+ !
+ onu 8
+  name monicardp
+  serial-number HWTC025bbb92
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 610
+  !
+ !
+ onu 9
+  name ailtonso
+  serial-number HWTC02fa3792
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 610
+  !
+ !
+ onu 10
+  serial-number HWTCf67966a3
+  service-profile Service_router line-profile BRIDGE_BANDA_LARGA
+  rg-profile ROUTER-CLIENTES-610
+  snmp profile SNMP
+  rg-profile-override-settings
+   wan-pppoe-connection PPPoE-Clientes username leonardojafg password 1234
+  !
+ !
+ onu 11
+  name reginaldoad
+  serial-number HWTCd9347f85
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 610
+  !
+ !
+ onu 12
+  name kaiquemo
+  serial-number HWTCb39ae8a3
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 610
+  !
+ !
+ onu 13
+  serial-number HWTCb3a4ada3
+  service-profile Service_router line-profile BRIDGE_BANDA_LARGA
+  rg-profile ROUTER-CLIENTES-610
+  snmp profile SNMP
+  rg-profile-override-settings
+   wan-pppoe-connection PPPoE-Clientes username nildaicr password 1234
+  !
+ !
+ onu 14
+  name josermr
+  serial-number HWTCb4fda640
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 610
+  !
+ !
+ onu 15
+  name soniadmc
+  serial-number HWTC964A345F
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 610
+  !
+ !
+ onu 16
+  name clenildaramoss
+  serial-number TPLG7E94EF0C
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 610
+  !
+ !
+ onu 17
+  name amandaramos
+  serial-number TPLG7E94FA9E
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 610
+  !
+ !
+ onu 18
+  name josenicdc
+  serial-number HWTCA85E4A93
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 610
+  !
+ !
+ onu 19
+  name marcelomr
+  serial-number HWTCB1A4B781
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 610
+  !
+ !
+ onu 20
+  name grasielados
+  serial-number HWTC42BE0774
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 610
+  !
+ !
+ onu 21
+  serial-number TPLGD2A8B920
+  service-profile Service_router line-profile BRIDGE_BANDA_LARGA
+  rg-profile ROUTER-CLIENTES-610
+  snmp profile SNMP
+  rg-profile-override-settings
+   wan-pppoe-connection PPPoE-Clientes username flaviodossantos password 1234
+  !
+ !
+ onu 22
+  serial-number TPLG1D0EDDA8
+  service-profile Service_router line-profile BRIDGE_BANDA_LARGA
+  rg-profile ROUTER-CLIENTES-610
+  rg-profile-override-settings
+   wan-pppoe-connection PPPoE-Clientes username heltonado password 1234
+  !
+ !
+ onu 23
+  name joaobatistaao
+  serial-number TPLG1D0EDDE8
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 610
+  !
+ !
+!
+interface gpon 1/1/11
+ downstream-fec
+ no shutdown
+ onu 0
+  name edsonna
+  serial-number HWTC0c3767a2
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 611
+  !
+ !
+ onu 1
+  name brunaro
+  serial-number TPLG848EE6A0
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 611
+  !
+ !
+ onu 2
+  name flaviofc
+  serial-number HWTC86f4c678
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 611
+  !
+ !
+ onu 3
+  name adaiasf
+  serial-number HWTC65E3657D
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 611
+  !
+ !
+ onu 4
+  name nataliafp
+  serial-number TPLG7E94ECB9
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 611
+  !
+ !
+ onu 5
+  name genilsooli
+  serial-number HWTC07B88464
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 611
+  !
+ !
+ onu 6
+  name romildooc
+  serial-number HWTC08deac9a
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 611
+  !
+ !
+ onu 7
+  name geovanasoares
+  serial-number HWTC2F747066
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 611
+  !
+ !
+ onu 8
+  name raquelmda
+  serial-number HWTC401ae44d
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 611
+  !
+ !
+ onu 9
+  name marcosaol
+  serial-number HWTC02B0A592
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 611
+  !
+ !
+ onu 10
+  name michaelegc
+  serial-number HWTCB8148E7E
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 611
+  !
+ !
+ onu 11
+  serial-number DACM919DD174
+  service-profile Service_router line-profile BRIDGE_BANDA_LARGA
+  rg-profile ROUTER-CLIENTES-611
+  snmp profile SNMP
+  rg-profile-override-settings
+   wan-pppoe-connection PPPoE-Clientes username luanaaa password 1234
+  !
+ !
+ onu 12
+  name arianecsg
+  serial-number TPLG848C756B
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 611
+  !
+ !
+ onu 13
+  name pauloroberto
+  serial-number TPLG84633FFC
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 611
+  !
+ !
+ onu 14
+  serial-number TPLG890FA4C8
+  service-profile Service_router line-profile BRIDGE_BANDA_LARGA
+  rg-profile ROUTER-CLIENTES-611
+  snmp profile SNMP
+  rg-profile-override-settings
+   wan-pppoe-connection PPPoE-Clientes username edsonnad password 1234
+  !
+ !
+ onu 15
+  serial-number TPLG1D0E9940
+  service-profile Service_router line-profile BRIDGE_BANDA_LARGA
+  rg-profile ROUTER-CLIENTES-611
+  snmp profile SNMP
+  rg-profile-override-settings
+   wan-pppoe-connection PPPoE-Clientes username mariaapare password 1234
+  !
+ !
+ onu 16
+  name vanderlic
+  serial-number HWTC8d1f3168
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 611
+  !
+ !
+ onu 17
+  name marianaf
+  serial-number HWTCEA7C7247
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 611
+  !
+ !
+ onu 18
+  serial-number TPLG1567A558
+  service-profile Service_router line-profile BRIDGE_BANDA_LARGA
+  rg-profile ROUTER-CLIENTES-611
+  rg-profile-override-settings
+   wan-pppoe-connection PPPoE-Clientes username dayanegmd password 1234
+  !
+ !
+ onu 19
+  name adrianaapds
+  serial-number TPLG513AD965
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 611
+  !
+ !
+ onu 20
+  name osvairalves
+  serial-number TPLG513ACC32
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 611
+  !
+ !
+ onu 21
+  name elietesilva
+  serial-number TPLG5178760B
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 611
+  !
+ !
+ onu 22
+  name edilsonso
+  serial-number HWTC6D83EB4E
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 611
+  !
+ !
+ onu 30
+  name nayaramc
+  serial-number HWTC11108769
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 611
+  !
+ !
+ onu 34
+  name fabiomm
+  serial-number HWTC2B799F74
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 611
+  !
+ !
+ onu 35
+  name heriveltocm
+  serial-number HWTC64F8AE6F
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 611
+  !
+ !
+ onu 37
+  name laudiceiapf
+  serial-number VSOL009B2F3A
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 611
+  !
+ !
+ onu 38
+  name geosoares
+  serial-number HWTC28CF295F
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 611
+  !
+ !
+ onu 39
+  name flavianev
+  serial-number HWTC0C3730A2
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 611
+  !
+ !
+ onu 40
+  serial-number TPLG4A1C4CB8
+  service-profile Service_router line-profile BRIDGE_BANDA_LARGA
+  rg-profile ROUTER-CLIENTES-611
+  snmp profile SNMP
+  rg-profile-override-settings
+   wan-pppoe-connection PPPoE-Clientes username geovanasm password 1234
+  !
+ !
+ onu 41
+  serial-number TPLGE7CEA830
+  service-profile Service_router line-profile BRIDGE_BANDA_LARGA
+  rg-profile ROUTER-CLIENTES-611
+  snmp profile SNMP
+  rg-profile-override-settings
+   wan-pppoe-connection PPPoE-Clientes username jackests password 1234
+  !
+ !
+ onu 42
+  serial-number TPLGE7CDA488
+  service-profile Service_router line-profile BRIDGE_BANDA_LARGA
+  rg-profile ROUTER-CLIENTES-611
+  snmp profile SNMP
+  rg-profile-override-settings
+   wan-pppoe-connection PPPoE-Clientes username mariaserpa password 1234
+  !
+ !
+ onu 45
+  serial-number TPLGE7CE1CA0
+  service-profile Service_router line-profile BRIDGE_BANDA_LARGA
+  rg-profile ROUTER-CLIENTES-611
+  snmp profile SNMP
+  rg-profile-override-settings
+   wan-pppoe-connection PPPoE-Clientes username elianaaparecidam password 1234
+  !
+ !
+ onu 47
+  name veronicac
+  serial-number HWTCAAC0E1A3
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 611
+  !
+ !
+ onu 48
+  name sandraferreira
+  serial-number HWTCCE8CAF4B
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 611
+  !
+ !
+ onu 50
+  name lucienets
+  serial-number TPLG848C7AB2
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 611
+  !
+ !
+ onu 51
+  name sitelbraltda
+  serial-number TPLG848C75EE
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 611
+  !
+ !
+ onu 53
+  name anaclaudiadias
+  serial-number HWTC817CE986
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 611
+  !
+ !
+ onu 55
+  serial-number TPLGE7CEABB8
+  service-profile Service_router line-profile BRIDGE_BANDA_LARGA
+  rg-profile ROUTER-CLIENTES-611
+  snmp profile SNMP
+  rg-profile-override-settings
+   wan-pppoe-connection PPPoE-Clientes username mayarasilva password 1234
+  !
+ !
+!
+interface gpon 1/1/12
+ downstream-fec
+ no shutdown
+ onu 0
+  name rosilenes
+  serial-number TPLG7E94E9F9
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 612
+  !
+ !
+ onu 1
+  name cleuzelicd
+  serial-number HWTC02AB1F92
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 612
+  !
+ !
+ onu 2
+  name anacdsdias
+  serial-number TPLG51787A11
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 612
+  !
+ !
+ onu 3
+  name alicels
+  serial-number HWTC22E62C53
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 612
+  !
+ !
+ onu 4
+  name farlissonv
+  serial-number HWTC02E23292
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 612
+  !
+ !
+ onu 5
+  name wevertonhub
+  serial-number HWTC9DFC7568
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 612
+  !
+ !
+ onu 6
+  name gilmaxesbar
+  serial-number TPLG620963EF
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 612
+  !
+ !
+ onu 7
+  name vanildops
+  serial-number HWTCE6F71241
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 612
+  !
+ !
+ onu 9
+  name kelegomes
+  serial-number HWTCfda63238
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 612
+  !
+ !
+ onu 10
+  name deildop
+  serial-number HWTC7bdf6c8b
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 612
+  !
+ !
+ onu 11
+  name cpapa
+  serial-number HWTC027ABC92
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 612
+  !
+ !
+ onu 12
+  name alessandrosilva
+  serial-number TPLG6209756F
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 612
+  !
+ !
+ onu 14
+  name helddf
+  serial-number HWTC86EEE078
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 612
+  !
+ !
+ onu 15
+  serial-number TPLG15672970
+  service-profile Service_router line-profile BRIDGE_BANDA_LARGA
+  rg-profile ROUTER-CLIENTES-612
+  rg-profile-override-settings
+   wan-pppoe-connection PPPoE-Clientes username mariaemb password 1234
+  !
+ !
+ onu 16
+  name evelinaraujo
+  serial-number HWTCD263B864
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 612
+  !
+ !
+ onu 17
+  name renatados
+  serial-number TPLG513AA69A
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 612
+  !
+ !
+ onu 18
+  name edielisva
+  serial-number TPLG51786888
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 612
+  !
+ !
+ onu 19
+  name eduardasa
+  serial-number HWTCbc1a4b4e
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 612
+  !
+ !
+ onu 20
+  name carladcol
+  serial-number TPLG5178643A
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 612
+  !
+ !
+ onu 21
+  name cristinavdo
+  serial-number TPLG51786BA5
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 612
+  !
+ !
+ onu 22
+  name marcelacristina
+  serial-number HWTC7A58E678
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 612
+  !
+ !
+ onu 23
+  name cristinavdo
+  serial-number TPLG51786856
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 612
+  !
+ !
+ onu 26
+  name gilsong
+  serial-number HWTCDFCC0A47
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 612
+  !
+ !
+ onu 27
+  name brunags
+  serial-number HWTC5FDE695F
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 612
+  !
+ !
+ onu 29
+  serial-number DACM919E7338
+  service-profile Service_router line-profile BRIDGE_BANDA_LARGA
+  rg-profile ROUTER-CLIENTES-612
+  snmp profile SNMP
+  rg-profile-override-settings
+   wan-pppoe-connection PPPoE-Clientes username luciahss password 1234
+  !
+ !
+ onu 30
+  name marialss
+  serial-number HWTC2958533F
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 612
+  !
+ !
+ onu 31
+  name cristianovs
+  serial-number HWTCDC4DE85B
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 612
+  !
+ !
+ onu 37
+  name josesods
+  serial-number HWTCA099DA57
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 612
+  !
+ !
+ onu 43
+  name alessandrasds
+  serial-number HWTC0CAA715E
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 612
+  !
+ !
+ onu 46
+  name sirlenehr
+  serial-number HWTC014F785F
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 612
+  !
+ !
+ onu 47
+  name alziraads
+  serial-number HWTC2598E069
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 612
+  !
+ !
+ onu 48
+  serial-number TPLGE7CDCB80
+  service-profile Service_router line-profile BRIDGE_BANDA_LARGA
+  rg-profile ROUTER-CLIENTES-612
+  snmp profile SNMP
+  rg-profile-override-settings
+   wan-pppoe-connection PPPoE-Clientes username adeirml password 1234
+  !
+ !
+ onu 51
+  serial-number TPLGE7CE3978
+  service-profile Service_router line-profile BRIDGE_BANDA_LARGA
+  rg-profile ROUTER-CLIENTES-612
+  snmp profile SNMP
+  rg-profile-override-settings
+   wan-pppoe-connection PPPoE-Clientes username vandpf password 1234
+  !
+ !
+ onu 54
+  name gerlaniaff
+  serial-number HWTC0226FE92
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 612
+  !
+ !
+ onu 55
+  serial-number TPLG4A1C75D8
+  service-profile Service_router line-profile BRIDGE_BANDA_LARGA
+  rg-profile ROUTER-CLIENTES-612
+  snmp profile SNMP
+  rg-profile-override-settings
+   wan-pppoe-connection PPPoE-Clientes username franciscoma password 1234
+  !
+ !
+ onu 57
+  name antoniooswaldo
+  serial-number HWTCB25CD066
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 612
+  !
+ !
+ onu 58
+  name mariaam
+  serial-number HWTC2069495F
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 612
+  !
+ !
+ onu 59
+  serial-number TPLG848ED680
+  service-profile Service_router line-profile BRIDGE_BANDA_LARGA
+  rg-profile ROUTER-CLIENTES-612
+  snmp profile SNMP
+  rg-profile-override-settings
+   wan-pppoe-connection PPPoE-Clientes username fabiojsdc password 1234
+  !
+ !
+ onu 60
+  serial-number TPLG848EE5A8
+  service-profile Service_router line-profile BRIDGE_BANDA_LARGA
+  rg-profile ROUTER-CLIENTES-612
+  snmp profile SNMP
+  rg-profile-override-settings
+   wan-pppoe-connection PPPoE-Clientes username marlydias password 1234
+  !
+ !
+ onu 61
+  serial-number TPLG848EE5E8
+  service-profile Service_router line-profile BRIDGE_BANDA_LARGA
+  rg-profile ROUTER-CLIENTES-612
+  snmp profile SNMP
+  rg-profile-override-settings
+   wan-pppoe-connection PPPoE-Clientes username halymg password 1234
+  !
+ !
+ onu 62
+  serial-number TPLGA1499C58
+  service-profile Service_router line-profile BRIDGE_BANDA_LARGA
+  rg-profile ROUTER-CLIENTES-612
+  snmp profile SNMP
+  rg-profile-override-settings
+   wan-pppoe-connection PPPoE-Clientes username polianac password 1234
+  !
+ !
+ onu 63
+  name ronaldoes
+  serial-number HWTC05CCC660
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 612
+  !
+ !
+ onu 64
+  name fabriciasb
+  serial-number HWTCDC173B64
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 612
+  !
+ !
+ onu 66
+  name mariadapenha
+  serial-number TPLG848C499D
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 612
+  !
+ !
+!
+interface gpon 1/1/13
+ downstream-fec
+ no shutdown
+ onu 0
+  name devair
+  serial-number HWTCB25AA53A
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 613
+  !
+ !
+ onu 1
+  name eneias
+  serial-number HWTC88566f85
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 613
+  !
+ !
+ onu 2
+  name heberthc
+  serial-number HWTC86f4ee78
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 613
+  !
+ !
+ onu 3
+  name leilamarafs
+  serial-number HWTC839DD770
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 613
+  !
+ !
+ onu 4
+  name josiasss
+  serial-number HWTC02e79492
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 613
+  !
+ !
+ onu 5
+  name rosanafl
+  serial-number HWTC7eca123b
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 613
+  !
+ !
+ onu 6
+  name florentinoes
+  serial-number TPLG51788492
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 613
+  !
+ !
+ onu 7
+  name neuzig
+  serial-number TPLG1567B9F0
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 613
+  !
+ !
+ onu 14
+  name edianamds
+  serial-number HWTC045D1B44
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 613
+  !
+ !
+ onu 18
+  serial-number TPLGA1A73990
+  service-profile Service_router line-profile BRIDGE_BANDA_LARGA
+  rg-profile ROUTER-CLIENTES-613
+  snmp profile SNMP
+  rg-profile-override-settings
+   wan-pppoe-connection PPPoE-Clientes username ivanildacj password 1234
+  !
+ !
+ onu 19
+  name ameliamqs
+  serial-number HWTCBFD9319A
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 613
+  !
+ !
+ onu 21
+  name raquelmds
+  serial-number HWTCFAE1315A
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 613
+  !
+ !
+ onu 23
+  serial-number TPLG84897DE8
+  service-profile Service_router line-profile BRIDGE_BANDA_LARGA
+  rg-profile ROUTER-CLIENTES-613
+  snmp profile SNMP
+  rg-profile-override-settings
+   wan-pppoe-connection PPPoE-Clientes username sirlenebv password 1234
+  !
+ !
+ onu 24
+  name iranimfds
+  serial-number TDTC35381F10
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 613
+  !
+ !
+!
+interface gpon 1/1/14
+ downstream-fec
+ no shutdown
+ onu 0
+  name marcosvsf
+  serial-number HWTC05CB9D60
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 614
+  !
+ !
+ onu 1
+  name fabiojg
+  serial-number HWTCbfda739a
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 614
+  !
+ !
+ onu 2
+  name rosilanea
+  serial-number HWTC02431c92
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 614
+  !
+ !
+ onu 3
+  serial-number TPLG4A1CC190
+  service-profile Service_router line-profile BRIDGE_BANDA_LARGA
+  rg-profile ROUTER-CLIENTES-614
+  rg-profile-override-settings
+   wan-pppoe-connection PPPoE-Clientes username antoniopereira password 1234
+  !
+ !
+ onu 4
+  name antonbs
+  serial-number HWTC53E27562
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 614
+  !
+ !
+ onu 5
+  name leiars
+  serial-number HWTC28f9fa8d
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 614
+  !
+ !
+ onu 6
+  name alverinaan
+  serial-number HWTCD6B8A07A
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 614
+  !
+ !
+ onu 7
+  name cristinasa
+  serial-number HWTC30F4BE79
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 614
+  !
+ !
+ onu 8
+  name eliana
+  serial-number HWTCe9e7a47d
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 614
+  !
+ !
+ onu 9
+  name wesleyrs
+  serial-number HWTC3dd7bf84
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 614
+  !
+ !
+ onu 10
+  name janainasn
+  serial-number TDTC35381E68
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 614
+  !
+ !
+ onu 11
+  serial-number TPLGD2A8BA00
+  service-profile Service_router line-profile BRIDGE_BANDA_LARGA
+  rg-profile ROUTER-CLIENTES-603
+  snmp profile SNMP
+  rg-profile-override-settings
+   wan-pppoe-connection PPPoE-Clientes username sidineiasilva password 1234
+  !
+ !
+ onu 12
+  serial-number TPLG51AC9390
+  service-profile Service_router line-profile BRIDGE_BANDA_LARGA
+  rg-profile ROUTER-CLIENTES-614
+  rg-profile-override-settings
+   wan-pppoe-connection PPPoE-Clientes username juvenalba password 1234
+  !
+ !
+ onu 13
+  name mariaapd
+  serial-number HWTC66749A7D
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 614
+  !
+ !
+ onu 15
+  serial-number TPLG1D0EED20
+  service-profile Service_router line-profile BRIDGE_BANDA_LARGA
+  rg-profile ROUTER-CLIENTES-614
+  rg-profile-override-settings
+   wan-pppoe-connection PPPoE-Clientes username thaianesg password 1234
+  !
+ !
+ onu 16
+  serial-number TPLG1507B7E8
+  service-profile Service_router line-profile BRIDGE_BANDA_LARGA
+  rg-profile ROUTER-CLIENTES-614
+  rg-profile-override-settings
+   wan-pppoe-connection PPPoE-Clientes username mariadlr password 1234
+  !
+ !
+ onu 17
+  name fabianafsp
+  serial-number HWTC23DE4D45
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 614
+  !
+ !
+ onu 18
+  name tainaraam
+  serial-number HWTC904E964E
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 614
+  !
+ !
+ onu 19
+  name neusimontoni
+  serial-number TPLG517874FB
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 614
+  !
+ !
+ onu 20
+  name nelcinasp
+  serial-number TDTC35382A68
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 614
+  !
+ !
+ onu 21
+  name izaquelopes
+  serial-number TPLG5178716C
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 614
+  !
+ !
+ onu 22
+  name pjs
+  serial-number TPLG51787176
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 614
+  !
+ !
+ onu 24
+  name divaab
+  serial-number TPLG848C7AB0
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 614
+  !
+ !
+!
+interface gpon 1/1/15
+ downstream-fec
+ no shutdown
+ onu 0
+  name rosimere
+  serial-number HWTCD8C49D40
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 615
+  !
+ !
+ onu 1
+  name igrejaiba
+  serial-number HWTCAFCF7057
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 615
+  !
+ !
+ onu 2
+  serial-number TPLG1D0EB628
+  service-profile Service_router line-profile BRIDGE_BANDA_LARGA
+  rg-profile ROUTER-CLIENTES-615
+  snmp profile SNMP
+  rg-profile-override-settings
+   wan-pppoe-connection PPPoE-Clientes username euzilenepds password 1234
+  !
+ !
+ onu 3
+  name vilmarmello
+  serial-number HWTCAB12003A
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 615
+  !
+ !
+ onu 4
+  name mariamendes
+  serial-number HWTCEF828251
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 615
+  !
+ !
+ onu 5
+  name joaomn
+  serial-number HWTCD086FF17
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 615
+  !
+ !
+ onu 6
+  name juracimou
+  serial-number HWTC42BB6974
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 615
+  !
+ !
+ onu 7
+  name lucianejd
+  serial-number HWTC01CA6A68
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 615
+  !
+ !
+ onu 8
+  name suelensilva
+  serial-number TPLG51786880
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 615
+  !
+ !
+ onu 9
+  name elessandraferreira
+  serial-number TPLG513AA696
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 615
+  !
+ !
+ onu 10
+  name suelemmerisio
+  serial-number TPLG513AA7FB
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 615
+  !
+ !
+ onu 11
+  name josemanoel
+  serial-number TPLG513AD919
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 615
+  !
+ !
+ onu 12
+  name jefersonss
+  serial-number HWTCED1EBC75
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 615
+  !
+ !
+ onu 13
+  name cristianomp
+  serial-number HWTC4736795C
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 615
+  !
+ !
+ onu 17
+  name juneidast
+  serial-number HWTC55532D62
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 615
+  !
+ !
+ onu 20
+  name marcelotrin
+  serial-number HWTC033EDA53
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 615
+  !
+ !
+ onu 21
+  name marciagdos
+  serial-number HWTC99A7B668
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 615
+  !
+ !
+ onu 25
+  name felixbta
+  serial-number TDTC35382C30
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 615
+  !
+ !
+ onu 28
+  serial-number TPLG4A1CC690
+  service-profile Service_router line-profile BRIDGE_BANDA_LARGA
+  rg-profile ROUTER-CLIENTES-615
+  snmp profile SNMP
+  rg-profile-override-settings
+   wan-pppoe-connection PPPoE-Clientes username jessicavdc password 1234
+  !
+ !
+!
+interface gpon 1/1/16
+ downstream-fec
+ no shutdown
+ onu 0
+  name brunocarvalho
+  serial-number HWTC1CA0933F
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 616
+  !
+ !
+ onu 1
+  name elienefon
+  serial-number HWTC273E0879
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 616
+  !
+ !
+ onu 2
+  name dayanafpl
+  serial-number HWTC8c88e656
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 616
+  !
+ !
+ onu 3
+  name celioat
+  serial-number HWTC8b4bcf68
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 616
+  !
+ !
+ onu 4
+  name antonioreis
+  serial-number TPLG7E94FAA9
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 616
+  !
+ !
+ onu 5
+  serial-number TPLG4A1CC960
+  service-profile Service_router line-profile BRIDGE_BANDA_LARGA
+  rg-profile ROUTER-CLIENTES-616
+  snmp profile SNMP
+  rg-profile-override-settings
+   wan-pppoe-connection PPPoE-Clientes username veronicams password 1234
+  !
+ !
+ onu 6
+  name midiards
+  serial-number HWTC79D2A245
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 616
+  !
+ !
+ onu 7
+  serial-number DACM91F16D88
+  service-profile Service_router line-profile BRIDGE_BANDA_LARGA
+  rg-profile ROUTER-CLIENTES-616
+  rg-profile-override-settings
+   wan-pppoe-connection PPPoE-Clientes username geiusama password 1234
+  !
+ !
+ onu 8
+  name abctintas
+  serial-number TPLG1507B4A0
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 616
+  !
+ !
+ onu 9
+  name luciahelena
+  serial-number HWTC8F32077D
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 616
+  !
+ !
+ onu 10
+  name deguimarqd
+  serial-number HWTC7EE4DC8B
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 616
+  !
+ !
+ onu 11
+  name sandramaria
+  serial-number TPLG7EA52F21
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 616
+  !
+ !
+ onu 12
+  name sandramds
+  serial-number HWTCD9E1A0A8
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 616
+  !
+ !
+ onu 13
+  name noemecosta
+  serial-number TDTC35381D90
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 616
+  !
+ !
+ onu 14
+  serial-number TPLG4A1B9500
+  service-profile Service_router line-profile BRIDGE_BANDA_LARGA
+  rg-profile ROUTER-CLIENTES-616
+  rg-profile-override-settings
+   wan-pppoe-connection PPPoE-Clientes username valdeiros password 1234
+  !
+ !
+ onu 15
+  name felipesdf
+  serial-number HWTC7DC6058B
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 616
+  !
+ !
+ onu 17
+  name meyreamb
+  serial-number HWTC022BAF92
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 616
+  !
+ !
+ onu 19
+  name valoniasn
+  serial-number HWTCC34EF56C
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 616
+  !
+ !
+ onu 20
+  name gildasp
+  serial-number HWTC7EEE483B
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 616
+  !
+ !
+ onu 21
+  serial-number TPLG4A1C4DF8
+  service-profile Service_router line-profile BRIDGE_BANDA_LARGA
+  rg-profile ROUTER-CLIENTES-616
+  snmp profile SNMP
+  rg-profile-override-settings
+   wan-pppoe-connection PPPoE-Clientes username andressalg password 1234
+  !
+ !
+ onu 22
+  name lotericaiba
+  serial-number TPLG848C769B
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 616
+  !
+ !
+ onu 23
+  name mrrc
+  serial-number HWTCF6C8ED09
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 616
+  !
+ !
+ onu 24
+  name guilhermesi
+  serial-number HWTCB17164A4
+  service-profile Service_bridge line-profile BRIDGE_BANDA_LARGA
+  snmp profile SNMP
+  ethernet 1
+   negotiation
+   no shutdown
+   native vlan vlan-id 616
+  !
+ !
+!
+hostname OLT-IBATIBA
+ssh-server port 8110
+ssh-server max-connections 10
+telnet-server enabled
+telnet-server max-connections 3
+profile gpon bandwidth-profile CUST-CAIXA
+ traffic type-3 assured-bw 10240 max-bw 1106944
+!
+profile gpon bandwidth-profile HOTSPOT
+ traffic type-3 assured-bw 5120 max-bw 1106816
+!
+profile gpon bandwidth-profile PPPoE-1G
+ traffic type-4 max-bw 1106944
+!
+profile gpon bandwidth-profile dedicados-1G
+ traffic type-4 max-bw 1106944
+!
+profile gpon line-profile BRIDGE_BANDA_LARGA
+ upstream-fec
+ tcont 1 bandwidth-profile PPPoE-1G
+ gem 1
+  tcont 1 priority 0
+  map CLIENTES
+   ethernet any vlan any cos any
+  !
+ !
+!
+profile gpon line-profile CUST-CAIXA
+ upstream-fec
+ tcont 1 bandwidth-profile CUST-CAIXA
+ gem 1
+  tcont 1 priority 0
+  map DEDICADO
+   ethernet any vlan 660 cos 0
+  !
+ !
+!
+profile gpon line-profile HOTSPOT
+ upstream-fec
+ tcont 1 bandwidth-profile HOTSPOT
+ gem 1
+  tcont 1 priority 0
+  map HOTSPOT
+   ethernet any vlan 61 cos any
+  !
+ !
+!
+profile gpon line-profile HOTSPOT-64
+ upstream-fec
+ tcont 1 bandwidth-profile HOTSPOT
+ gem 1
+  tcont 1 priority 0
+  map HOTSPOT-64
+   ethernet any vlan 64 cos any
+  !
+ !
+!
+profile gpon line-profile ROUTER_BANDA_LARGA
+ upstream-fec
+ tcont 1 bandwidth-profile PPPoE-1G
+ gem 1
+  tcont 1 priority 0
+  map PPPoE
+   veip 1 vlan any cos any
+  !
+ !
+!
+profile gpon line-profile TRUNK
+ upstream-fec
+ tcont 1 bandwidth-profile dedicados-1G
+ gem 1
+  tcont 1 priority 0
+  map TRUNK
+   ethernet any vlan any cos any
+  !
+ !
+!
+profile gpon onu-profile CUST-CAIXA
+ ethernet adaptive
+ pots adaptive
+ veip 1
+!
+profile gpon onu-profile DM-986
+ ethernet adaptive
+ pots adaptive
+ veip 1
+!
+profile gpon onu-profile ONU_BRIDGE
+ ethernet adaptive
+!
+profile gpon onu-profile ONU_ROUTER
+ ethernet adaptive
+ pots adaptive
+!
+profile gpon rg-profile CUST-CAIXA
+ wan-bridge-connection CUST-CAIXA
+  vlan-mux vlan 660
+  no multicast-source igmp
+  itf-grouping
+   igmp-snooping
+   ports eth1 vlan 660
+  !
+ !
+!
+profile gpon rg-profile RG-ROUTER
+ wan-bridge-connection CUST-CAIXA
+  vlan-mux vlan 660
+  no multicast-source igmp
+  itf-grouping
+   igmp-snooping
+   ports eth1 vlan 660
+  !
+ !
+ wan-bridge-connection VLAN-150
+  vlan-mux vlan 150
+  no multicast-source igmp
+  itf-grouping
+   igmp-snooping
+   ports eth1 vlan 150
+  !
+ !
+!
+profile gpon rg-profile ROUTER-CLIENTES-506
+ wan-pppoe-connection PPPoE-Clientes
+  vlan-mux vlan 506 cos 0
+  nat
+  no fullcone-nat
+  firewall
+  no multicast-proxy igmp
+  no multicast-source igmp
+  auth-type auto
+  username mpnet-cliente
+  password mpnet-cliente
+ !
+ wlan wl0
+  ssid custom WIFI-MPNET
+  network-auth wpa2/wpa-psk
+  wpa-encryption tkip+aes
+  wpa-passphrase a1b2c3d4e5
+ !
+!
+profile gpon rg-profile ROUTER-CLIENTES-601
+ wan-pppoe-connection PPPoE-Clientes
+  vlan-mux vlan 601 cos 0
+  nat
+  no fullcone-nat
+  firewall
+  no multicast-proxy igmp
+  no multicast-source igmp
+  auth-type auto
+  username mpnet-cliente
+  password mpnet-cliente
+ !
+ wlan wl0
+  ssid custom WIFI-MPNET
+  network-auth wpa2/wpa-psk
+  wpa-encryption tkip+aes
+  wpa-passphrase a1b2c3d4e5
+ !
+!
+profile gpon rg-profile ROUTER-CLIENTES-602
+ wan-pppoe-connection PPPoE-Clientes
+  vlan-mux vlan 602 cos 0
+  nat
+  no fullcone-nat
+  firewall
+  no multicast-proxy igmp
+  no multicast-source igmp
+  auth-type auto
+  username mpnet-cliente
+  password mpnet-cliente
+ !
+ wlan wl0
+  ssid custom WIFI-MPNET
+  network-auth wpa2/wpa-psk
+  wpa-encryption tkip+aes
+  wpa-passphrase a1b2c3d4e5
+ !
+!
+profile gpon rg-profile ROUTER-CLIENTES-603
+ wan-pppoe-connection PPPoE-Clientes
+  vlan-mux vlan 603 cos 0
+  nat
+  no fullcone-nat
+  firewall
+  no multicast-proxy igmp
+  no multicast-source igmp
+  auth-type auto
+  username mpnet-cliente
+  password mpnet-cliente
+ !
+ wlan wl0
+  ssid custom WIFI-MPNET
+  network-auth wpa2/wpa-psk
+  wpa-encryption tkip+aes
+  wpa-passphrase a1b2c3d4e5
+ !
+!
+profile gpon rg-profile ROUTER-CLIENTES-604
+ wan-pppoe-connection PPPoE-Clientes
+  vlan-mux vlan 604 cos 0
+  nat
+  no fullcone-nat
+  firewall
+  no multicast-proxy igmp
+  no multicast-source igmp
+  auth-type auto
+  username mpnet-cliente
+  password mpnet-cliente
+ !
+ wlan wl0
+  ssid custom WIFI-MPNET
+  network-auth wpa2/wpa-psk
+  wpa-encryption tkip+aes
+  wpa-passphrase a1b2c3d4e5
+ !
+!
+profile gpon rg-profile ROUTER-CLIENTES-605
+ wan-pppoe-connection PPPoE-Clientes
+  vlan-mux vlan 605 cos 0
+  nat
+  no fullcone-nat
+  firewall
+  no multicast-proxy igmp
+  no multicast-source igmp
+  auth-type auto
+  username mpnet-cliente
+  password mpnet-cliente
+ !
+ wlan wl0
+  ssid custom WIFI-MPNET
+  network-auth wpa2/wpa-psk
+  wpa-encryption tkip+aes
+  wpa-passphrase a1b2c3d4e5
+ !
+!
+profile gpon rg-profile ROUTER-CLIENTES-606
+ wan-pppoe-connection PPPoE-Clientes
+  vlan-mux vlan 606 cos 0
+  nat
+  no fullcone-nat
+  firewall
+  no multicast-proxy igmp
+  no multicast-source igmp
+  auth-type auto
+  username mpnet-cliente
+  password mpnet-cliente
+ !
+ wlan wl0
+  ssid custom WIFI-MPNET
+  network-auth wpa2/wpa-psk
+  wpa-encryption tkip+aes
+  wpa-passphrase a1b2c3d4e5
+ !
+!
+profile gpon rg-profile ROUTER-CLIENTES-607
+ wan-pppoe-connection PPPoE-Clientes
+  vlan-mux vlan 607 cos 0
+  nat
+  no fullcone-nat
+  firewall
+  no multicast-proxy igmp
+  no multicast-source igmp
+  auth-type auto
+  username mpnet-cliente
+  password mpnet-cliente
+ !
+ wlan wl0
+  ssid custom WIFI-MPNET
+  network-auth wpa2/wpa-psk
+  wpa-encryption tkip+aes
+  wpa-passphrase a1b2c3d4e5
+ !
+!
+profile gpon rg-profile ROUTER-CLIENTES-608
+ wan-pppoe-connection PPPoE-Clientes
+  vlan-mux vlan 608 cos 0
+  nat
+  no fullcone-nat
+  firewall
+  no multicast-proxy igmp
+  no multicast-source igmp
+  auth-type auto
+  username mpnet-cliente
+  password mpnet-cliente
+ !
+ wlan wl0
+  ssid custom WIFI-MPNET
+  network-auth wpa2/wpa-psk
+  wpa-encryption tkip+aes
+  wpa-passphrase a1b2c3d4e5
+ !
+!
+profile gpon rg-profile ROUTER-CLIENTES-609
+ wan-pppoe-connection PPPoE-Clientes
+  vlan-mux vlan 609 cos 0
+  nat
+  no fullcone-nat
+  firewall
+  no multicast-proxy igmp
+  no multicast-source igmp
+  auth-type auto
+  username mpnet-cliente
+  password mpnet-cliente
+ !
+ wlan wl0
+  ssid custom WIFI-MPNET
+  network-auth wpa2/wpa-psk
+  wpa-encryption tkip+aes
+  wpa-passphrase a1b2c3d4e5
+ !
+!
+profile gpon rg-profile ROUTER-CLIENTES-610
+ wan-pppoe-connection PPPoE-Clientes
+  vlan-mux vlan 610 cos 0
+  nat
+  no fullcone-nat
+  firewall
+  no multicast-proxy igmp
+  no multicast-source igmp
+  auth-type auto
+  username mpnet-cliente
+  password mpnet-cliente
+ !
+ wlan wl0
+  ssid custom WIFI-MPNET
+  network-auth wpa2/wpa-psk
+  wpa-encryption tkip+aes
+  wpa-passphrase a1b2c3d4e5
+ !
+!
+profile gpon rg-profile ROUTER-CLIENTES-611
+ wan-pppoe-connection PPPoE-Clientes
+  vlan-mux vlan 611 cos 0
+  nat
+  no fullcone-nat
+  firewall
+  no multicast-proxy igmp
+  no multicast-source igmp
+  auth-type auto
+  username mpnet-cliente
+  password mpnet-cliente
+ !
+ wlan wl0
+  ssid custom WIFI-MPNET
+  network-auth wpa2/wpa-psk
+  wpa-encryption tkip+aes
+  wpa-passphrase a1b2c3d4e5
+ !
+!
+profile gpon rg-profile ROUTER-CLIENTES-612
+ wan-pppoe-connection PPPoE-Clientes
+  vlan-mux vlan 612 cos 0
+  nat
+  no fullcone-nat
+  firewall
+  no multicast-proxy igmp
+  no multicast-source igmp
+  auth-type auto
+  username mpnet-cliente
+  password mpnet-cliente
+ !
+ wlan wl0
+  ssid custom WIFI-MPNET
+  network-auth wpa2/wpa-psk
+  wpa-encryption tkip+aes
+  wpa-passphrase a1b2c3d4e5
+ !
+!
+profile gpon rg-profile ROUTER-CLIENTES-613
+ wan-pppoe-connection PPPoE-Clientes
+  vlan-mux vlan 613 cos 0
+  nat
+  no fullcone-nat
+  firewall
+  no multicast-proxy igmp
+  no multicast-source igmp
+  auth-type auto
+  username mpnet-cliente
+  password mpnet-cliente
+ !
+ wlan wl0
+  ssid custom WIFI-MPNET
+  network-auth wpa2/wpa-psk
+  wpa-encryption tkip+aes
+  wpa-passphrase a1b2c3d4e5
+ !
+!
+profile gpon rg-profile ROUTER-CLIENTES-614
+ wan-pppoe-connection PPPoE-Clientes
+  vlan-mux vlan 614 cos 0
+  nat
+  no fullcone-nat
+  firewall
+  no multicast-proxy igmp
+  no multicast-source igmp
+  auth-type auto
+  username mpnet-cliente
+  password mpnet-cliente
+ !
+ wlan wl0
+  ssid custom WIFI-MPNET
+  network-auth wpa2/wpa-psk
+  wpa-encryption tkip+aes
+  wpa-passphrase a1b2c3d4e5
+ !
+!
+profile gpon rg-profile ROUTER-CLIENTES-615
+ wan-pppoe-connection PPPoE-Clientes
+  vlan-mux vlan 615 cos 0
+  nat
+  no fullcone-nat
+  firewall
+  no multicast-proxy igmp
+  no multicast-source igmp
+  auth-type auto
+  username mpnet-cliente
+  password mpnet-cliente
+ !
+ wlan wl0
+  ssid custom WIFI-MPNET
+  network-auth wpa2/wpa-psk
+  wpa-encryption tkip+aes
+  wpa-passphrase a1b2c3d4e5
+ !
+!
+profile gpon rg-profile ROUTER-CLIENTES-616
+ wan-pppoe-connection PPPoE-Clientes
+  vlan-mux vlan 616 cos 0
+  nat
+  no fullcone-nat
+  firewall
+  no multicast-proxy igmp
+  no multicast-source igmp
+  auth-type auto
+  username mpnet-cliente
+  password mpnet-cliente
+ !
+ wlan wl0
+  ssid custom WIFI-MPNET
+  network-auth wpa2/wpa-psk
+  wpa-encryption tkip+aes
+  wpa-passphrase a1b2c3d4e5
+ !
+!
+profile gpon service-profile CUST-CAIXA
+ vlan-mapping CUST-CAIXA symmetric ethernet 1-4 match vlan vlan-id 660 cos 0 action vlan add vlan-id copy-vlan cos 0
+!
+profile gpon service-profile DM-986
+ onu-profile DM-986
+!
+profile gpon service-profile Service_bridge
+ onu-profile ONU_BRIDGE
+!
+profile gpon service-profile Service_router
+ onu-profile ONU_ROUTER
+!
+profile gpon snmp-profile SNMP
+ if-alias
+ if-name
+ if-type
+ if-descr
+ if-admin-status
+ if-oper-status
+ if-onu-power-rx
+ statistics-in-bw-usage
+ statistics-out-bw-usage
+!
+service vlan 61
+ type n:1
+!
+service vlan 601
+ type n:1
+!
+service vlan 602
+ type n:1
+!
+service vlan 603
+ type n:1
+!
+service vlan 604
+ type n:1
+!
+service vlan 605
+ type n:1
+!
+service vlan 606
+ type n:1
+!
+service vlan 607
+ type n:1
+!
+service vlan 608
+ type n:1
+!
+service vlan 609
+ type n:1
+!
+service vlan 610
+ type n:1
+!
+service vlan 611
+ type n:1
+!
+service vlan 612
+ type n:1
+!
+service vlan 613
+ type n:1
+!
+service vlan 614
+ type n:1
+!
+service vlan 615
+ type n:1
+!
+service vlan 616
+ type n:1
+!
+service vlan 650
+ type tls
+!
+service vlan 660
+ type tls
+!
+dhcp l2-relay circuit-id format <hostname> eth <oltSlot>/<panelPort>/<onuId>/<onuSlot>/<gemPort>:<svlan>
+dhcp l2-relay vlan 61
+!
+gpon 1/1
+ onu-auth-method serial-number
+ aes-key-exchange 3600
+!
+loopback-detection
+ destination-address alternative
+!
+lldp
+ interface gigabit-ethernet-1/1/1
+  admin-status tx-and-rx
+  no notification
+ !
+ interface gigabit-ethernet-1/1/2
+  admin-status tx-and-rx
+  notification
+ !
+ interface ten-gigabit-ethernet-1/1/1
+  admin-status tx-and-rx
+  no notification
+ !
+ interface ten-gigabit-ethernet-1/1/2
+  admin-status tx-and-rx
+  no notification
+ !
+!
+mac-address-table
+ aging-time 600
+!
+service-port 1
+ gpon 1/1/6 onu 6 gem 1 match vlan vlan-id 606 action vlan replace vlan-id 606
+!
+service-port 2
+ gpon 1/1/9 onu 3 gem 1 match vlan vlan-id 609 action vlan replace vlan-id 609
+!
+service-port 3
+ gpon 1/1/1 onu 0 gem 1 match vlan vlan-id 601 action vlan replace vlan-id 601
+!
+service-port 4
+ gpon 1/1/1 onu 1 gem 1 match vlan vlan-id 601 action vlan replace vlan-id 601
+!
+service-port 5
+ gpon 1/1/4 onu 3 gem 1 match vlan vlan-id 604 action vlan replace vlan-id 604
+!
+service-port 6
+ gpon 1/1/11 onu 1 gem 1 match vlan vlan-id 611 action vlan replace vlan-id 611
+!
+service-port 7
+ gpon 1/1/10 onu 7 gem 1 match vlan vlan-id 610 action vlan replace vlan-id 610
+!
+service-port 8
+ gpon 1/1/1 onu 5 gem 1 match vlan vlan-id 601 action vlan replace vlan-id 601
+!
+service-port 9
+ gpon 1/1/1 onu 6 gem 1 match vlan vlan-id 601 action vlan replace vlan-id 601
+!
+service-port 10
+ gpon 1/1/1 onu 2 gem 1 match vlan vlan-id 601 action vlan replace vlan-id 601
+!
+service-port 11
+ gpon 1/1/1 onu 8 gem 1 match vlan vlan-id 601 action vlan replace vlan-id 601
+!
+service-port 12
+ gpon 1/1/1 onu 9 gem 1 match vlan vlan-id 601 action vlan replace vlan-id 601
+!
+service-port 13
+ gpon 1/1/9 onu 5 gem 1 match vlan vlan-id 609 action vlan replace vlan-id 609
+!
+service-port 14
+ gpon 1/1/1 onu 11 gem 1 match vlan vlan-id 601 action vlan replace vlan-id 601
+!
+service-port 15
+ gpon 1/1/16 onu 24 gem 1 match vlan vlan-id 616 action vlan replace vlan-id 616
+!
+service-port 16
+ gpon 1/1/2 onu 1 gem 1 match vlan vlan-id 602 action vlan replace vlan-id 602
+!
+service-port 17
+ gpon 1/1/12 onu 7 gem 1 match vlan vlan-id 612 action vlan replace vlan-id 612
+!
+service-port 18
+ gpon 1/1/1 onu 3 gem 1 match vlan vlan-id 601 action vlan replace vlan-id 601
+!
+service-port 19
+ gpon 1/1/2 onu 4 gem 1 match vlan vlan-id 602 action vlan replace vlan-id 602
+!
+service-port 20
+ gpon 1/1/14 onu 6 gem 1 match vlan vlan-id 614 action vlan replace vlan-id 614
+!
+service-port 21
+ gpon 1/1/14 onu 0 gem 1 match vlan vlan-id 614 action vlan replace vlan-id 614
+!
+service-port 22
+ gpon 1/1/2 onu 7 gem 1 match vlan vlan-id 602 action vlan replace vlan-id 602
+!
+service-port 23
+ gpon 1/1/16 onu 19 gem 1 match vlan vlan-id 616 action vlan replace vlan-id 616
+!
+service-port 24
+ gpon 1/1/16 onu 8 gem 1 match vlan vlan-id 616 action vlan replace vlan-id 616
+!
+service-port 25
+ gpon 1/1/16 onu 20 gem 1 match vlan vlan-id 616 action vlan replace vlan-id 616
+!
+service-port 26
+ gpon 1/1/4 onu 0 gem 1 match vlan vlan-id 604 action vlan replace vlan-id 604
+!
+service-port 27
+ gpon 1/1/9 onu 117 gem 1 match vlan vlan-id 609 action vlan replace vlan-id 609
+!
+service-port 28
+ gpon 1/1/4 onu 2 gem 1 match vlan vlan-id 604 action vlan replace vlan-id 604
+!
+service-port 29
+ gpon 1/1/3 onu 3 gem 1 match vlan vlan-id 603 action vlan replace vlan-id 603
+!
+service-port 30
+ gpon 1/1/6 onu 1 gem 1 match vlan vlan-id 606 action vlan replace vlan-id 606
+!
+service-port 31
+ gpon 1/1/12 onu 2 gem 1 match vlan vlan-id 612 action vlan replace vlan-id 612
+!
+service-port 32
+ gpon 1/1/5 onu 22 gem 1 match vlan vlan-id 605 action vlan replace vlan-id 605
+!
+service-port 33
+ gpon 1/1/4 onu 7 gem 1 match vlan vlan-id 604 action vlan replace vlan-id 604
+!
+service-port 34
+ gpon 1/1/11 onu 4 gem 1 match vlan vlan-id 611 action vlan replace vlan-id 611
+!
+service-port 35
+ gpon 1/1/4 onu 9 gem 1 match vlan vlan-id 604 action vlan replace vlan-id 604
+!
+service-port 36
+ gpon 1/1/4 onu 10 gem 1 match vlan vlan-id 604 action vlan replace vlan-id 604
+!
+service-port 37
+ gpon 1/1/5 onu 0 gem 1 match vlan vlan-id 605 action vlan replace vlan-id 605
+!
+service-port 38
+ gpon 1/1/7 onu 0 gem 1 match vlan vlan-id 607 action vlan replace vlan-id 607
+!
+service-port 39
+ gpon 1/1/5 onu 2 gem 1 match vlan vlan-id 605 action vlan replace vlan-id 605
+!
+service-port 40
+ gpon 1/1/16 onu 0 gem 1 match vlan vlan-id 616 action vlan replace vlan-id 616
+!
+service-port 41
+ gpon 1/1/4 onu 11 gem 1 match vlan vlan-id 604 action vlan replace vlan-id 604
+!
+service-port 42
+ gpon 1/1/6 onu 0 gem 1 match vlan vlan-id 606 action vlan replace vlan-id 606
+!
+service-port 43
+ gpon 1/1/1 onu 10 gem 1 match vlan vlan-id 601 action vlan replace vlan-id 601
+!
+service-port 44
+ gpon 1/1/6 onu 2 gem 1 match vlan vlan-id 606 action vlan replace vlan-id 606
+!
+service-port 45
+ gpon 1/1/6 onu 3 gem 1 match vlan vlan-id 606 action vlan replace vlan-id 606
+!
+service-port 46
+ gpon 1/1/6 onu 4 gem 1 match vlan vlan-id 606 action vlan replace vlan-id 606
+!
+service-port 47
+ gpon 1/1/6 onu 5 gem 1 match vlan vlan-id 606 action vlan replace vlan-id 606
+!
+service-port 48
+ gpon 1/1/16 onu 1 gem 1 match vlan vlan-id 616 action vlan replace vlan-id 616
+!
+service-port 49
+ gpon 1/1/6 onu 7 gem 1 match vlan vlan-id 606 action vlan replace vlan-id 606
+!
+service-port 50
+ gpon 1/1/1 onu 12 gem 1 match vlan vlan-id 601 action vlan replace vlan-id 601
+!
+service-port 51
+ gpon 1/1/4 onu 8 gem 1 match vlan vlan-id 604 action vlan replace vlan-id 604
+!
+service-port 52
+ gpon 1/1/1 onu 13 gem 1 match vlan vlan-id 601 action vlan replace vlan-id 601
+!
+service-port 53
+ gpon 1/1/6 onu 11 gem 1 match vlan vlan-id 606 action vlan replace vlan-id 606
+!
+service-port 54
+ gpon 1/1/6 onu 12 gem 1 match vlan vlan-id 606 action vlan replace vlan-id 606
+!
+service-port 55
+ gpon 1/1/6 onu 13 gem 1 match vlan vlan-id 606 action vlan replace vlan-id 606
+!
+service-port 56
+ gpon 1/1/16 onu 4 gem 1 match vlan vlan-id 616 action vlan replace vlan-id 616
+!
+service-port 57
+ gpon 1/1/3 onu 37 gem 1 match vlan vlan-id 603 action vlan replace vlan-id 603
+!
+service-port 58
+ gpon 1/1/6 onu 16 gem 1 match vlan vlan-id 606 action vlan replace vlan-id 606
+!
+service-port 59
+ gpon 1/1/6 onu 17 gem 1 match vlan vlan-id 606 action vlan replace vlan-id 606
+!
+service-port 60
+ gpon 1/1/11 onu 5 gem 1 match vlan vlan-id 611 action vlan replace vlan-id 611
+!
+service-port 61
+ gpon 1/1/2 onu 2 gem 1 match vlan vlan-id 602 action vlan replace vlan-id 602
+!
+service-port 62
+ gpon 1/1/6 onu 20 gem 1 match vlan vlan-id 606 action vlan replace vlan-id 606
+!
+service-port 63
+ gpon 1/1/2 onu 22 gem 1 match vlan vlan-id 602 action vlan replace vlan-id 602
+!
+service-port 64
+ gpon 1/1/5 onu 7 gem 1 match vlan vlan-id 605 action vlan replace vlan-id 605
+!
+service-port 65
+ gpon 1/1/5 onu 6 gem 1 match vlan vlan-id 605 action vlan replace vlan-id 605
+!
+service-port 66
+ gpon 1/1/15 onu 6 gem 1 match vlan vlan-id 615 action vlan replace vlan-id 615
+!
+service-port 67
+ gpon 1/1/8 onu 0 gem 1 match vlan vlan-id 608 action vlan replace vlan-id 608
+!
+service-port 68
+ gpon 1/1/8 onu 1 gem 1 match vlan vlan-id 608 action vlan replace vlan-id 608
+!
+service-port 69
+ gpon 1/1/8 onu 2 gem 1 match vlan vlan-id 608 action vlan replace vlan-id 608
+!
+service-port 70
+ gpon 1/1/15 onu 1 gem 1 match vlan vlan-id 615 action vlan replace vlan-id 615
+!
+service-port 71
+ gpon 1/1/12 onu 5 gem 1 match vlan vlan-id 612 action vlan replace vlan-id 612
+!
+service-port 72
+ gpon 1/1/8 onu 5 gem 1 match vlan vlan-id 608 action vlan replace vlan-id 608
+!
+service-port 73
+ gpon 1/1/4 onu 13 gem 1 match vlan vlan-id 604 action vlan replace vlan-id 604
+!
+service-port 74
+ gpon 1/1/8 onu 7 gem 1 match vlan vlan-id 608 action vlan replace vlan-id 608
+!
+service-port 75
+ gpon 1/1/8 onu 8 gem 1 match vlan vlan-id 608 action vlan replace vlan-id 608
+!
+service-port 76
+ gpon 1/1/9 onu 26 gem 1 match vlan vlan-id 609 action vlan replace vlan-id 609
+!
+service-port 77
+ gpon 1/1/10 onu 0 gem 1 match vlan vlan-id 610 action vlan replace vlan-id 610
+!
+service-port 78
+ gpon 1/1/10 onu 1 gem 1 match vlan vlan-id 610 action vlan replace vlan-id 610
+!
+service-port 79
+ gpon 1/1/10 onu 2 gem 1 match vlan vlan-id 610 action vlan replace vlan-id 610
+!
+service-port 80
+ gpon 1/1/10 onu 3 gem 1 match vlan vlan-id 610 action vlan replace vlan-id 610
+!
+service-port 81
+ gpon 1/1/10 onu 4 gem 1 match vlan vlan-id 610 action vlan replace vlan-id 610
+!
+service-port 82
+ gpon 1/1/10 onu 5 gem 1 match vlan vlan-id 610 action vlan replace vlan-id 610
+!
+service-port 83
+ gpon 1/1/10 onu 6 gem 1 match vlan vlan-id 610 action vlan replace vlan-id 610
+!
+service-port 84
+ gpon 1/1/3 onu 4 gem 1 match vlan vlan-id 603 action vlan replace vlan-id 603
+!
+service-port 85
+ gpon 1/1/10 onu 8 gem 1 match vlan vlan-id 610 action vlan replace vlan-id 610
+!
+service-port 86
+ gpon 1/1/10 onu 9 gem 1 match vlan vlan-id 610 action vlan replace vlan-id 610
+!
+service-port 87
+ gpon 1/1/10 onu 10 gem 1 match vlan vlan-id 610 action vlan replace vlan-id 610
+!
+service-port 88
+ gpon 1/1/10 onu 11 gem 1 match vlan vlan-id 610 action vlan replace vlan-id 610
+!
+service-port 89
+ gpon 1/1/10 onu 12 gem 1 match vlan vlan-id 610 action vlan replace vlan-id 610
+!
+service-port 90
+ gpon 1/1/10 onu 13 gem 1 match vlan vlan-id 610 action vlan replace vlan-id 610
+!
+service-port 91
+ gpon 1/1/10 onu 14 gem 1 match vlan vlan-id 610 action vlan replace vlan-id 610
+!
+service-port 92
+ gpon 1/1/9 onu 1 gem 1 match vlan vlan-id 609 action vlan replace vlan-id 609
+!
+service-port 93
+ gpon 1/1/9 onu 2 gem 1 match vlan vlan-id 609 action vlan replace vlan-id 609
+!
+service-port 94
+ gpon 1/1/3 onu 10 gem 1 match vlan vlan-id 603 action vlan replace vlan-id 603
+!
+service-port 95
+ gpon 1/1/9 onu 4 gem 1 match vlan vlan-id 609 action vlan replace vlan-id 609
+!
+service-port 96
+ gpon 1/1/3 onu 39 gem 1 match vlan vlan-id 603 action vlan replace vlan-id 603
+!
+service-port 97
+ gpon 1/1/1 onu 33 gem 1 match vlan vlan-id 601 action vlan replace vlan-id 601
+!
+service-port 98
+ gpon 1/1/9 onu 6 gem 1 match vlan vlan-id 609 action vlan replace vlan-id 609
+!
+service-port 99
+ gpon 1/1/11 onu 17 gem 1 match vlan vlan-id 611 action vlan replace vlan-id 611
+!
+service-port 100
+ gpon 1/1/9 onu 9 gem 1 match vlan vlan-id 609 action vlan replace vlan-id 609
+!
+service-port 101
+ gpon 1/1/9 onu 10 gem 1 match vlan vlan-id 609 action vlan replace vlan-id 609
+!
+service-port 102
+ gpon 1/1/2 onu 45 gem 1 match vlan vlan-id 602 action vlan replace vlan-id 602
+!
+service-port 103
+ gpon 1/1/9 onu 12 gem 1 match vlan vlan-id 609 action vlan replace vlan-id 609
+!
+service-port 104
+ gpon 1/1/11 onu 0 gem 1 match vlan vlan-id 611 action vlan replace vlan-id 611
+!
+service-port 105
+ gpon 1/1/3 onu 8 gem 1 match vlan vlan-id 603 action vlan replace vlan-id 603
+!
+service-port 106
+ gpon 1/1/3 onu 1 gem 1 match vlan vlan-id 603 action vlan replace vlan-id 603
+!
+service-port 107
+ gpon 1/1/2 onu 47 gem 1 match vlan vlan-id 602 action vlan replace vlan-id 602
+!
+service-port 108
+ gpon 1/1/12 onu 48 gem 1 match vlan vlan-id 612 action vlan replace vlan-id 612
+!
+service-port 109
+ gpon 1/1/2 onu 41 gem 1 match vlan vlan-id 602 action vlan replace vlan-id 602
+!
+service-port 110
+ gpon 1/1/9 onu 19 gem 1 match vlan vlan-id 609 action vlan replace vlan-id 609
+!
+service-port 111
+ gpon 1/1/11 onu 7 gem 1 match vlan vlan-id 611 action vlan replace vlan-id 611
+!
+service-port 112
+ gpon 1/1/3 onu 11 gem 1 match vlan vlan-id 603 action vlan replace vlan-id 603
+!
+service-port 113
+ gpon 1/1/9 onu 25 gem 1 match vlan vlan-id 609 action vlan replace vlan-id 609
+!
+service-port 114
+ gpon 1/1/8 onu 3 gem 1 match vlan vlan-id 608 action vlan replace vlan-id 608
+!
+service-port 115
+ gpon 1/1/11 onu 2 gem 1 match vlan vlan-id 611 action vlan replace vlan-id 611
+!
+service-port 116
+ gpon 1/1/11 onu 3 gem 1 match vlan vlan-id 611 action vlan replace vlan-id 611
+!
+service-port 117
+ gpon 1/1/2 onu 0 gem 1 match vlan vlan-id 602 action vlan replace vlan-id 602
+!
+service-port 118
+ gpon 1/1/7 onu 2 gem 1 match vlan vlan-id 607 action vlan replace vlan-id 607
+!
+service-port 119
+ gpon 1/1/11 onu 6 gem 1 match vlan vlan-id 611 action vlan replace vlan-id 611
+!
+service-port 120
+ gpon 1/1/9 onu 7 gem 1 match vlan vlan-id 609 action vlan replace vlan-id 609
+!
+service-port 121
+ gpon 1/1/11 onu 8 gem 1 match vlan vlan-id 611 action vlan replace vlan-id 611
+!
+service-port 122
+ gpon 1/1/4 onu 5 gem 1 match vlan vlan-id 604 action vlan replace vlan-id 604
+!
+service-port 123
+ gpon 1/1/1 onu 14 gem 1 match vlan vlan-id 601 action vlan replace vlan-id 601
+!
+service-port 124
+ gpon 1/1/11 onu 11 gem 1 match vlan vlan-id 611 action vlan replace vlan-id 611
+!
+service-port 125
+ gpon 1/1/9 onu 23 gem 1 match vlan vlan-id 650 action vlan replace vlan-id 650
+!
+service-port 126
+ gpon 1/1/15 onu 3 gem 1 match vlan vlan-id 615 action vlan replace vlan-id 615
+!
+service-port 127
+ gpon 1/1/12 onu 1 gem 1 match vlan vlan-id 612 action vlan replace vlan-id 612
+!
+service-port 128
+ gpon 1/1/9 onu 62 gem 1 match vlan vlan-id 609 action vlan replace vlan-id 609
+!
+service-port 129
+ gpon 1/1/3 onu 40 gem 1 match vlan vlan-id 603 action vlan replace vlan-id 603
+!
+service-port 130
+ gpon 1/1/11 onu 34 gem 1 match vlan vlan-id 611 action vlan replace vlan-id 611
+!
+service-port 131
+ gpon 1/1/9 onu 0 gem 1 match vlan vlan-id 609 action vlan replace vlan-id 609
+!
+service-port 132
+ gpon 1/1/9 onu 11 gem 1 match vlan vlan-id 609 action vlan replace vlan-id 609
+!
+service-port 133
+ gpon 1/1/9 onu 13 gem 1 match vlan vlan-id 609 action vlan replace vlan-id 609
+!
+service-port 134
+ gpon 1/1/5 onu 1 gem 1 match vlan vlan-id 605 action vlan replace vlan-id 605
+!
+service-port 135
+ gpon 1/1/12 onu 9 gem 1 match vlan vlan-id 612 action vlan replace vlan-id 612
+!
+service-port 136
+ gpon 1/1/12 onu 10 gem 1 match vlan vlan-id 612 action vlan replace vlan-id 612
+!
+service-port 137
+ gpon 1/1/12 onu 62 gem 1 match vlan vlan-id 612 action vlan replace vlan-id 612
+!
+service-port 138
+ gpon 1/1/16 onu 15 gem 1 match vlan vlan-id 616 action vlan replace vlan-id 616
+!
+service-port 139
+ gpon 1/1/11 onu 10 gem 1 match vlan vlan-id 611 action vlan replace vlan-id 611
+!
+service-port 140
+ gpon 1/1/15 onu 0 gem 1 match vlan vlan-id 615 action vlan replace vlan-id 615
+!
+service-port 141
+ gpon 1/1/14 onu 3 gem 1 match vlan vlan-id 614 action vlan replace vlan-id 614
+!
+service-port 142
+ gpon 1/1/4 onu 1 gem 1 match vlan vlan-id 604 action vlan replace vlan-id 604
+!
+service-port 143
+ gpon 1/1/11 onu 13 gem 1 match vlan vlan-id 611 action vlan replace vlan-id 611
+!
+service-port 144
+ gpon 1/1/16 onu 10 gem 1 match vlan vlan-id 616 action vlan replace vlan-id 616
+!
+service-port 145
+ gpon 1/1/12 onu 19 gem 1 match vlan vlan-id 612 action vlan replace vlan-id 612
+!
+service-port 146
+ gpon 1/1/13 onu 0 gem 1 match vlan vlan-id 613 action vlan replace vlan-id 613
+!
+service-port 147
+ gpon 1/1/13 onu 1 gem 1 match vlan vlan-id 613 action vlan replace vlan-id 613
+!
+service-port 148
+ gpon 1/1/13 onu 2 gem 1 match vlan vlan-id 613 action vlan replace vlan-id 613
+!
+service-port 149
+ gpon 1/1/9 onu 29 gem 1 match vlan vlan-id 609 action vlan replace vlan-id 609
+!
+service-port 150
+ gpon 1/1/13 onu 4 gem 1 match vlan vlan-id 613 action vlan replace vlan-id 613
+!
+service-port 151
+ gpon 1/1/13 onu 5 gem 1 match vlan vlan-id 613 action vlan replace vlan-id 613
+!
+service-port 152
+ gpon 1/1/2 onu 3 gem 1 match vlan vlan-id 602 action vlan replace vlan-id 602
+!
+service-port 153
+ gpon 1/1/14 onu 1 gem 1 match vlan vlan-id 614 action vlan replace vlan-id 614
+!
+service-port 154
+ gpon 1/1/14 onu 2 gem 1 match vlan vlan-id 614 action vlan replace vlan-id 614
+!
+service-port 155
+ gpon 1/1/12 onu 16 gem 1 match vlan vlan-id 612 action vlan replace vlan-id 612
+!
+service-port 156
+ gpon 1/1/11 onu 42 gem 1 match vlan vlan-id 611 action vlan replace vlan-id 611
+!
+service-port 157
+ gpon 1/1/14 onu 5 gem 1 match vlan vlan-id 614 action vlan replace vlan-id 614
+!
+service-port 158
+ gpon 1/1/1 onu 7 gem 1 match vlan vlan-id 601 action vlan replace vlan-id 601
+!
+service-port 159
+ gpon 1/1/2 onu 6 gem 1 match vlan vlan-id 602 action vlan replace vlan-id 602
+!
+service-port 160
+ gpon 1/1/14 onu 8 gem 1 match vlan vlan-id 614 action vlan replace vlan-id 614
+!
+service-port 161
+ gpon 1/1/14 onu 9 gem 1 match vlan vlan-id 614 action vlan replace vlan-id 614
+!
+service-port 162
+ gpon 1/1/6 onu 21 gem 1 match vlan vlan-id 606 action vlan replace vlan-id 606
+!
+service-port 163
+ gpon 1/1/11 onu 39 gem 1 match vlan vlan-id 611 action vlan replace vlan-id 611
+!
+service-port 164
+ gpon 1/1/12 onu 0 gem 1 match vlan vlan-id 612 action vlan replace vlan-id 612
+!
+service-port 165
+ gpon 1/1/3 onu 35 gem 1 match vlan vlan-id 603 action vlan replace vlan-id 603
+!
+service-port 166
+ gpon 1/1/14 onu 22 gem 1 match vlan vlan-id 614 action vlan replace vlan-id 614
+!
+service-port 167
+ gpon 1/1/2 onu 8 gem 1 match vlan vlan-id 602 action vlan replace vlan-id 602
+!
+service-port 168
+ gpon 1/1/2 onu 5 gem 1 match vlan vlan-id 602 action vlan replace vlan-id 602
+!
+service-port 169
+ gpon 1/1/2 onu 10 gem 1 match vlan vlan-id 602 action vlan replace vlan-id 602
+!
+service-port 170
+ gpon 1/1/16 onu 2 gem 1 match vlan vlan-id 616 action vlan replace vlan-id 616
+!
+service-port 171
+ gpon 1/1/16 onu 3 gem 1 match vlan vlan-id 616 action vlan replace vlan-id 616
+!
+service-port 172
+ gpon 1/1/16 onu 11 gem 1 match vlan vlan-id 616 action vlan replace vlan-id 616
+!
+service-port 173
+ gpon 1/1/10 onu 15 gem 1 match vlan vlan-id 610 action vlan replace vlan-id 610
+!
+service-port 174
+ gpon 1/1/9 onu 20 gem 1 match vlan vlan-id 609 action vlan replace vlan-id 609
+!
+service-port 175
+ gpon 1/1/11 onu 9 gem 1 match vlan vlan-id 611 action vlan replace vlan-id 611
+!
+service-port 176
+ gpon 1/1/2 onu 12 gem 1 match vlan vlan-id 602 action vlan replace vlan-id 602
+!
+service-port 177
+ gpon 1/1/1 onu 51 gem 1 match vlan vlan-id 601 action vlan replace vlan-id 601
+!
+service-port 178
+ gpon 1/1/5 onu 3 gem 1 match vlan vlan-id 605 action vlan replace vlan-id 605
+!
+service-port 179
+ gpon 1/1/9 onu 18 gem 1 match vlan vlan-id 609 action vlan replace vlan-id 609
+!
+service-port 180
+ gpon 1/1/12 onu 4 gem 1 match vlan vlan-id 612 action vlan replace vlan-id 612
+!
+service-port 181
+ gpon 1/1/2 onu 9 gem 1 match vlan vlan-id 602 action vlan replace vlan-id 602
+!
+service-port 182
+ gpon 1/1/10 onu 16 gem 1 match vlan vlan-id 610 action vlan replace vlan-id 610
+!
+service-port 183
+ gpon 1/1/7 onu 20 gem 1 match vlan vlan-id 607 action vlan replace vlan-id 607
+!
+service-port 184
+ gpon 1/1/12 onu 3 gem 1 match vlan vlan-id 612 action vlan replace vlan-id 612
+!
+service-port 185
+ gpon 1/1/3 onu 5 gem 1 match vlan vlan-id 603 action vlan replace vlan-id 603
+!
+service-port 186
+ gpon 1/1/10 onu 17 gem 1 match vlan vlan-id 610 action vlan replace vlan-id 610
+!
+service-port 187
+ gpon 1/1/5 onu 4 gem 1 match vlan vlan-id 605 action vlan replace vlan-id 605
+!
+service-port 188
+ gpon 1/1/2 onu 11 gem 1 match vlan vlan-id 602 action vlan replace vlan-id 602
+!
+service-port 189
+ gpon 1/1/12 onu 14 gem 1 match vlan vlan-id 612 action vlan replace vlan-id 612
+!
+service-port 190
+ gpon 1/1/1 onu 4 gem 1 match vlan vlan-id 601 action vlan replace vlan-id 601
+!
+service-port 191
+ gpon 1/1/2 onu 43 gem 1 match vlan vlan-id 602 action vlan replace vlan-id 602
+!
+service-port 192
+ gpon 1/1/9 onu 21 gem 1 match vlan vlan-id 609 action vlan replace vlan-id 609
+!
+service-port 193
+ gpon 1/1/14 onu 11 gem 1 match vlan vlan-id 603 action vlan replace vlan-id 603
+!
+service-port 194
+ gpon 1/1/1 onu 20 gem 1 match vlan vlan-id 601 action vlan replace vlan-id 601
+!
+service-port 195
+ gpon 1/1/10 onu 21 gem 1 match vlan vlan-id 610 action vlan replace vlan-id 610
+!
+service-port 196
+ gpon 1/1/9 onu 24 gem 1 match vlan vlan-id 609 action vlan replace vlan-id 609
+!
+service-port 197
+ gpon 1/1/15 onu 2 gem 1 match vlan vlan-id 615 action vlan replace vlan-id 615
+!
+service-port 198
+ gpon 1/1/3 onu 2 gem 1 match vlan vlan-id 603 action vlan replace vlan-id 603
+!
+service-port 199
+ gpon 1/1/6 onu 8 gem 1 match vlan vlan-id 606 action vlan replace vlan-id 606
+!
+service-port 200
+ gpon 1/1/13 onu 3 gem 1 match vlan vlan-id 613 action vlan replace vlan-id 613
+!
+service-port 201
+ gpon 1/1/13 onu 24 gem 1 match vlan vlan-id 613 action vlan replace vlan-id 613
+!
+service-port 202
+ gpon 1/1/11 onu 15 gem 1 match vlan vlan-id 611 action vlan replace vlan-id 611
+!
+service-port 203
+ gpon 1/1/6 onu 9 gem 1 match vlan vlan-id 606 action vlan replace vlan-id 606
+!
+service-port 204
+ gpon 1/1/15 onu 7 gem 1 match vlan vlan-id 615 action vlan replace vlan-id 615
+!
+service-port 205
+ gpon 1/1/3 onu 7 gem 1 match vlan vlan-id 603 action vlan replace vlan-id 603
+!
+service-port 206
+ gpon 1/1/1 onu 25 gem 1 match vlan vlan-id 601 action vlan replace vlan-id 601
+!
+service-port 207
+ gpon 1/1/6 onu 23 gem 1 match vlan vlan-id 606 action vlan replace vlan-id 606
+!
+service-port 208
+ gpon 1/1/14 onu 10 gem 1 match vlan vlan-id 614 action vlan replace vlan-id 614
+!
+service-port 209
+ gpon 1/1/9 onu 22 gem 1 match vlan vlan-id 609 action vlan replace vlan-id 609
+!
+service-port 210
+ gpon 1/1/11 onu 16 gem 1 match vlan vlan-id 611 action vlan replace vlan-id 611
+!
+service-port 211
+ gpon 1/1/10 onu 23 gem 1 match vlan vlan-id 610 action vlan replace vlan-id 610
+!
+service-port 212
+ gpon 1/1/1 onu 30 gem 1 match vlan vlan-id 601 action vlan replace vlan-id 601
+!
+service-port 213
+ gpon 1/1/9 onu 8 gem 1 match vlan vlan-id 609 action vlan replace vlan-id 609
+!
+service-port 214
+ gpon 1/1/9 onu 82 gem 1 match vlan vlan-id 609 action vlan replace vlan-id 609
+!
+service-port 215
+ gpon 1/1/7 onu 1 gem 1 match vlan vlan-id 607 action vlan replace vlan-id 607
+!
+service-port 216
+ gpon 1/1/3 onu 30 gem 1 match vlan vlan-id 603 action vlan replace vlan-id 603
+!
+service-port 217
+ gpon 1/1/11 onu 18 gem 1 match vlan vlan-id 611 action vlan replace vlan-id 611
+!
+service-port 218
+ gpon 1/1/3 onu 19 gem 1 match vlan vlan-id 603 action vlan replace vlan-id 603
+!
+service-port 219
+ gpon 1/1/8 onu 4 gem 1 match vlan vlan-id 608 action vlan replace vlan-id 608
+!
+service-port 220
+ gpon 1/1/12 onu 26 gem 1 match vlan vlan-id 612 action vlan replace vlan-id 612
+!
+service-port 221
+ gpon 1/1/1 onu 27 gem 1 match vlan vlan-id 601 action vlan replace vlan-id 601
+!
+service-port 222
+ gpon 1/1/4 onu 27 gem 1 match vlan vlan-id 604 action vlan replace vlan-id 604
+!
+service-port 223
+ gpon 1/1/13 onu 7 gem 1 match vlan vlan-id 613 action vlan replace vlan-id 613
+!
+service-port 224
+ gpon 1/1/8 onu 6 gem 1 match vlan vlan-id 608 action vlan replace vlan-id 608
+!
+service-port 225
+ gpon 1/1/7 onu 4 gem 1 match vlan vlan-id 607 action vlan replace vlan-id 607
+!
+service-port 226
+ gpon 1/1/2 onu 13 gem 1 match vlan vlan-id 602 action vlan replace vlan-id 602
+!
+service-port 227
+ gpon 1/1/2 onu 15 gem 1 match vlan vlan-id 602 action vlan replace vlan-id 602
+!
+service-port 228
+ gpon 1/1/12 onu 6 gem 1 match vlan vlan-id 612 action vlan replace vlan-id 612
+!
+service-port 229
+ gpon 1/1/12 onu 63 gem 1 match vlan vlan-id 612 action vlan replace vlan-id 612
+!
+service-port 230
+ gpon 1/1/2 onu 17 gem 1 match vlan vlan-id 602 action vlan replace vlan-id 602
+!
+service-port 231
+ gpon 1/1/12 onu 12 gem 1 match vlan vlan-id 612 action vlan replace vlan-id 612
+!
+service-port 232
+ gpon 1/1/7 onu 3 gem 1 match vlan vlan-id 607 action vlan replace vlan-id 607
+!
+service-port 233
+ gpon 1/1/7 onu 19 gem 1 match vlan vlan-id 607 action vlan replace vlan-id 607
+!
+service-port 234
+ gpon 1/1/7 onu 6 gem 1 match vlan vlan-id 607 action vlan replace vlan-id 607
+!
+service-port 235
+ gpon 1/1/2 onu 16 gem 1 match vlan vlan-id 602 action vlan replace vlan-id 602
+!
+service-port 236
+ gpon 1/1/7 onu 7 gem 1 match vlan vlan-id 607 action vlan replace vlan-id 607
+!
+service-port 237
+ gpon 1/1/9 onu 39 gem 1 match vlan vlan-id 609 action vlan replace vlan-id 609
+!
+service-port 238
+ gpon 1/1/16 onu 7 gem 1 match vlan vlan-id 616 action vlan replace vlan-id 616
+!
+service-port 239
+ gpon 1/1/12 onu 30 gem 1 match vlan vlan-id 612 action vlan replace vlan-id 612
+!
+service-port 240
+ gpon 1/1/7 onu 9 gem 1 match vlan vlan-id 607 action vlan replace vlan-id 607
+!
+service-port 241
+ gpon 1/1/7 onu 10 gem 1 match vlan vlan-id 607 action vlan replace vlan-id 607
+!
+service-port 242
+ gpon 1/1/7 onu 11 gem 1 match vlan vlan-id 607 action vlan replace vlan-id 607
+!
+service-port 243
+ gpon 1/1/5 onu 5 gem 1 match vlan vlan-id 605 action vlan replace vlan-id 605
+!
+service-port 244
+ gpon 1/1/16 onu 17 gem 1 match vlan vlan-id 616 action vlan replace vlan-id 616
+!
+service-port 245
+ gpon 1/1/11 onu 12 gem 1 match vlan vlan-id 611 action vlan replace vlan-id 611
+!
+service-port 246
+ gpon 1/1/15 onu 4 gem 1 match vlan vlan-id 615 action vlan replace vlan-id 615
+!
+service-port 247
+ gpon 1/1/2 onu 38 gem 1 match vlan vlan-id 602 action vlan replace vlan-id 602
+!
+service-port 248
+ gpon 1/1/2 onu 18 gem 1 match vlan vlan-id 602 action vlan replace vlan-id 602
+!
+service-port 249
+ gpon 1/1/9 onu 17 gem 1 match vlan vlan-id 609 action vlan replace vlan-id 609
+!
+service-port 250
+ gpon 1/1/16 onu 21 gem 1 match vlan vlan-id 616 action vlan replace vlan-id 616
+!
+service-port 251
+ gpon 1/1/6 onu 14 gem 1 match vlan vlan-id 606 action vlan replace vlan-id 606
+!
+service-port 252
+ gpon 1/1/2 onu 21 gem 1 match vlan vlan-id 602 action vlan replace vlan-id 602
+!
+service-port 253
+ gpon 1/1/14 onu 12 gem 1 match vlan vlan-id 614 action vlan replace vlan-id 614
+!
+service-port 254
+ gpon 1/1/12 onu 54 gem 1 match vlan vlan-id 612 action vlan replace vlan-id 612
+!
+service-port 255
+ gpon 1/1/12 onu 29 gem 1 match vlan vlan-id 612 action vlan replace vlan-id 612
+!
+service-port 257
+ gpon 1/1/7 onu 13 gem 1 match vlan vlan-id 607 action vlan replace vlan-id 607
+!
+service-port 258
+ gpon 1/1/4 onu 14 gem 1 match vlan vlan-id 604 action vlan replace vlan-id 604
+!
+service-port 259
+ gpon 1/1/9 onu 44 gem 1 match vlan vlan-id 609 action vlan replace vlan-id 609
+!
+service-port 260
+ gpon 1/1/1 onu 36 gem 1 match vlan vlan-id 601 action vlan replace vlan-id 601
+!
+service-port 261
+ gpon 1/1/14 onu 17 gem 1 match vlan vlan-id 614 action vlan replace vlan-id 614
+!
+service-port 262
+ gpon 1/1/9 onu 16 gem 1 match vlan vlan-id 609 action vlan replace vlan-id 609
+!
+service-port 263
+ gpon 1/1/7 onu 17 gem 1 match vlan vlan-id 607 action vlan replace vlan-id 607
+!
+service-port 264
+ gpon 1/1/3 onu 9 gem 1 match vlan vlan-id 603 action vlan replace vlan-id 603
+!
+service-port 266
+ gpon 1/1/1 onu 29 gem 1 match vlan vlan-id 601 action vlan replace vlan-id 601
+!
+service-port 267
+ gpon 1/1/14 onu 4 gem 1 match vlan vlan-id 614 action vlan replace vlan-id 614
+!
+service-port 268
+ gpon 1/1/9 onu 45 gem 1 match vlan vlan-id 609 action vlan replace vlan-id 609
+!
+service-port 269
+ gpon 1/1/11 onu 35 gem 1 match vlan vlan-id 611 action vlan replace vlan-id 611
+!
+service-port 270
+ gpon 1/1/13 onu 19 gem 1 match vlan vlan-id 613 action vlan replace vlan-id 613
+!
+service-port 271
+ gpon 1/1/1 onu 34 gem 1 match vlan vlan-id 601 action vlan replace vlan-id 601
+!
+service-port 272
+ gpon 1/1/9 onu 46 gem 1 match vlan vlan-id 609 action vlan replace vlan-id 609
+!
+service-port 273
+ gpon 1/1/12 onu 31 gem 1 match vlan vlan-id 612 action vlan replace vlan-id 612
+!
+service-port 274
+ gpon 1/1/10 onu 22 gem 1 match vlan vlan-id 610 action vlan replace vlan-id 610
+!
+service-port 275
+ gpon 1/1/1 onu 16 gem 1 match vlan vlan-id 601 action vlan replace vlan-id 601
+!
+service-port 276
+ gpon 1/1/11 onu 14 gem 1 match vlan vlan-id 611 action vlan replace vlan-id 611
+!
+service-port 277
+ gpon 1/1/1 onu 17 gem 1 match vlan vlan-id 601 action vlan replace vlan-id 601
+!
+service-port 278
+ gpon 1/1/8 onu 10 gem 1 match vlan vlan-id 608 action vlan replace vlan-id 608
+!
+service-port 279
+ gpon 1/1/12 onu 27 gem 1 match vlan vlan-id 612 action vlan replace vlan-id 612
+!
+service-port 280
+ gpon 1/1/5 onu 18 gem 1 match vlan vlan-id 605 action vlan replace vlan-id 605
+!
+service-port 281
+ gpon 1/1/11 onu 47 gem 1 match vlan vlan-id 611 action vlan replace vlan-id 611
+!
+service-port 282
+ gpon 1/1/8 onu 9 gem 1 match vlan vlan-id 608 action vlan replace vlan-id 608
+!
+service-port 283
+ gpon 1/1/2 onu 27 gem 1 match vlan vlan-id 602 action vlan replace vlan-id 602
+!
+service-port 284
+ gpon 1/1/6 onu 18 gem 1 match vlan vlan-id 606 action vlan replace vlan-id 606
+!
+service-port 285
+ gpon 1/1/6 onu 19 gem 1 match vlan vlan-id 606 action vlan replace vlan-id 606
+!
+service-port 286
+ gpon 1/1/14 onu 15 gem 1 match vlan vlan-id 614 action vlan replace vlan-id 614
+!
+service-port 287
+ gpon 1/1/2 onu 29 gem 1 match vlan vlan-id 660 action vlan replace vlan-id 660
+!
+service-port 288
+ gpon 1/1/11 onu 50 gem 1 match vlan vlan-id 611 action vlan replace vlan-id 611
+!
+service-port 289
+ gpon 1/1/8 onu 11 gem 1 match vlan vlan-id 608 action vlan replace vlan-id 608
+!
+service-port 290
+ gpon 1/1/2 onu 35 gem 1 match vlan vlan-id 602 action vlan replace vlan-id 602
+!
+service-port 291
+ gpon 1/1/3 onu 16 gem 1 match vlan vlan-id 603 action vlan replace vlan-id 603
+!
+service-port 292
+ gpon 1/1/15 onu 9 gem 1 match vlan vlan-id 615 action vlan replace vlan-id 615
+!
+service-port 293
+ gpon 1/1/8 onu 13 gem 1 match vlan vlan-id 608 action vlan replace vlan-id 608
+!
+service-port 294
+ gpon 1/1/11 onu 21 gem 1 match vlan vlan-id 611 action vlan replace vlan-id 611
+!
+service-port 295
+ gpon 1/1/15 onu 10 gem 1 match vlan vlan-id 615 action vlan replace vlan-id 615
+!
+service-port 296
+ gpon 1/1/12 onu 15 gem 1 match vlan vlan-id 612 action vlan replace vlan-id 612
+!
+service-port 297
+ gpon 1/1/5 onu 16 gem 1 match vlan vlan-id 605 action vlan replace vlan-id 605
+!
+service-port 299
+ gpon 1/1/10 onu 18 gem 1 match vlan vlan-id 610 action vlan replace vlan-id 610
+!
+service-port 300
+ gpon 1/1/6 onu 15 gem 1 match vlan vlan-id 606 action vlan replace vlan-id 606
+!
+service-port 301
+ gpon 1/1/12 onu 11 gem 1 match vlan vlan-id 612 action vlan replace vlan-id 612
+!
+service-port 302
+ gpon 1/1/2 onu 24 gem 1 match vlan vlan-id 602 action vlan replace vlan-id 602
+!
+service-port 303
+ gpon 1/1/15 onu 11 gem 1 match vlan vlan-id 615 action vlan replace vlan-id 615
+!
+service-port 304
+ gpon 1/1/12 onu 17 gem 1 match vlan vlan-id 612 action vlan replace vlan-id 612
+!
+service-port 305
+ gpon 1/1/16 onu 22 gem 1 match vlan vlan-id 616 action vlan replace vlan-id 616
+!
+service-port 306
+ gpon 1/1/8 onu 12 gem 1 match vlan vlan-id 608 action vlan replace vlan-id 608
+!
+service-port 307
+ gpon 1/1/8 onu 14 gem 1 match vlan vlan-id 608 action vlan replace vlan-id 608
+!
+service-port 308
+ gpon 1/1/9 onu 27 gem 1 match vlan vlan-id 609 action vlan replace vlan-id 609
+!
+service-port 309
+ gpon 1/1/2 onu 32 gem 1 match vlan vlan-id 602 action vlan replace vlan-id 602
+!
+service-port 310
+ gpon 1/1/3 onu 0 gem 1 match vlan vlan-id 603 action vlan replace vlan-id 603
+!
+service-port 311
+ gpon 1/1/14 onu 24 gem 1 match vlan vlan-id 614 action vlan replace vlan-id 614
+!
+service-port 312
+ gpon 1/1/3 onu 6 gem 1 match vlan vlan-id 603 action vlan replace vlan-id 603
+!
+service-port 313
+ gpon 1/1/9 onu 28 gem 1 match vlan vlan-id 609 action vlan replace vlan-id 609
+!
+service-port 314
+ gpon 1/1/11 onu 51 gem 1 match vlan vlan-id 611 action vlan replace vlan-id 611
+!
+service-port 315
+ gpon 1/1/14 onu 16 gem 1 match vlan vlan-id 614 action vlan replace vlan-id 614
+!
+service-port 316
+ gpon 1/1/4 onu 15 gem 1 match vlan vlan-id 604 action vlan replace vlan-id 604
+!
+service-port 317
+ gpon 1/1/4 onu 4 gem 1 match vlan vlan-id 604 action vlan replace vlan-id 604
+!
+service-port 318
+ gpon 1/1/13 onu 6 gem 1 match vlan vlan-id 613 action vlan replace vlan-id 613
+!
+service-port 319
+ gpon 1/1/6 onu 26 gem 1 match vlan vlan-id 606 action vlan replace vlan-id 606
+!
+service-port 320
+ gpon 1/1/9 onu 30 gem 1 match vlan vlan-id 609 action vlan replace vlan-id 609
+!
+service-port 321
+ gpon 1/1/1 onu 32 gem 1 match vlan vlan-id 601 action vlan replace vlan-id 601
+!
+service-port 322
+ gpon 1/1/1 onu 22 gem 1 match vlan vlan-id 601 action vlan replace vlan-id 601
+!
+service-port 323
+ gpon 1/1/10 onu 19 gem 1 match vlan vlan-id 610 action vlan replace vlan-id 610
+!
+service-port 324
+ gpon 1/1/7 onu 8 gem 1 match vlan vlan-id 607 action vlan replace vlan-id 607
+!
+service-port 325
+ gpon 1/1/11 onu 19 gem 1 match vlan vlan-id 611 action vlan replace vlan-id 611
+!
+service-port 326
+ gpon 1/1/1 onu 15 gem 1 match vlan vlan-id 601 action vlan replace vlan-id 601
+!
+service-port 327
+ gpon 1/1/1 onu 23 gem 1 match vlan vlan-id 601 action vlan replace vlan-id 601
+!
+service-port 328
+ gpon 1/1/12 onu 18 gem 1 match vlan vlan-id 612 action vlan replace vlan-id 612
+!
+service-port 329
+ gpon 1/1/16 onu 14 gem 1 match vlan vlan-id 616 action vlan replace vlan-id 616
+!
+service-port 330
+ gpon 1/1/4 onu 30 gem 1 match vlan vlan-id 604 action vlan replace vlan-id 604
+!
+service-port 331
+ gpon 1/1/11 onu 20 gem 1 match vlan vlan-id 611 action vlan replace vlan-id 611
+!
+service-port 332
+ gpon 1/1/7 onu 12 gem 1 match vlan vlan-id 607 action vlan replace vlan-id 607
+!
+service-port 334
+ gpon 1/1/1 onu 24 gem 1 match vlan vlan-id 601 action vlan replace vlan-id 601
+!
+service-port 336
+ gpon 1/1/14 onu 19 gem 1 match vlan vlan-id 614 action vlan replace vlan-id 614
+!
+service-port 337
+ gpon 1/1/12 onu 66 gem 1 match vlan vlan-id 612 action vlan replace vlan-id 612
+!
+service-port 338
+ gpon 1/1/14 onu 21 gem 1 match vlan vlan-id 614 action vlan replace vlan-id 614
+!
+service-port 339
+ gpon 1/1/12 onu 20 gem 1 match vlan vlan-id 612 action vlan replace vlan-id 612
+!
+service-port 340
+ gpon 1/1/12 onu 21 gem 1 match vlan vlan-id 612 action vlan replace vlan-id 612
+!
+service-port 341
+ gpon 1/1/12 onu 23 gem 1 match vlan vlan-id 612 action vlan replace vlan-id 612
+!
+service-port 342
+ gpon 1/1/2 onu 39 gem 1 match vlan vlan-id 602 action vlan replace vlan-id 602
+!
+service-port 343
+ gpon 1/1/11 onu 22 gem 1 match vlan vlan-id 611 action vlan replace vlan-id 611
+!
+service-port 344
+ gpon 1/1/16 onu 23 gem 1 match vlan vlan-id 616 action vlan replace vlan-id 616
+!
+service-port 345
+ gpon 1/1/15 onu 8 gem 1 match vlan vlan-id 615 action vlan replace vlan-id 615
+!
+service-port 346
+ gpon 1/1/5 onu 8 gem 1 match vlan vlan-id 605 action vlan replace vlan-id 605
+!
+service-port 347
+ gpon 1/1/16 onu 12 gem 1 match vlan vlan-id 616 action vlan replace vlan-id 616
+!
+service-port 348
+ gpon 1/1/1 onu 50 gem 1 match vlan vlan-id 601 action vlan replace vlan-id 601
+!
+service-port 349
+ gpon 1/1/2 onu 46 gem 1 match vlan vlan-id 602 action vlan replace vlan-id 602
+!
+service-port 351
+ gpon 1/1/5 onu 29 gem 1 match vlan vlan-id 605 action vlan replace vlan-id 605
+!
+service-port 352
+ gpon 1/1/3 onu 32 gem 1 match vlan vlan-id 603 action vlan replace vlan-id 603
+!
+service-port 353
+ gpon 1/1/9 onu 61 gem 1 match vlan vlan-id 609 action vlan replace vlan-id 609
+!
+service-port 355
+ gpon 1/1/1 onu 52 gem 1 match vlan vlan-id 601 action vlan replace vlan-id 601
+!
+service-port 359
+ gpon 1/1/1 onu 53 gem 1 match vlan vlan-id 601 action vlan replace vlan-id 601
+!
+service-port 360
+ gpon 1/1/12 onu 43 gem 1 match vlan vlan-id 612 action vlan replace vlan-id 612
+!
+service-port 361
+ gpon 1/1/15 onu 12 gem 1 match vlan vlan-id 615 action vlan replace vlan-id 615
+!
+service-port 362
+ gpon 1/1/2 onu 20 gem 1 match vlan vlan-id 602 action vlan replace vlan-id 602
+!
+service-port 364
+ gpon 1/1/9 onu 63 gem 1 match vlan vlan-id 609 action vlan replace vlan-id 609
+!
+service-port 367
+ gpon 1/1/15 onu 13 gem 1 match vlan vlan-id 615 action vlan replace vlan-id 615
+!
+service-port 370
+ gpon 1/1/3 onu 23 gem 1 match vlan vlan-id 603 action vlan replace vlan-id 603
+!
+service-port 374
+ gpon 1/1/6 onu 25 gem 1 match vlan vlan-id 606 action vlan replace vlan-id 606
+!
+service-port 376
+ gpon 1/1/7 onu 35 gem 1 match vlan vlan-id 607 action vlan replace vlan-id 607
+!
+service-port 379
+ gpon 1/1/11 onu 53 gem 1 match vlan vlan-id 611 action vlan replace vlan-id 611
+!
+service-port 384
+ gpon 1/1/6 onu 22 gem 1 match vlan vlan-id 606 action vlan replace vlan-id 606
+!
+service-port 387
+ gpon 1/1/3 onu 13 gem 1 match vlan vlan-id 603 action vlan replace vlan-id 603
+!
+service-port 388
+ gpon 1/1/3 onu 14 gem 1 match vlan vlan-id 603 action vlan replace vlan-id 603
+!
+service-port 389
+ gpon 1/1/3 onu 18 gem 1 match vlan vlan-id 603 action vlan replace vlan-id 603
+!
+service-port 391
+ gpon 1/1/9 onu 71 gem 1 match vlan vlan-id 609 action vlan replace vlan-id 609
+!
+service-port 392
+ gpon 1/1/8 onu 20 gem 1 match vlan vlan-id 608 action vlan replace vlan-id 608
+!
+service-port 393
+ gpon 1/1/2 onu 23 gem 1 match vlan vlan-id 602 action vlan replace vlan-id 602
+!
+service-port 394
+ gpon 1/1/7 onu 18 gem 1 match vlan vlan-id 607 action vlan replace vlan-id 607
+!
+service-port 395
+ gpon 1/1/3 onu 21 gem 1 match vlan vlan-id 603 action vlan replace vlan-id 603
+!
+service-port 399
+ gpon 1/1/1 onu 21 gem 1 match vlan vlan-id 601 action vlan replace vlan-id 601
+!
+service-port 401
+ gpon 1/1/3 onu 22 gem 1 match vlan vlan-id 603 action vlan replace vlan-id 603
+!
+service-port 405
+ gpon 1/1/3 onu 24 gem 1 match vlan vlan-id 603 action vlan replace vlan-id 603
+!
+service-port 407
+ gpon 1/1/8 onu 22 gem 1 match vlan vlan-id 608 action vlan replace vlan-id 608
+!
+service-port 409
+ gpon 1/1/3 onu 25 gem 1 match vlan vlan-id 603 action vlan replace vlan-id 603
+!
+service-port 410
+ gpon 1/1/5 onu 31 gem 1 match vlan vlan-id 605 action vlan replace vlan-id 605
+!
+service-port 411
+ gpon 1/1/8 onu 23 gem 1 match vlan vlan-id 608 action vlan replace vlan-id 608
+!
+service-port 412
+ gpon 1/1/4 onu 12 gem 1 match vlan vlan-id 604 action vlan replace vlan-id 604
+!
+service-port 414
+ gpon 1/1/15 onu 17 gem 1 match vlan vlan-id 615 action vlan replace vlan-id 615
+!
+service-port 415
+ gpon 1/1/3 onu 34 gem 1 match vlan vlan-id 603 action vlan replace vlan-id 603
+!
+service-port 416
+ gpon 1/1/2 onu 28 gem 1 match vlan vlan-id 602 action vlan replace vlan-id 602
+!
+service-port 419
+ gpon 1/1/9 onu 14 gem 1 match vlan vlan-id 609 action vlan replace vlan-id 609
+!
+service-port 421
+ gpon 1/1/7 onu 22 gem 1 match vlan vlan-id 607 action vlan replace vlan-id 607
+!
+service-port 422
+ gpon 1/1/9 onu 78 gem 1 match vlan vlan-id 609 action vlan replace vlan-id 609
+!
+service-port 424
+ gpon 1/1/2 onu 36 gem 1 match vlan vlan-id 602 action vlan replace vlan-id 602
+!
+service-port 425
+ gpon 1/1/3 onu 31 gem 1 match vlan vlan-id 603 action vlan replace vlan-id 603
+!
+service-port 427
+ gpon 1/1/14 onu 7 gem 1 match vlan vlan-id 614 action vlan replace vlan-id 614
+!
+service-port 428
+ gpon 1/1/1 onu 31 gem 1 match vlan vlan-id 601 action vlan replace vlan-id 601
+!
+service-port 430
+ gpon 1/1/3 onu 38 gem 1 match vlan vlan-id 603 action vlan replace vlan-id 603
+!
+service-port 431
+ gpon 1/1/12 onu 46 gem 1 match vlan vlan-id 612 action vlan replace vlan-id 612
+!
+service-port 432
+ gpon 1/1/13 onu 14 gem 1 match vlan vlan-id 613 action vlan replace vlan-id 613
+!
+service-port 433
+ gpon 1/1/3 onu 36 gem 1 match vlan vlan-id 603 action vlan replace vlan-id 603
+!
+service-port 434
+ gpon 1/1/5 onu 24 gem 1 match vlan vlan-id 605 action vlan replace vlan-id 605
+!
+service-port 435
+ gpon 1/1/16 onu 9 gem 1 match vlan vlan-id 616 action vlan replace vlan-id 616
+!
+service-port 442
+ gpon 1/1/8 onu 19 gem 1 match vlan vlan-id 608 action vlan replace vlan-id 608
+!
+service-port 445
+ gpon 1/1/12 onu 37 gem 1 match vlan vlan-id 612 action vlan replace vlan-id 612
+!
+service-port 448
+ gpon 1/1/10 onu 20 gem 1 match vlan vlan-id 610 action vlan replace vlan-id 610
+!
+service-port 450
+ gpon 1/1/15 onu 20 gem 1 match vlan vlan-id 615 action vlan replace vlan-id 615
+!
+service-port 457
+ gpon 1/1/14 onu 13 gem 1 match vlan vlan-id 614 action vlan replace vlan-id 614
+!
+service-port 459
+ gpon 1/1/2 onu 26 gem 1 match vlan vlan-id 602 action vlan replace vlan-id 602
+!
+service-port 460
+ gpon 1/1/12 onu 47 gem 1 match vlan vlan-id 612 action vlan replace vlan-id 612
+!
+service-port 461
+ gpon 1/1/2 onu 44 gem 1 match vlan vlan-id 602 action vlan replace vlan-id 602
+!
+service-port 462
+ gpon 1/1/6 onu 24 gem 1 match vlan vlan-id 606 action vlan replace vlan-id 606
+!
+service-port 463
+ gpon 1/1/5 onu 14 gem 1 match vlan vlan-id 605 action vlan replace vlan-id 605
+!
+service-port 464
+ gpon 1/1/13 onu 21 gem 1 match vlan vlan-id 613 action vlan replace vlan-id 613
+!
+service-port 465
+ gpon 1/1/4 onu 6 gem 1 match vlan vlan-id 604 action vlan replace vlan-id 604
+!
+service-port 467
+ gpon 1/1/15 onu 21 gem 1 match vlan vlan-id 615 action vlan replace vlan-id 615
+!
+service-port 470
+ gpon 1/1/2 onu 30 gem 1 match vlan vlan-id 602 action vlan replace vlan-id 602
+!
+service-port 472
+ gpon 1/1/6 onu 10 gem 1 match vlan vlan-id 606 action vlan replace vlan-id 606
+!
+service-port 473
+ gpon 1/1/1 onu 19 gem 1 match vlan vlan-id 601 action vlan replace vlan-id 601
+!
+service-port 476
+ gpon 1/1/6 onu 40 gem 1 match vlan vlan-id 606 action vlan replace vlan-id 606
+!
+service-port 479
+ gpon 1/1/9 onu 90 gem 1 match vlan vlan-id 609 action vlan replace vlan-id 609
+!
+service-port 480
+ gpon 1/1/14 onu 18 gem 1 match vlan vlan-id 614 action vlan replace vlan-id 614
+!
+service-port 483
+ gpon 1/1/1 onu 37 gem 1 match vlan vlan-id 601 action vlan replace vlan-id 601
+!
+service-port 484
+ gpon 1/1/15 onu 5 gem 1 match vlan vlan-id 615 action vlan replace vlan-id 615
+!
+service-port 485
+ gpon 1/1/1 onu 38 gem 1 match vlan vlan-id 601 action vlan replace vlan-id 601
+!
+service-port 488
+ gpon 1/1/2 onu 14 gem 1 match vlan vlan-id 602 action vlan replace vlan-id 602
+!
+service-port 489
+ gpon 1/1/2 onu 31 gem 1 match vlan vlan-id 602 action vlan replace vlan-id 602
+!
+service-port 490
+ gpon 1/1/11 onu 55 gem 1 match vlan vlan-id 611 action vlan replace vlan-id 611
+!
+service-port 491
+ gpon 1/1/7 onu 27 gem 1 match vlan vlan-id 607 action vlan replace vlan-id 607
+!
+service-port 492
+ gpon 1/1/1 onu 54 gem 1 match vlan vlan-id 601 action vlan replace vlan-id 601
+!
+service-port 495
+ gpon 1/1/16 onu 6 gem 1 match vlan vlan-id 616 action vlan replace vlan-id 616
+!
+service-port 496
+ gpon 1/1/12 onu 22 gem 1 match vlan vlan-id 612 action vlan replace vlan-id 612
+!
+service-port 497
+ gpon 1/1/9 onu 15 gem 1 match vlan vlan-id 609 action vlan replace vlan-id 609
+!
+service-port 498
+ gpon 1/1/6 onu 34 gem 1 match vlan vlan-id 606 action vlan replace vlan-id 606
+!
+service-port 500
+ gpon 1/1/1 onu 18 gem 1 match vlan vlan-id 601 action vlan replace vlan-id 601
+!
+service-port 502
+ gpon 1/1/6 onu 39 gem 1 match vlan vlan-id 606 action vlan replace vlan-id 606
+!
+service-port 506
+ gpon 1/1/7 onu 26 gem 1 match vlan vlan-id 607 action vlan replace vlan-id 607
+!
+service-port 509
+ gpon 1/1/13 onu 18 gem 1 match vlan vlan-id 613 action vlan replace vlan-id 613
+!
+service-port 517
+ gpon 1/1/9 onu 100 gem 1 match vlan vlan-id 609 action vlan replace vlan-id 609
+!
+service-port 523
+ gpon 1/1/2 onu 33 gem 1 match vlan vlan-id 602 action vlan replace vlan-id 602
+!
+service-port 529
+ gpon 1/1/7 onu 30 gem 1 match vlan vlan-id 607 action vlan replace vlan-id 607
+!
+service-port 532
+ gpon 1/1/8 onu 31 gem 1 match vlan vlan-id 608 action vlan replace vlan-id 608
+!
+service-port 536
+ gpon 1/1/9 onu 106 gem 1 match vlan vlan-id 609 action vlan replace vlan-id 609
+!
+service-port 539
+ gpon 1/1/2 onu 25 gem 1 match vlan vlan-id 602 action vlan replace vlan-id 602
+!
+service-port 540
+ gpon 1/1/16 onu 13 gem 1 match vlan vlan-id 616 action vlan replace vlan-id 616
+!
+service-port 544
+ gpon 1/1/7 onu 5 gem 1 match vlan vlan-id 607 action vlan replace vlan-id 607
+!
+service-port 547
+ gpon 1/1/15 onu 25 gem 1 match vlan vlan-id 615 action vlan replace vlan-id 615
+!
+service-port 548
+ gpon 1/1/14 onu 20 gem 1 match vlan vlan-id 614 action vlan replace vlan-id 614
+!
+service-port 549
+ gpon 1/1/7 onu 28 gem 1 match vlan vlan-id 607 action vlan replace vlan-id 607
+!
+service-port 550
+ gpon 1/1/12 onu 64 gem 1 match vlan vlan-id 612 action vlan replace vlan-id 612
+!
+service-port 556
+ gpon 1/1/11 onu 37 gem 1 match vlan vlan-id 611 action vlan replace vlan-id 611
+!
+service-port 557
+ gpon 1/1/2 onu 42 gem 1 match vlan vlan-id 602 action vlan replace vlan-id 602
+!
+service-port 559
+ gpon 1/1/11 onu 40 gem 1 match vlan vlan-id 611 action vlan replace vlan-id 611
+!
+service-port 561
+ gpon 1/1/5 onu 19 gem 1 match vlan vlan-id 605 action vlan replace vlan-id 605
+!
+service-port 567
+ gpon 1/1/16 onu 5 gem 1 match vlan vlan-id 616 action vlan replace vlan-id 616
+!
+service-port 570
+ gpon 1/1/15 onu 28 gem 1 match vlan vlan-id 615 action vlan replace vlan-id 615
+!
+service-port 574
+ gpon 1/1/2 onu 34 gem 1 match vlan vlan-id 602 action vlan replace vlan-id 602
+!
+service-port 576
+ gpon 1/1/12 onu 55 gem 1 match vlan vlan-id 612 action vlan replace vlan-id 612
+!
+service-port 578
+ gpon 1/1/1 onu 26 gem 1 match vlan vlan-id 601 action vlan replace vlan-id 601
+!
+service-port 580
+ gpon 1/1/4 onu 31 gem 1 match vlan vlan-id 604 action vlan replace vlan-id 604
+!
+service-port 583
+ gpon 1/1/2 onu 37 gem 1 match vlan vlan-id 602 action vlan replace vlan-id 602
+!
+service-port 585
+ gpon 1/1/11 onu 38 gem 1 match vlan vlan-id 611 action vlan replace vlan-id 611
+!
+service-port 587
+ gpon 1/1/11 onu 41 gem 1 match vlan vlan-id 611 action vlan replace vlan-id 611
+!
+service-port 589
+ gpon 1/1/7 onu 31 gem 1 match vlan vlan-id 607 action vlan replace vlan-id 607
+!
+service-port 590
+ gpon 1/1/7 onu 32 gem 1 match vlan vlan-id 607 action vlan replace vlan-id 607
+!
+service-port 591
+ gpon 1/1/12 onu 57 gem 1 match vlan vlan-id 612 action vlan replace vlan-id 612
+!
+service-port 592
+ gpon 1/1/7 onu 33 gem 1 match vlan vlan-id 607 action vlan replace vlan-id 607
+!
+service-port 593
+ gpon 1/1/7 onu 34 gem 1 match vlan vlan-id 607 action vlan replace vlan-id 607
+!
+service-port 597
+ gpon 1/1/4 onu 28 gem 1 match vlan vlan-id 604 action vlan replace vlan-id 604
+!
+service-port 600
+ gpon 1/1/12 onu 58 gem 1 match vlan vlan-id 612 action vlan replace vlan-id 612
+!
+service-port 601
+ gpon 1/1/4 onu 32 gem 1 match vlan vlan-id 604 action vlan replace vlan-id 604
+!
+service-port 603
+ gpon 1/1/6 onu 42 gem 1 match vlan vlan-id 606 action vlan replace vlan-id 606
+!
+service-port 605
+ gpon 1/1/6 onu 43 gem 1 match vlan vlan-id 606 action vlan replace vlan-id 606
+!
+service-port 610
+ gpon 1/1/9 onu 120 gem 1 match vlan vlan-id 609 action vlan replace vlan-id 609
+!
+service-port 612
+ gpon 1/1/8 onu 33 gem 1 match vlan vlan-id 608 action vlan replace vlan-id 608
+!
+service-port 613
+ gpon 1/1/12 onu 59 gem 1 match vlan vlan-id 612 action vlan replace vlan-id 612
+!
+service-port 615
+ gpon 1/1/12 onu 51 gem 1 match vlan vlan-id 612 action vlan replace vlan-id 612
+!
+service-port 616
+ gpon 1/1/12 onu 60 gem 1 match vlan vlan-id 612 action vlan replace vlan-id 612
+!
+service-port 618
+ gpon 1/1/11 onu 45 gem 1 match vlan vlan-id 611 action vlan replace vlan-id 611
+!
+service-port 622
+ gpon 1/1/5 onu 27 gem 1 match vlan vlan-id 605 action vlan replace vlan-id 605
+!
+service-port 623
+ gpon 1/1/4 onu 35 gem 1 match vlan vlan-id 604 action vlan replace vlan-id 604
+!
+service-port 624
+ gpon 1/1/12 onu 61 gem 1 match vlan vlan-id 612 action vlan replace vlan-id 612
+!
+service-port 625
+ gpon 1/1/6 onu 44 gem 1 match vlan vlan-id 606 action vlan replace vlan-id 606
+!
+service-port 626
+ gpon 1/1/2 onu 40 gem 1 match vlan vlan-id 602 action vlan replace vlan-id 602
+!
+service-port 627
+ gpon 1/1/13 onu 23 gem 1 match vlan vlan-id 613 action vlan replace vlan-id 613
+!
+service-port 630
+ gpon 1/1/5 onu 28 gem 1 match vlan vlan-id 605 action vlan replace vlan-id 605
+!
+service-port 634
+ gpon 1/1/6 onu 45 gem 1 match vlan vlan-id 606 action vlan replace vlan-id 606
+!
+service-port 635
+ gpon 1/1/6 onu 46 gem 1 match vlan vlan-id 606 action vlan replace vlan-id 606
+!
+service-port 638
+ gpon 1/1/9 onu 125 gem 1 match vlan vlan-id 609 action vlan replace vlan-id 609
+!
+service-port 639
+ gpon 1/1/11 onu 48 gem 1 match vlan vlan-id 611 action vlan replace vlan-id 611
+!
+service-port 640
+ gpon 1/1/6 onu 47 gem 1 match vlan vlan-id 606 action vlan replace vlan-id 606
+!
+service-port 641
+ gpon 1/1/11 onu 30 gem 1 match vlan vlan-id 611 action vlan replace vlan-id 611
+!
+switchport
+ interface gigabit-ethernet-1/1/4
+  native-vlan vlan-id 650
+ !
+!
+vrf global
+!
+vrf mgmt
+!
+router static
+ address-family ipv4
+  0.0.0.0/0 next-hop 10.45.166.93
+  !
+ !
+!
+dot1q
+ vlan 15,61
+  interface ten-gigabit-ethernet-1/1/4
+  !
+ !
+ vlan 601-616
+  name Vlan_PPPoE
+  interface ten-gigabit-ethernet-1/1/4
+  !
+ !
+ vlan 650
+  interface gigabit-ethernet-1/1/4
+    untagged
+  !
+  interface ten-gigabit-ethernet-1/1/4
+  !
+ !
+ vlan 660
+  name VLAN_Cust_Caixa
+  interface ten-gigabit-ethernet-1/1/4
+  !
+ !
+!
+license gpon-16-ports enabled
+license gpon-16-ports key ***
+license mpls enabled
+license mpls key ***

@@ -1,0 +1,112 @@
+aaa username admin level priviledged password hash $1$H4d/aMTu$bQRdhrXUr2qgIkmU50K630
+aaa username guest level viewer password hash $1$qF31yob$aDLZxvF9N850JTLK3LUcT1
+aaa accounting exec default none
+aaa authorization exec default none
+aaa authentication login default local
+rstp shutdown
+hostname Parks
+vlan database
+ vlan 1,50,1550
+ vlan 50 in-band-mgmt 
+!
+gpon profile bandwidth Perfil_1000MB
+ traffic-type internet maximum-bandwidth 1024000
+!
+gpon profile bandwidth Perfil_Gerencia
+ traffic-type management assured-bandwidth 512 maximum-bandwidth 10240
+!
+gpon profile flow Bridge
+ add flow # Bridge-1
+ add flow # Bridge-2
+ Bridge-1 encryption disable
+ Bridge-1 flow-type iphost
+ Bridge-1 vlan 50 cos 0 service Perfil_Gerencia
+ Bridge-2 encryption disable
+ Bridge-2 flow-type pbmp 1
+ Bridge-2 vlan 1550 cos 0 service Perfil_100MB
+!
+gpon profile flow Router
+ add flow # Router-1
+ add flow # Router-2
+ Router-1 encryption disable
+ Router-1 flow-type iphost
+ Router-1 vlan 50 cos 0 service Perfil_Gerencia
+ Router-2 encryption disable
+ Router-2 flow-type veip
+ Router-2 vlan 1550 cos 0 service Perfil_1000MB
+!
+gpon profile flow gerencia
+ add flow # gerencia-1
+ gerencia-1 encryption disable
+ gerencia-1 flow-type iphost
+ gerencia-1 vlan 50 cos 0 service Perfil_Gerencia
+!
+gpon profile vlan-translation Bridge_Access
+ add translation access 1550
+!
+gpon profile vlan-translation Bridge_Trunk
+ add translation trunk 1550
+!
+interface giga-ethernet0/0
+ switchport access vlan 50,1550
+ no shutdown
+!
+interface giga-ethernet0/1
+ no shutdown
+!
+interface giga-ethernet0/2
+ no shutdown
+!
+interface giga-ethernet0/3
+ no shutdown
+!
+interface giga-ethernet1/0
+ switchport mode trunk
+ switchport trunk allowed vlan 50,1550
+ no shutdown
+!
+interface giga-ethernet1/1
+ no shutdown
+!
+interface gpon1/1
+ onu discovery-interval 30
+ switchport mode trunk
+ switchport trunk allowed vlan 50,1021
+ no shutdown
+!
+interface gpon1/2
+ onu discovery-interval 30
+ switchport mode trunk
+ switchport trunk allowed vlan 50,1550
+ no shutdown
+!
+interface gpon1/3
+ onu discovery-interval 30
+ switchport mode trunk
+ switchport trunk allowed vlan 50,1550
+ no shutdown
+!
+interface gpon1/4
+ onu discovery-interval 30
+ switchport mode trunk
+ switchport trunk allowed vlan 50,1550
+ no shutdown
+!
+interface loopback0
+!
+interface mgmt
+ ip address 192.168.1.1/24
+ no shutdown
+!
+interface mgmt1
+!
+interface mgmt1.50
+ ip address 10.31.107.18/30
+ no shutdown
+!
+ip route 0.0.0.0/0 10.31.107.17
+ip telnet server
+mac-address-table aging-time 300
+snmp-server community parks rw
+snmp-server enable traps snmp
+!
