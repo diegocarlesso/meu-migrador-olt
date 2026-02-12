@@ -211,40 +211,110 @@ class FastModePage(QWizardPage):
         self.setTitle("Modo rápido")
 
         root = QVBoxLayout(self)
-        root.addWidget(Header("Modo rápido", "Preencha FRAME/SLOT, escolha trunks e aplique offsets (opcional)."))
+        root.addWidget(Header("Modo rápido", "Atalhos para trunks, offsets e parâmetros por fabricante de destino."))
 
-        box = QGroupBox("Parâmetros")
+        self.lbl_vendor = QLabel("")
+        self.lbl_vendor.setStyleSheet("color: #9aa4b2;")
+        root.addWidget(self.lbl_vendor)
+
+        # Geral (qualquer vendor)
+        box = QGroupBox("Geral")
         form = QFormLayout(box)
 
-        self.ed_frame = QLineEdit()
-        self.ed_slot = QLineEdit()
         self.ed_trunks = QLineEdit()
+        self.ed_trunks.setPlaceholderText("Ex.: xgei-1/1/1, gei-1/1/5")
         self.chk_all = QCheckBox("Aplicar TODAS as VLANs nas trunks automaticamente")
         self.chk_all.setChecked(True)
 
         self.sp_pon = QSpinBox(); self.sp_pon.setRange(-999, 999); self.sp_pon.setValue(0)
         self.sp_vlan = QSpinBox(); self.sp_vlan.setRange(-9999, 9999); self.sp_vlan.setValue(0)
 
-        self.ed_trunks.setPlaceholderText("Ex.: xgei-1/1/1, gei-1/1/5")
-
-        form.addRow("FRAME (ZTE):", self.ed_frame)
-        form.addRow("SLOT (ZTE):", self.ed_slot)
         form.addRow("Trunks/Uplinks (CSV):", self.ed_trunks)
         form.addRow("Opções:", self.chk_all)
         form.addRow("Offset PON (+/-):", self.sp_pon)
         form.addRow("Offset VLAN (+/-):", self.sp_vlan)
 
         root.addWidget(box)
+
+        # ZTE extras (somente quando destino = ZTE)
+        self.grp_zte = QGroupBox("ZTE (extras)")
+        fz = QFormLayout(self.grp_zte)
+
+        self.ed_frame = QLineEdit()
+        self.ed_slot = QLineEdit()
+
+        self.ed_trunk_desc = QLineEdit()
+        self.ed_trunk_desc.setPlaceholderText("Ex.: UPLINK")
+        self.ed_trunk_desc.setText("UPLINK (migrado)")
+
+        self.chk_trunk_no_shutdown = QCheckBox("Adicionar 'no shutdown' nas trunks")
+        self.chk_trunk_no_shutdown.setChecked(True)
+
+        self.chk_discover = QCheckBox("Configurar discover-period nas PONs (new-onu/miss-onu)")
+        self.chk_discover.setChecked(True)
+        self.sp_discover_new = QSpinBox(); self.sp_discover_new.setRange(1, 9999); self.sp_discover_new.setValue(15)
+        self.sp_discover_miss = QSpinBox(); self.sp_discover_miss.setRange(1, 9999); self.sp_discover_miss.setValue(60)
+
+        self.ed_tcont_bridge = QLineEdit(); self.ed_tcont_bridge.setText("BRIDGE")
+        self.ed_tcont_pppoe = QLineEdit(); self.ed_tcont_pppoe.setText("PPPOE")
+
+        fz.addRow("FRAME:", self.ed_frame)
+        fz.addRow("SLOT:", self.ed_slot)
+        fz.addRow("Descrição nas trunks:", self.ed_trunk_desc)
+        fz.addRow("Trunks:", self.chk_trunk_no_shutdown)
+        fz.addRow("Discover-period:", self.chk_discover)
+        # small row for new/miss
+        row = QWidget()
+        hb = QHBoxLayout(row); hb.setContentsMargins(0,0,0,0)
+        hb.addWidget(QLabel("new-onu:")); hb.addWidget(self.sp_discover_new)
+        hb.addSpacing(10)
+        hb.addWidget(QLabel("miss-onu:")); hb.addWidget(self.sp_discover_miss)
+        hb.addStretch(1)
+        fz.addRow("Valores:", row)
+        fz.addRow("TCONT name (Bridge):", self.ed_tcont_bridge)
+        fz.addRow("TCONT name (PPPoE):", self.ed_tcont_pppoe)
+
+        root.addWidget(self.grp_zte)
         root.addStretch(1)
 
+    def initializePage(self) -> None:
+        dst = (self.wiz.state.dst_vendor or "").lower().strip()
+        adapter = self.wiz.registry.get(dst)
+        vendor_label = adapter.label if adapter else dst
+        self.lbl_vendor.setText(f"Destino selecionado: {vendor_label}")
+
+        is_zte = dst == "zte"
+        self.grp_zte.setVisible(is_zte)
+
+        if not is_zte:
+            # evita 'cara de ZTE' quando não for ZTE
+            self.ed_frame.clear()
+            self.ed_slot.clear()
+
     def validatePage(self) -> bool:
-        self.wiz.state.fast["frame"] = self.ed_frame.text().strip()
-        self.wiz.state.fast["slot"] = self.ed_slot.text().strip()
         self.wiz.state.fast["trunks_csv"] = self.ed_trunks.text().strip()
         self.wiz.state.fast["apply_all_vlans_to_trunks"] = self.chk_all.isChecked()
         self.wiz.state.fast["pon_offset"] = int(self.sp_pon.value())
         self.wiz.state.fast["vlan_offset"] = int(self.sp_vlan.value())
+
+        # ZTE extras
+        dst = (self.wiz.state.dst_vendor or "").lower().strip()
+        if dst == "zte":
+            self.wiz.state.fast["frame"] = self.ed_frame.text().strip()
+            self.wiz.state.fast["slot"] = self.ed_slot.text().strip()
+            self.wiz.state.fast["trunk_desc"] = self.ed_trunk_desc.text().strip()
+            self.wiz.state.fast["trunk_no_shutdown"] = self.chk_trunk_no_shutdown.isChecked()
+            self.wiz.state.fast["discover_enable"] = self.chk_discover.isChecked()
+            self.wiz.state.fast["discover_new_onu"] = int(self.sp_discover_new.value())
+            self.wiz.state.fast["discover_miss_onu"] = int(self.sp_discover_miss.value())
+            self.wiz.state.fast["tcont_name_bridge"] = self.ed_tcont_bridge.text().strip() or "BRIDGE"
+            self.wiz.state.fast["tcont_name_pppoe"] = self.ed_tcont_pppoe.text().strip() or "PPPOE"
+        else:
+            # limpa chaves específicas para reduzir confusão
+            for k in ("frame","slot","trunk_desc","trunk_no_shutdown","discover_enable","discover_new_onu","discover_miss_onu","tcont_name_bridge","tcont_name_pppoe"):
+                self.wiz.state.fast.pop(k, None)
         return True
+
 
 
 class EditPage(QWizardPage):

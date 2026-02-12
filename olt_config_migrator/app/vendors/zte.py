@@ -82,6 +82,13 @@ class ZTEAdapter(VendorAdapter):
         slot = str(fast.get("slot","")).strip() or "[SLOT]"
         pon_offset = int(fast.get("pon_offset", 0) or 0)
         vlan_offset = int(fast.get("vlan_offset", 0) or 0)
+        trunk_desc = str(fast.get("trunk_desc", "")).strip()
+        trunk_no_shutdown = bool(fast.get("trunk_no_shutdown", True))
+        discover_enable = bool(fast.get("discover_enable", False))
+        discover_new = int(fast.get("discover_new_onu", 15) or 15)
+        discover_miss = int(fast.get("discover_miss_onu", 60) or 60)
+        tcont_name_bridge = str(fast.get("tcont_name_bridge", "BRIDGE")).strip() or "BRIDGE"
+        tcont_name_pppoe = str(fast.get("tcont_name_pppoe", "PPPOE")).strip() or "PPPOE"
 
         def fmt_gpon_olt(pon: int) -> str:
             return f"gpon_olt-{frame}/{slot}/{pon}"
@@ -122,6 +129,10 @@ class ZTEAdapter(VendorAdapter):
                 continue
             tagged = str(tr.get("tagged","ALL")).strip().upper()
             out.append(f"interface {ifname}")
+            if trunk_desc:
+                out.append(f" description {trunk_desc}")
+            if trunk_no_shutdown:
+                out.append(" no shutdown")
             out.append(" switchport mode trunk")
             if apply_all or tagged == "ALL":
                 if vlan_ids:
@@ -226,6 +237,8 @@ class ZTEAdapter(VendorAdapter):
                     out.append(f" onu {o['onu_id']} type {o['onu_type']} sn {o['sn']}")
                 else:
                     out.append(f" onu {o['onu_id']} type {o['onu_type']}")
+            if discover_enable:
+                out.append(f" discover-period new-onu {discover_new} miss-onu {discover_miss}")
             out.append("$")
         if onus_by_pon:
             out.append("!")
@@ -237,14 +250,17 @@ class ZTEAdapter(VendorAdapter):
                 onu_if = fmt_gpon_onu(pon, onu_id)
                 out.append(f"interface {onu_if}")
                 if o["name"]:
-                    out.append(f" name {o['name']}")
+                    out.append(f" description {o['name']}")
                 if o["sn"]:
                     out.append(f" sn-bind enable sn {o['sn']}")
                 prof = pick_profile(o["up"], o["assured"]) if o["up"] else str(profiles[0].get("name"))
-                # Always per ONU: use tcont 1
-                out.append(f" tcont 1 profile {prof}")
-                # Create gemport per service (or at least 1)
+                # Serviços por ONU (sempre por ONU)
                 svc_list = services_by_onu.get((1, pon, onu_id), []) or services_by_onu.get((0, pon, onu_id), []) or []
+                has_pppoe = any(str(x.get("pppoe_user","")).strip() for x in svc_list)
+                tcont_name = tcont_name_pppoe if has_pppoe else tcont_name_bridge
+                # TCONT 1
+                out.append(f" tcont 1 name {tcont_name} profile {prof}")
+                # Create gemport per service (or at least 1)
                 if not svc_list:
                     out.append(" gemport 1 tcont 1")
                 else:
