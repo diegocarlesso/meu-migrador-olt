@@ -3,7 +3,6 @@ from typing import Any, Dict, List
 from PyQt6.QtCore import Qt, QAbstractTableModel, QModelIndex, pyqtSignal
 from .models import SectionSchema
 
-
 class SectionTableModel(QAbstractTableModel):
     dataChangedSignal = pyqtSignal()
 
@@ -51,15 +50,13 @@ class SectionTableModel(QAbstractTableModel):
         if not col.editable:
             return False
         row = self.rows[index.row()]
-        new_val = value
         if col.col_type == "int":
             try:
-                new_val = int(str(value).strip())
+                row[col.key] = int(str(value).strip())
             except Exception:
-                new_val = 0
+                row[col.key] = 0
         else:
-            new_val = str(value)
-        row[col.key] = new_val
+            row[col.key] = str(value)
         self.dataChanged.emit(index, index, [Qt.ItemDataRole.DisplayRole, Qt.ItemDataRole.EditRole])
         self.dataChangedSignal.emit()
         return True

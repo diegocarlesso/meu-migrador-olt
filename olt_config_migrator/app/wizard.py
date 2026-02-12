@@ -1,18 +1,18 @@
 from __future__ import annotations
 from dataclasses import dataclass, field
-from typing import Any, Dict, List, Optional
+from typing import Any, Dict, List
 
 from PyQt6.QtWidgets import (
     QWizard, QWizardPage, QWidget, QVBoxLayout, QHBoxLayout, QLabel, QComboBox, QLineEdit,
     QPushButton, QFileDialog, QGroupBox, QFormLayout, QCheckBox, QTabWidget,
-    QPlainTextEdit, QMessageBox
+    QPlainTextEdit, QMessageBox, QSpinBox
 )
 from PyQt6.QtGui import QPixmap
 from PyQt6.QtCore import Qt
 
 from .utils import read_text_smart
 from .vendors.registry import get_registry
-from .models import NormalizedConfig, SectionSchema
+from .models import NormalizedConfig
 from .widgets import SectionEditor
 
 
@@ -28,6 +28,17 @@ class AppState:
         "vlans": True,
         "ips_routes": True,
         "profiles": True,
+        "onus": True,
+    })
+
+    # Fast mode params
+    fast: Dict[str, Any] = field(default_factory=lambda: {
+        "frame": "",
+        "slot": "",
+        "trunks_csv": "",
+        "apply_all_vlans_to_trunks": True,
+        "pon_offset": 0,
+        "vlan_offset": 0,
     })
 
     target_data: Dict[str, List[Dict[str, Any]]] = field(default_factory=dict)
@@ -36,22 +47,18 @@ class AppState:
 class MigrationWizard(QWizard):
     def __init__(self):
         super().__init__()
-        self.setWindowTitle("OLT Config Migrator")
+        self.setWindowTitle("OLT Config Migrator (Turbo)")
         self.setWizardStyle(QWizard.WizardStyle.ModernStyle)
-        self.setMinimumSize(980, 680)
+        self.setMinimumSize(1050, 720)
 
         self.registry = get_registry()
         self.state = AppState()
 
-        self.page1 = SourcePage(self)
-        self.page2 = TargetPage(self)
-        self.page3 = EditPage(self)
-        self.page4 = PreviewPage(self)
-
-        self.addPage(self.page1)
-        self.addPage(self.page2)
-        self.addPage(self.page3)
-        self.addPage(self.page4)
+        self.addPage(SourcePage(self))
+        self.addPage(TargetPage(self))
+        self.addPage(FastModePage(self))
+        self.addPage(EditPage(self))
+        self.addPage(PreviewPage(self))
 
         self.button(QWizard.WizardButton.FinishButton).setText("Fechar")
         self.button(QWizard.WizardButton.NextButton).setText("Avançar →")
@@ -74,13 +81,9 @@ class Header(QWidget):
         lay.addWidget(logo)
 
         txt = QVBoxLayout()
-        t = QLabel(title)
-        t.setObjectName("Title")
-        s = QLabel(subtitle)
-        s.setObjectName("Subtitle")
-        s.setWordWrap(True)
-        txt.addWidget(t)
-        txt.addWidget(s)
+        t = QLabel(title); t.setObjectName("Title")
+        s = QLabel(subtitle); s.setObjectName("Subtitle"); s.setWordWrap(True)
+        txt.addWidget(t); txt.addWidget(s)
         lay.addLayout(txt)
         lay.addStretch(1)
 
@@ -92,7 +95,7 @@ class SourcePage(QWizardPage):
         self.setTitle("Origem")
 
         root = QVBoxLayout(self)
-        root.addWidget(Header("Metro Network", "Migração de configurações de OLT: escolha o fabricante de origem e carregue o backup."))
+        root.addWidget(Header("Metro Network", "Escolha o fabricante de origem e carregue o backup."))
 
         box = QGroupBox("Fonte")
         form = QFormLayout(box)
@@ -124,7 +127,6 @@ class SourcePage(QWizardPage):
         self.cmb_vendor.currentIndexChanged.connect(self._on_vendor_changed)
 
     def _on_vendor_changed(self):
-        # se já tem arquivo, reparse
         if self.ed_path.text().strip():
             self._load_and_parse(self.ed_path.text().strip())
 
@@ -146,9 +148,9 @@ class SourcePage(QWizardPage):
             self.wiz.state.normalized = normalized
 
             self.lbl_summary.setText(
-                f"VLANs: {len(normalized.vlans)} | IPs: {len(normalized.interfaces)} | Rotas: {len(normalized.routes)} | "
-                f"Profiles: DBA {len(normalized.dba_profiles)}, Line {len(normalized.line_profiles)}, ONU {len(normalized.onu_profiles)}, "
-                f"Band {len(normalized.bandwidth_profiles)}, ServiceVLAN {len(normalized.service_vlans)}"
+                f"VLANs: {len(normalized.vlans)} | Trunks: {len(normalized.trunks)} | "
+                f"IPs: {len(normalized.interfaces)} | Rotas: {len(normalized.routes)} | "
+                f"TCONT: {len(normalized.tcont_profiles)} | ONUs: {len(normalized.onus)} | Serviços: {len(normalized.services)}"
             )
             self.completeChanged.emit()
         except Exception as e:
@@ -175,17 +177,18 @@ class TargetPage(QWizardPage):
         for vid, ad in self.wiz.registry.items():
             self.cmb_vendor.addItem(ad.label, vid)
 
-        self.chk_vlans = QCheckBox("Migrar VLANs")
+        self.chk_vlans = QCheckBox("Migrar VLANs (inclui ranges)")
         self.chk_ips = QCheckBox("Migrar IPs e Rotas")
-        self.chk_prof = QCheckBox("Migrar Profiles (quando aplicável)")
-        self.chk_vlans.setChecked(True)
-        self.chk_ips.setChecked(True)
-        self.chk_prof.setChecked(True)
+        self.chk_prof = QCheckBox("Migrar Profiles (TCONT/Line/Service quando aplicável)")
+        self.chk_onu = QCheckBox("Migrar ONUs + Serviços (PPPoE quando existir)")
+        for c in (self.chk_vlans, self.chk_ips, self.chk_prof, self.chk_onu):
+            c.setChecked(True)
 
         form.addRow("Fabricante de destino:", self.cmb_vendor)
         form.addRow("Opções:", self.chk_vlans)
         form.addRow("", self.chk_ips)
         form.addRow("", self.chk_prof)
+        form.addRow("", self.chk_onu)
 
         root.addWidget(box)
         root.addStretch(1)
@@ -196,7 +199,51 @@ class TargetPage(QWizardPage):
             "vlans": self.chk_vlans.isChecked(),
             "ips_routes": self.chk_ips.isChecked(),
             "profiles": self.chk_prof.isChecked(),
+            "onus": self.chk_onu.isChecked(),
         }
+        return True
+
+
+class FastModePage(QWizardPage):
+    def __init__(self, wiz: MigrationWizard):
+        super().__init__(wiz)
+        self.wiz = wiz
+        self.setTitle("Modo rápido")
+
+        root = QVBoxLayout(self)
+        root.addWidget(Header("Modo rápido", "Preencha FRAME/SLOT, escolha trunks e aplique offsets (opcional)."))
+
+        box = QGroupBox("Parâmetros")
+        form = QFormLayout(box)
+
+        self.ed_frame = QLineEdit()
+        self.ed_slot = QLineEdit()
+        self.ed_trunks = QLineEdit()
+        self.chk_all = QCheckBox("Aplicar TODAS as VLANs nas trunks automaticamente")
+        self.chk_all.setChecked(True)
+
+        self.sp_pon = QSpinBox(); self.sp_pon.setRange(-999, 999); self.sp_pon.setValue(0)
+        self.sp_vlan = QSpinBox(); self.sp_vlan.setRange(-9999, 9999); self.sp_vlan.setValue(0)
+
+        self.ed_trunks.setPlaceholderText("Ex.: xgei-1/1/1, gei-1/1/5")
+
+        form.addRow("FRAME (ZTE):", self.ed_frame)
+        form.addRow("SLOT (ZTE):", self.ed_slot)
+        form.addRow("Trunks/Uplinks (CSV):", self.ed_trunks)
+        form.addRow("Opções:", self.chk_all)
+        form.addRow("Offset PON (+/-):", self.sp_pon)
+        form.addRow("Offset VLAN (+/-):", self.sp_vlan)
+
+        root.addWidget(box)
+        root.addStretch(1)
+
+    def validatePage(self) -> bool:
+        self.wiz.state.fast["frame"] = self.ed_frame.text().strip()
+        self.wiz.state.fast["slot"] = self.ed_slot.text().strip()
+        self.wiz.state.fast["trunks_csv"] = self.ed_trunks.text().strip()
+        self.wiz.state.fast["apply_all_vlans_to_trunks"] = self.chk_all.isChecked()
+        self.wiz.state.fast["pon_offset"] = int(self.sp_pon.value())
+        self.wiz.state.fast["vlan_offset"] = int(self.sp_vlan.value())
         return True
 
 
@@ -207,7 +254,7 @@ class EditPage(QWizardPage):
         self.setTitle("Adicionar / Modificar")
 
         self.root = QVBoxLayout(self)
-        self.root.addWidget(Header("Editor", "Edite apenas os campos editáveis (IDs, nomes e valores). Use o botão ADD para criar linhas."))
+        self.root.addWidget(Header("Editor", "Edite IDs/Nomes/Valores e use ADD para criar linhas."))
 
         self.tabs = QTabWidget()
         self.root.addWidget(self.tabs, 1)
@@ -220,38 +267,44 @@ class EditPage(QWizardPage):
         self.root.addLayout(bar)
 
         self.btn_rebuild.clicked.connect(self._rebuild_tabs)
-        self._built = False
 
     def initializePage(self):
         self._rebuild_tabs()
 
+    def _apply_fast_defaults(self, target_data: Dict[str, List[Dict[str, Any]]]):
+        # Apply trunks from CSV into target_data if section exists
+        trunks_csv = str(self.wiz.state.fast.get("trunks_csv","")).strip()
+        if trunks_csv and "trunks" in target_data:
+            ifnames = [x.strip() for x in trunks_csv.split(",") if x.strip()]
+            target_data["trunks"] = [{"ifname":n, "tagged":"ALL"} for n in ifnames]
+
     def _rebuild_tabs(self):
         dst = self.wiz.state.dst_vendor
-        if not dst:
-            return
         adapter = self.wiz.registry[dst]
         schema = adapter.schema()
 
-        # Converte Normalized -> target_data
         target_data = adapter.from_normalized(self.wiz.state.normalized)
+        self._apply_fast_defaults(target_data)
 
-        # Aplica opções (remove seções não desejadas)
+        # Apply options (clear sections)
         opts = self.wiz.state.options
         if not opts.get("vlans", True) and "vlans" in target_data:
             target_data["vlans"] = []
         if not opts.get("ips_routes", True):
-            if "interfaces" in target_data:
-                target_data["interfaces"] = []
-            if "routes" in target_data:
-                target_data["routes"] = []
+            for k in ("interfaces","routes"):
+                if k in target_data:
+                    target_data[k] = []
         if not opts.get("profiles", True):
-            for k in list(target_data.keys()):
-                if k in ("dba_profiles", "line_profiles", "onu_profiles", "bandwidth_profiles", "service_vlans"):
+            for k in ("tcont_profiles",):
+                if k in target_data:
+                    target_data[k] = []
+        if not opts.get("onus", True):
+            for k in ("onus","services"):
+                if k in target_data:
                     target_data[k] = []
 
         self.wiz.state.target_data = target_data
 
-        # UI
         self.tabs.clear()
         self.editors: Dict[str, SectionEditor] = {}
         for sec in schema:
@@ -261,7 +314,6 @@ class EditPage(QWizardPage):
             self.tabs.addTab(ed, sec.title)
             ed.model.dataChangedSignal.connect(self._sync_state)
 
-        self._built = True
         self._sync_state()
 
     def _sync_state(self):
@@ -282,7 +334,7 @@ class PreviewPage(QWizardPage):
         self.setTitle("Conferência e geração")
 
         root = QVBoxLayout(self)
-        root.addWidget(Header("Prévia", "Confira o script final e gere o arquivo no formato do fabricante de destino."))
+        root.addWidget(Header("Prévia", "Confira o script final e gere o arquivo no formato do destino."))
 
         self.txt = QPlainTextEdit()
         self.txt.setReadOnly(True)
@@ -305,7 +357,7 @@ class PreviewPage(QWizardPage):
     def _refresh(self):
         dst = self.wiz.state.dst_vendor
         adapter = self.wiz.registry[dst]
-        script = adapter.render(self.wiz.state.target_data)
+        script = adapter.render(self.wiz.state.target_data, self.wiz.state.fast)
         self.txt.setPlainText(script)
 
     def _save(self):

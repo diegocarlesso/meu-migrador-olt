@@ -1,35 +1,21 @@
-# OLT Config Migrator (PyQt6) 🚇🛠️
+# OLT Config Migrator (Turbo) — PyQt6
 
-Protótipo funcional para:
-- Selecionar fabricante de **origem**, carregar backup (.txt/.cfg)
-- Selecionar fabricante de **destino**
-- Editar **VLANs / perfis / IPs / rotas** em tabelas (com ADD/Remove)
-- Ver **prévia do script** e **gerar arquivo** com extensão padrão do fabricante
+Versão focada em migração **Fiberhome → ZTE** com:
+- VLANs (incluindo ranges)
+- Trunks automáticas (passa todas VLANs nas interfaces escolhidas)
+- ONUs completas (cadastro + serviços + PPPoE quando existir)
+- Numeração **sempre por ONU** (service-port / wan-ip / gemport)
 
-> **Aviso**: este é um “esqueleto bem útil”: ele já faz parsing e geração **best-effort** para alguns fabricantes e deixa a arquitetura pronta para você ir plugando regras e seções específicas.
+Também inclui vendors adicionais no menu (Parks, V-Solution, Datacom, Huawei) em modo best-effort.
 
-## Como rodar
-
-1) Instale dependência:
+## Rodar
 ```bash
 pip install PyQt6
-```
-
-2) Execute:
-```bash
 python main.py
 ```
 
-## Como adicionar um fabricante novo
-
-Crie um arquivo em `app/vendors/` implementando `VendorAdapter`:
-- `parse_to_normalized(text) -> NormalizedConfig`
-- `schema() -> list[SectionSchema]`
-- `from_normalized(normalized) -> dict[str, list[dict]]`
-- `render(target_data) -> str`
-
-Depois registre no `app/vendors/registry.py`.
-
-## Onde ajustar cores/tema
-
-`app/styles.py`
+## Dicas rápidas
+- Se você não preencher Frame/Slot no “Modo rápido”, o script ZTE sai com placeholders:
+  `gpon_olt-[FRAME]/[SLOT]/[PON]`
+- Trunks: informe separado por vírgula, ex:
+  `xgei-1/1/1, gei-1/1/5`

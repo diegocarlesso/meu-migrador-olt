@@ -1,12 +1,8 @@
 from __future__ import annotations
 from typing import Any, Dict, List
-from PyQt6.QtWidgets import (
-    QWidget, QVBoxLayout, QHBoxLayout, QLabel, QPushButton, QTableView, QAbstractItemView
-)
-from PyQt6.QtCore import Qt
+from PyQt6.QtWidgets import QWidget, QVBoxLayout, QHBoxLayout, QLabel, QPushButton, QTableView, QAbstractItemView
 from .models import SectionSchema
 from .table_models import SectionTableModel
-
 
 class SectionEditor(QWidget):
     def __init__(self, schema: SectionSchema, rows: List[Dict[str, Any]]):
@@ -27,7 +23,6 @@ class SectionEditor(QWidget):
         self.table.setSelectionMode(QAbstractItemView.SelectionMode.ExtendedSelection)
         self.table.horizontalHeader().setStretchLastSection(True)
         self.table.verticalHeader().setVisible(False)
-        self.table.setAlternatingRowColors(False)
         root.addWidget(self.table)
 
         bar = QHBoxLayout()

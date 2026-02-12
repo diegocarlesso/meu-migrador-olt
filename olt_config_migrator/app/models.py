@@ -7,78 +7,74 @@ from typing import Any, Dict, List, Optional
 class Vlan:
     vid: int
     name: str = ""
-    kind: str = ""  # e.g. 'mgmt', 'service', etc.
+    kind: str = ""  # mgmt/service/...
 
 
 @dataclass
 class InterfaceIP:
     ifname: str
     ip: str
-    prefix_or_mask: str  # '/30' or '255.255.255.0'
+    prefix_or_mask: str
     vlan: Optional[int] = None
 
 
 @dataclass
 class Route:
-    prefix: str  # '0.0.0.0/0'
+    prefix: str
     next_hop: str
 
 
 @dataclass
-class BandwidthProfile:
-    name: str
-    traffic_type: str = "internet"  # internet/management/...
-    assured_kbps: Optional[int] = None
-    max_kbps: Optional[int] = None
+class Trunk:
+    ifname: str
+    tagged_vlans: List[int] = field(default_factory=list)
 
 
 @dataclass
-class ServiceVlanGroup:
-    svc_id: int
+class TcontProfile:
     name: str
-    vlan_begin: int
-    vlan_end: int
-    svc_type: str = "data"
+    dba_type: int = 3
+    assured_kbps: int = 0
+    max_kbps: int = 0
 
 
 @dataclass
-class DbaProfile:
-    prof_id: int
-    name: str
-    dba_type: int
-    assured: Optional[int] = None
-    maximum: Optional[int] = None
+class Onu:
+    slot: int
+    pon: int
+    onu_id: int
+    sn: str = ""
+    onu_type: str = ""
+    name: str = ""
+    upstream_kbps: int = 0
+    downstream_kbps: int = 0
+    upstream_assured: int = 0
 
 
 @dataclass
-class LineProfile:
-    prof_id: int
-    name: str
-    user_vlan: Optional[int] = None
-    dba_name: str = "default1"
-
-
-@dataclass
-class OnuProfile:
-    prof_id: int
-    name: str
-    eth_ports: Optional[int] = None
+class OnuService:
+    slot: int
+    pon: int
+    onu_id: int
+    uni_port: int = 1      # eth port index (1..n)
+    svc_local_id: int = 1  # MUST be local to ONU: 1..N
+    vlan: int = 0
+    mode: str = "tag"      # tag/untag/translate
+    pppoe_user: str = ""
+    pppoe_pass: str = ""
 
 
 @dataclass
 class NormalizedConfig:
     vlans: List[Vlan] = field(default_factory=list)
+    trunks: List[Trunk] = field(default_factory=list)
     interfaces: List[InterfaceIP] = field(default_factory=list)
     routes: List[Route] = field(default_factory=list)
 
-    bandwidth_profiles: List[BandwidthProfile] = field(default_factory=list)
-    service_vlans: List[ServiceVlanGroup] = field(default_factory=list)
+    tcont_profiles: List[TcontProfile] = field(default_factory=list)
+    onus: List[Onu] = field(default_factory=list)
+    services: List[OnuService] = field(default_factory=list)
 
-    dba_profiles: List[DbaProfile] = field(default_factory=list)
-    line_profiles: List[LineProfile] = field(default_factory=list)
-    onu_profiles: List[OnuProfile] = field(default_factory=list)
-
-    # Espaço livre para guardar dados que você ainda não normalizou:
     extras: Dict[str, Any] = field(default_factory=dict)
 
 
@@ -88,7 +84,7 @@ class SectionColumn:
     label: str
     editable: bool = True
     placeholder: str = ""
-    col_type: str = "str"  # 'str', 'int'
+    col_type: str = "str"  # str/int
 
 
 @dataclass

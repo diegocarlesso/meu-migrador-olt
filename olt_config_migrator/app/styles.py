@@ -2,8 +2,6 @@ from __future__ import annotations
 from PyQt6.QtGui import QFont
 from PyQt6.QtWidgets import QApplication
 
-
-# Paleta (aprox. da logo Metro Network)
 METRO_BG = "#0b0c10"
 METRO_PANEL = "#11131a"
 METRO_TEXT = "#e8e8ea"
@@ -12,7 +10,6 @@ METRO_BLUE = "#1183c6"
 METRO_PINK = "#d81b60"
 METRO_BORDER = "#232635"
 
-
 def apply_metro_theme(app: QApplication) -> None:
     app.setFont(QFont("Segoe UI", 10))
     app.setStyleSheet(f"""
@@ -20,7 +17,6 @@ def apply_metro_theme(app: QApplication) -> None:
             background: {METRO_BG};
             color: {METRO_TEXT};
         }}
-
         QGroupBox {{
             border: 1px solid {METRO_BORDER};
             border-radius: 10px;
@@ -34,7 +30,6 @@ def apply_metro_theme(app: QApplication) -> None:
             padding: 0 8px;
             color: {METRO_MUTED};
         }}
-
         QLineEdit, QComboBox, QSpinBox, QTextEdit, QPlainTextEdit {{
             background: #0f1118;
             border: 1px solid {METRO_BORDER};
@@ -42,7 +37,6 @@ def apply_metro_theme(app: QApplication) -> None:
             padding: 6px 8px;
             selection-background-color: {METRO_BLUE};
         }}
-
         QTableView {{
             background: #0f1118;
             gridline-color: {METRO_BORDER};
@@ -55,7 +49,6 @@ def apply_metro_theme(app: QApplication) -> None:
             padding: 6px 8px;
             color: {METRO_MUTED};
         }}
-
         QPushButton {{
             background: {METRO_PANEL};
             border: 1px solid {METRO_BORDER};
@@ -78,43 +71,6 @@ def apply_metro_theme(app: QApplication) -> None:
             border-color: {METRO_PINK};
             color: {METRO_PINK};
         }}
-
-        QCheckBox::indicator {{
-            width: 18px;
-            height: 18px;
-        }}
-        QCheckBox::indicator:unchecked {{
-            border: 1px solid {METRO_BORDER};
-            border-radius: 4px;
-            background: #0f1118;
-        }}
-        QCheckBox::indicator:checked {{
-            border: 1px solid {METRO_BLUE};
-            border-radius: 4px;
-            background: {METRO_BLUE};
-        }}
-
-        QTabWidget::pane {{
-            border: 1px solid {METRO_BORDER};
-            border-radius: 10px;
-            top: -1px;
-            background: {METRO_PANEL};
-        }}
-        QTabBar::tab {{
-            background: {METRO_PANEL};
-            border: 1px solid {METRO_BORDER};
-            border-bottom: 0px;
-            padding: 8px 12px;
-            border-top-left-radius: 10px;
-            border-top-right-radius: 10px;
-            margin-right: 6px;
-            color: {METRO_MUTED};
-        }}
-        QTabBar::tab:selected {{
-            color: {METRO_TEXT};
-            border-color: {METRO_BLUE};
-        }}
-
         QLabel#Title {{
             font-size: 20px;
             font-weight: 800;

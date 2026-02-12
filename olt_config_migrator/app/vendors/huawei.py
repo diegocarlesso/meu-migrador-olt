@@ -3,9 +3,9 @@ from typing import Any, Dict, List
 from .base import VendorAdapter
 from ..models import NormalizedConfig, SectionSchema, SectionColumn
 
-class ParksAdapter(VendorAdapter):
-    vendor_id="parks"
-    label="Parks (best-effort)"
+class HuaweiAdapter(VendorAdapter):
+    vendor_id="huawei"
+    label="Huawei (placeholder)"
     default_extension=".txt"
     def parse_to_normalized(self, text: str) -> NormalizedConfig:
         return NormalizedConfig()
@@ -14,5 +14,4 @@ class ParksAdapter(VendorAdapter):
     def from_normalized(self, normalized: NormalizedConfig) -> Dict[str, List[Dict[str, Any]]]:
         return {"vlans":[{"vid":v.vid,"name":v.name} for v in normalized.vlans]}
     def render(self, target_data: Dict[str, List[Dict[str, Any]]], fast: Dict[str, Any] | None = None) -> str:
-        out=["! Parks render (placeholder)"]
-        return "\n".join(out)
+        return "! Huawei render (placeholder)"
